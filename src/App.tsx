@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Navbar } from './components/Layout/Navbar';
 import { Footer } from './components/Layout/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
 import { About } from './pages/About';
@@ -11,6 +12,7 @@ import { Contact } from './pages/Contact';
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-slate-100">
+      <ScrollToTop />
       <Navbar />
       <div className="pt-4">
         <Routes>
