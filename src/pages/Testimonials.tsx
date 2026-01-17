@@ -11,7 +11,7 @@ const testimonials = [
     name: 'Divya Menon',
     role: 'Secretary, Premium Apartment Association',
     quote:
-      'From guard behaviour to visitor management and patrolling, CRK has brought structure and discipline to our community.'
+      'From guard behaviour to visitor management and patrolling, Hindusthan Supervision has brought structure and discipline to our community.'
   },
   {
     name: 'Col. (Retd.) S. Nair',
@@ -21,12 +21,19 @@ const testimonials = [
   }
 ];
 
+import { SEO } from '../components/SEO';
+
 export function Testimonials() {
   return (
     <main className="pt-24">
+      <SEO
+        title="Client Reviews - Security Services Vijayawada"
+        description="See what our clients say about our security and facility management services. Trusted by retail chains and apartments in Vijayawada."
+        keywords="security reviews Vijayawada, client testimonials, best security agency reviews, customer feedback"
+      />
       <SectionShell
         eyebrow="Testimonials"
-        title="What our clients say about working with CRK."
+        title="What our clients say about working with Hindusthan Supervision."
       >
         <div className="mb-6 text-xs text-slate-500">
           The feedback below has been shared by clients across retail, housing

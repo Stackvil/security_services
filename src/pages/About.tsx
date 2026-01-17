@@ -21,13 +21,20 @@ const pillars = [
   }
 ];
 
+import { SEO } from '../components/SEO';
+
 export function About() {
   return (
     <main className="pt-24">
+      <SEO
+        title="About Us - Security Experts in Vijayawada"
+        description="Providing professional security guard services and risk management advisory in Vijayawada since 2012. 350+ deployed guards."
+        keywords="about security company, security experience Vijayawada, manned guarding experts, risk management advisory"
+      />
       <SectionShell
-        eyebrow="About CRK"
+        eyebrow="About Hindusthan Supervision"
         title="A security partner that behaves like your in-house protection team."
-        subtitle="CRK Security Services was built by professionals with decades of experience in industrial security, crisis management and large-scale facility administration."
+        subtitle="Hindusthan Supervision Security Services was built by professionals with decades of experience in industrial security, crisis management and large-scale facility administration."
       >
         <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
           <div className="space-y-6 text-sm text-slate-600">
@@ -44,14 +51,14 @@ export function About() {
               security posture never becomes complacent.
             </p>
             <p>
-              At CRK, we measure our success in the number of incidents that are
+              At Hindusthan Supervision, we measure our success in the number of incidents that are
               prevented – not just responded to. That is why our clients retain
               us year after year as their long-term security partner.
             </p>
             <p>
-               Management reviews and client feedback sessions are scheduled at
-               regular intervals, ensuring that every learning from the ground
-               is translated into stronger processes and better-trained teams.
+              Management reviews and client feedback sessions are scheduled at
+              regular intervals, ensuring that every learning from the ground
+              is translated into stronger processes and better-trained teams.
             </p>
           </div>
           <div className="grid gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-5">

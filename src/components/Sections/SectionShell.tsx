@@ -24,21 +24,21 @@ export function SectionShell({
         className="mb-10 max-w-3xl"
       >
         {eyebrow && (
-          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-brand-600">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-accent-500 font-display">
             {eyebrow}
           </p>
         )}
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
+        <h2 className="text-3xl font-bold tracking-tight text-brand-950 sm:text-4xl lg:text-5xl font-display">
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-3 text-sm text-slate-600 sm:text-base">{subtitle}</p>
+          <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg max-w-2xl">{subtitle}</p>
         )}
       </motion.header>
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}

@@ -19,9 +19,16 @@ const solutions = [
   }
 ];
 
+import { SEO } from '../components/SEO';
+
 export function Solutions() {
   return (
     <main className="pt-24">
+      <SEO
+        title="Integrated Security Solutions Vijayawada"
+        description="Advanced security solutions including remote monitoring, smart campus security, and logistics protection in Vijayawada."
+        keywords="integrated security solutions, remote monitoring Vijayawada, campus security systems, logistics security"
+      />
       <SectionShell
         eyebrow="Security Solutions"
         title="Layered security architecture that scales with your business."

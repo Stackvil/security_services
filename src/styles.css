@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,7 +9,9 @@ body {
 }
 
 .glass-panel {
-  @apply bg-white backdrop-blur-xl border border-slate-200 shadow-soft;
+  @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-xl;
 }
 
-
+.premium-card {
+  @apply bg-white border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-accent-200;
+}

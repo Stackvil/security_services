@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 import { HeroImageStrip } from '../components/Hero/HeroImageStrip';
 import { SectionShell } from '../components/Sections/SectionShell';
 
+import { SEO } from '../components/SEO';
+
 export function Home() {
   return (
     <main className="pt-24">
+      <SEO
+        title="Best Security Services in Vijayawada"
+        description="Hindusthan Supervision provides top-tier security services, manned guarding, and electronic surveillance in Vijayawada. Trusted by corporate and residential clients."
+        keywords="security services Vijayawada, best security agency Vijayawada, corporate security, residential security guards, event security Vijayawada"
+      />
       <section className="mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-16 pt-10 lg:flex-row lg:items-center lg:gap-14 lg:px-0">
         <div className="max-w-xl space-y-6">
           <motion.p
@@ -30,7 +37,7 @@ export function Home() {
             transition={{ duration: 0.8, delay: 0.12 }}
             className="text-sm text-slate-600 sm:text-base"
           >
-            CRK Security Services brings together trained manpower, intelligent
+            Hindusthan Supervision Security Services brings together trained manpower, intelligent
             monitoring and rapid response teams to keep your people, premises
             and assets safe 24 hours a day.
           </motion.p>
@@ -42,13 +49,13 @@ export function Home() {
           >
             <Link
               to="/contact"
-              className="rounded-full bg-brand-500 px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-brand-500/40 transition hover:bg-brand-400"
+              className="rounded-full bg-accent-500 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-brand-950 shadow-xl shadow-accent-500/20 transition hover:bg-accent-400 hover:-translate-y-0.5"
             >
               Request a site survey
             </Link>
             <Link
               to="/services"
-              className="rounded-full border border-slate-300 px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-800 transition hover:border-brand-400 hover:bg-brand-50"
+              className="rounded-full border border-slate-300 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.16em] text-brand-950 transition hover:border-accent-400 hover:text-accent-600 hover:bg-accent-50"
             >
               Explore services
             </Link>
@@ -57,19 +64,19 @@ export function Home() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="mt-2 grid max-w-md grid-cols-3 gap-4 text-xs text-slate-500"
+            className="mt-6 grid max-w-md grid-cols-3 gap-6 text-xs text-slate-500 border-t border-slate-200 pt-6"
           >
             <div>
-              <dt className="font-semibold text-slate-900">120+</dt>
-              <dd>corporate &amp; residential sites under protection</dd>
+              <dt className="font-bold text-brand-950 text-2xl font-display">120+</dt>
+              <dd className="mt-1 leading-snug">corporate &amp; residential sites</dd>
             </div>
             <div>
-              <dt className="font-semibold text-slate-900">24/7</dt>
-              <dd>central command &amp; quick response control room</dd>
+              <dt className="font-bold text-brand-950 text-2xl font-display">24/7</dt>
+              <dd className="mt-1 leading-snug">command &amp; control room</dd>
             </div>
             <div>
-              <dt className="font-semibold text-slate-900">8+ yrs</dt>
-              <dd>average field experience of on-ground supervisors</dd>
+              <dt className="font-bold text-brand-950 text-2xl font-display">8+ yrs</dt>
+              <dd className="mt-1 leading-snug">average supervisor experience</dd>
             </div>
           </motion.dl>
         </div>
@@ -105,19 +112,17 @@ export function Home() {
           ].map((card) => (
             <article
               key={card.title}
-              className="glass-panel group flex flex-col justify-between rounded-3xl p-6 transition hover:-translate-y-1 hover:border-brand-100 hover:bg-brand-50"
+              className="premium-card group flex flex-col justify-between rounded-xl p-8 transition hover:-translate-y-1"
             >
               <div>
-                <h3 className="text-base font-semibold text-slate-900">
+                <h3 className="text-xl font-bold text-brand-950 font-display">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm text-slate-600">{card.copy}</p>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{card.copy}</p>
               </div>
-              <div className="mt-6 flex items-center justify-between text-xs text-slate-500">
-                <span>Learn more</span>
-                <span className="rounded-full bg-brand-500/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-600">
-                  CRK
-                </span>
+              <div className="mt-8 flex items-center justify-between text-xs font-bold tracking-widest uppercase">
+                <span className="text-accent-600 group-hover:text-accent-700">Learn more</span>
+                <span className="h-0.5 w-8 bg-accent-300 group-hover:w-16 transition-all duration-300"></span>
               </div>
             </article>
           ))}
@@ -125,34 +130,34 @@ export function Home() {
       </SectionShell>
 
       <SectionShell
-        eyebrow="Why Clients Choose CRK"
+        eyebrow="Why Clients Choose Hindusthan Supervision"
         title="A single partner for every security requirement."
         subtitle="Instead of coordinating multiple vendors, our clients rely on one integrated team that understands their sites in depth."
       >
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="glass-panel rounded-3xl p-6 text-sm text-slate-600">
-            <h3 className="text-sm font-semibold text-slate-900">
+          <div className="premium-card rounded-xl p-8 text-sm text-slate-600">
+            <h3 className="text-lg font-bold text-brand-950 font-display mb-3">
               Security-first hiring
             </h3>
-            <p className="mt-2">
+            <p className="leading-relaxed">
               Background checks, address verification and reference validation
               are mandatory for every guard, bouncer and supervisor we deploy.
             </p>
           </div>
-          <div className="glass-panel rounded-3xl p-6 text-sm text-slate-600">
-            <h3 className="text-sm font-semibold text-slate-900">
+          <div className="premium-card rounded-xl p-8 text-sm text-slate-600">
+            <h3 className="text-lg font-bold text-brand-950 font-display mb-3">
               Training &amp; refresher drills
             </h3>
-            <p className="mt-2">
+            <p className="leading-relaxed">
               Classroom and on-site training modules cover soft skills, access
               control, emergency response, fire safety and customer handling.
             </p>
           </div>
-          <div className="glass-panel rounded-3xl p-6 text-sm text-slate-600">
-            <h3 className="text-sm font-semibold text-slate-900">
+          <div className="premium-card rounded-xl p-8 text-sm text-slate-600">
+            <h3 className="text-lg font-bold text-brand-950 font-display mb-3">
               Transparent reporting
             </h3>
-            <p className="mt-2">
+            <p className="leading-relaxed">
               Daily situation reports, incident logs and night-round summaries
               give your team clear visibility into every shift.
             </p>
@@ -165,29 +170,37 @@ export function Home() {
         title="Trusted by businesses, communities and high-profile individuals."
       >
         <div className="grid gap-6 lg:grid-cols-[1.2fr,1fr]">
-          <div className="glass-panel rounded-3xl p-6">
-            <p className="text-sm text-slate-600">
-              “CRK has been our security partner across multiple facilities. The
+          <div className="premium-card rounded-xl p-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-10">
+              <svg className="w-24 h-24 text-brand-900" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.896 14.789 15.93 15.769 15.549C16.551 15.245 17.5 14.668 17.5 12.001C17.5 9.227 15.343 7.001 12.5 7.001C9.657 7.001 7.5 9.227 7.5 12.001C7.5 13.945 8.938 15.961 8.938 15.961L6.5 18C6.5 18 3.5 14.814 3.5 12.001C3.5 7.03 7.529 3 12.5 3C17.471 3 21.5 7.03 21.5 12.001C21.5 15.42 19.467 18.3 16.5 20.457L14.017 21Z" /></svg>
+            </div>
+            <p className="text-lg text-slate-700 italic relative z-10 leading-relaxed">
+              “Hindusthan Supervision has been our security partner across multiple facilities. The
               guards are always punctual and the supervisors are extremely
               responsive. Their control room has helped us detect and prevent
               several potential incidents.”
             </p>
-            <p className="mt-4 text-sm font-semibold text-slate-900">
-              Daniel Rao
-            </p>
-            <p className="text-xs text-slate-500">
-              Head - Administration, Tech Park
-            </p>
-          </div>
-          <div className="space-y-4">
-            <div className="glass-panel rounded-3xl p-5 text-sm text-slate-600">
-              “CRK’s event security team understands protocol and VIP movement
-              extremely well. Their planning and coordination with our staff is
-              seamless.”
+            <div className="mt-8 flex items-center gap-4">
+              <div className="h-12 w-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold">DR</div>
+              <div>
+                <p className="text-base font-bold text-brand-950 font-display">
+                  Daniel Rao
+                </p>
+                <p className="text-xs font-semibold text-accent-600 uppercase tracking-wider">
+                  Head - Administration, Tech Park
+                </p>
+              </div>
             </div>
-            <div className="glass-panel rounded-3xl p-5 text-sm text-slate-600">
-              “We rely on their night patrols and CCTV monitoring to secure our
-              gated community. Response to any escalation is quick and measured.”
+          </div>
+          <div className="space-y-6">
+            <div className="premium-card rounded-xl p-6 text-sm text-slate-600">
+              <p className="leading-relaxed">“Hindusthan Supervision’s event security team understands protocol and VIP movement
+                extremely well. Their planning and coordination with our staff is
+                seamless.”</p>
+            </div>
+            <div className="premium-card rounded-xl p-6 text-sm text-slate-600">
+              <p className="leading-relaxed">“We rely on their night patrols and CCTV monitoring to secure our
+                gated community. Response to any escalation is quick and measured.”</p>
             </div>
           </div>
         </div>
@@ -197,34 +210,36 @@ export function Home() {
         eyebrow="Let’s Secure Your World"
         title="Book a security assessment today."
       >
-        <div className="glass-panel flex flex-col items-start justify-between gap-4 rounded-3xl bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 p-7 text-white sm:flex-row sm:items-center">
-          <div>
-            <h3 className="text-lg font-semibold">
-              Share your requirement. Our security consultant will respond
-              within one business hour.
-            </h3>
-            <p className="mt-2 text-sm text-slate-100/90">
-              Detailed site survey, risk profiling and customised deployment
-              plan with transparent commercials.
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="rounded-full bg-white px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 shadow-lg shadow-brand-900/30 transition hover:bg-slate-100"
-            >
-              Get in touch
-            </Link>
-            <Link
-              to="/about"
-              className="rounded-full border border-slate-100/60 bg-transparent px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-100 transition hover:bg-white/10"
-            >
-              Why CRK
-            </Link>
+        <div className="relative overflow-hidden rounded-2xl bg-brand-950 p-8 text-white sm:p-12">
+          <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay"></div>
+          <div className="relative z-10 flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
+            <div className="max-w-xl">
+              <h3 className="text-2xl font-bold font-display">
+                Share your requirement. Our consultant will respond within one hour.
+              </h3>
+              <p className="mt-4 text-slate-300 leading-relaxed">
+                Detailed site survey, risk profiling and customised deployment
+                plan with transparent commercials.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-full bg-accent-500 px-8 py-4 text-xs font-bold uppercase tracking-[0.18em] text-brand-950 shadow-lg shadow-accent-500/20 transition hover:bg-accent-400"
+              >
+                Get in touch
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-4 text-xs font-bold uppercase tracking-[0.18em] text-white transition hover:bg-white/10"
+              >
+                Why Us?
+              </Link>
+            </div>
           </div>
         </div>
       </SectionShell>
-    </main>
+    </main >
   );
 }
 

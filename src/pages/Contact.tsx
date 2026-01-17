@@ -1,8 +1,15 @@
 import { SectionShell } from '../components/Sections/SectionShell';
 
+import { SEO } from '../components/SEO';
+
 export function Contact() {
   return (
     <main className="pt-24">
+      <SEO
+        title="Contact Us - Security Agency Vijayawada"
+        description="Get in touch with Hindusthan Supervision for security assessments and quotes. 24/7 Control Room: +91 90595 01501."
+        keywords="contact security agency, security quote Vijayawada, control room number, security office address"
+      />
       <SectionShell
         eyebrow="Contact"
         title="Let’s design the right security cover for you."
@@ -93,7 +100,7 @@ export function Contact() {
               <p className="mt-2 text-slate-600">
                 Phone:{' '}
                 <span className="font-semibold text-slate-900">
-                  +91-98765-43210
+                  +91 90595 01501
                 </span>
               </p>
               <p className="text-slate-600">
@@ -109,7 +116,7 @@ export function Contact() {
             </div>
             <div className="glass-panel rounded-3xl p-5 text-sm text-slate-600">
               <h3 className="text-sm font-semibold text-slate-900">
-                Careers at CRK
+                Careers at Hindusthan Supervision
               </h3>
               <p className="mt-2">
                 We regularly hire guards, supervisors and control room
