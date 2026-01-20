@@ -1,96 +1,90 @@
 import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 
 const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/crk_logo.png`;
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="border-t border-white/10 bg-brand-950 text-slate-300">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 lg:px-0 lg:py-14">
-        <div className="grid gap-10 md:grid-cols-[2fr,1fr,1fr]">
-          <div>
-            <div className="mb-4 flex items-center gap-2">
-              <span className="inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-lg shadow-black/20">
-                <img
-                  src={logoSrc}
-                  alt="Hindusthan Supervision Security & Risk Management Advisory"
-                  className="h-full w-full object-contain"
-                />
-              </span>
-              <div className="leading-tight">
-                <p className="text-xs font-semibold tracking-[0.18em] text-accent-400">
-                  Hindusthan Supervision
-                </p>
-                <p className="text-sm font-bold text-white">
-                  Security Services
-                </p>
-              </div>
-            </div>
-            <p className="max-w-md text-sm text-slate-400">
-              Professional guarding, electronic surveillance, and bespoke
-              security solutions for retail, corporate, industrial and premium
-              residential clients across India.
-            </p>
-            <p className="mt-4 text-xs text-slate-500">
-              © {new Date().getFullYear()} Hindusthan Supervision Security Services. All rights
-              reserved.
-            </p>
+    <footer className="bg-[#1A1A1A] text-gray-300 pt-16 pb-8 border-t-4 border-primary-green">
+      <div className="container-custom grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        {/* Column 1: About */}
+        <div>
+          <div className="mb-6 bg-white p-2 inline-block rounded">
+            <img src={logoSrc} alt="Logo" className="h-12 w-auto" />
           </div>
-
-          <div className="text-sm">
-            <h4 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white">
-              Quick Links
-            </h4>
-            <ul className="space-y-1.5 text-slate-400">
-              <li>
-                <Link to="/services" className="hover:text-accent-400 transition-colors">
-                  Guarding Services
-                </Link>
-              </li>
-              <li>
-                <Link to="/solutions" className="hover:text-accent-400 transition-colors">
-                  Security Solutions
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-accent-400 transition-colors">
-                  About Hindusthan Supervision
-                </Link>
-              </li>
-              <li>
-                <Link to="/careers" className="hover:text-accent-400 transition-colors">
-                  Careers
-                </Link>
-              </li>
-            </ul>
+          <p className="text-sm leading-relaxed mb-6 text-gray-400">
+            Hindusthan Supervision Security & Risk Management Advisory provides top-tier security and facility management services across India.
+          </p>
+          <div className="flex gap-3">
+            <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Facebook size={18} /></a>
+            <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Twitter size={18} /></a>
+            <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Instagram size={18} /></a>
+            <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Linkedin size={18} /></a>
           </div>
+        </div>
 
-          <div className="text-sm">
-            <h4 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-white">
-              24/7 Command Centre
-            </h4>
-            <p className="text-slate-400">
-              Phone:{' '}
-              <a href="tel:+919059501501" className="font-semibold text-slate-200 hover:text-accent-400 transition-colors">
-                +91 90595 01501
-              </a>
-            </p>
-            <p className="mt-1 text-slate-400">
-              Email:{' '}
-              <a
-                href="mailto:control@crksecurity.in"
-                className="font-semibold text-slate-200 hover:text-accent-400 transition-colors"
-              >
-                control@crksecurity.in
-              </a>
-            </p>
-            <p className="mt-3 max-w-xs text-xs text-slate-500">
-              CRK House, 7th Cross, Business District, Bengaluru, Karnataka.
-            </p>
+        {/* Column 2: Services */}
+        <div>
+          <h3 className="text-white text-lg font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-primary-green">
+            Our Services
+          </h3>
+          <ul className="space-y-3">
+            <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Security Services</Link></li>
+            <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Housekeeping</Link></li>
+            <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Manpower Supply</Link></li>
+            <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Facility Management</Link></li>
+            <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Event Security</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 3: Quick Links */}
+        <div>
+          <h3 className="text-white text-lg font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-primary-green">
+            Quick Links
+          </h3>
+          <ul className="space-y-3">
+            <li><Link to="/" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Home</Link></li>
+            <li><Link to="/about" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />About Us</Link></li>
+            <li><Link to="/careers" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Careers</Link></li>
+            <li><Link to="/gallery" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Gallery</Link></li>
+            <li><Link to="/blog" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Blog</Link></li>
+            <li><Link to="/contact" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Contact Us</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 4: Contact Us */}
+        <div>
+          <h3 className="text-white text-lg font-bold mb-6 relative pb-2 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-1 after:w-12 after:bg-primary-green">
+            Contact Us
+          </h3>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3">
+              <MapPin size={20} className="text-primary-green mt-1 flex-shrink-0" />
+              <span className="text-sm">Door No. 48-18-4/4 (1), Flat No. 101, Near NTR University, Vijayawada - 520008</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <Phone size={20} className="text-primary-green flex-shrink-0" />
+              <span className="text-sm">+91 90595 01501</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <Mail size={20} className="text-primary-green flex-shrink-0" />
+              <span className="text-sm">info@securityservices.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-gray-800 pt-8 mt-8">
+        <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+          <p>&copy; {currentYear} Hindusthan Supervision Security. All Rights Reserved.</p>
+          <div className="flex gap-6">
+            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
           </div>
         </div>
       </div>
     </footer>
   );
 }
-
-

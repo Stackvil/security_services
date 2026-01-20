@@ -1,32 +1,34 @@
-import { SectionShell } from '../components/Sections/SectionShell';
+import { useState } from 'react';
+import { SEO } from '../components/SEO';
+import { ChevronDown, ChevronUp, Briefcase, MapPin, Clock } from 'lucide-react';
 
 const jobOpenings = [
     {
         category: 'Security Operations',
         jobs: [
             {
+                id: 'sec-1',
                 title: 'Security Guard',
                 type: 'Full-time',
                 location: 'Vijayawada',
-                desc: 'Vigilant and disciplined security personnel for corporate and residential sites.'
+                desc: 'Vigilant and disciplined security personnel for corporate and residential sites. Must be physically fit and able to work in shifts.',
+                requirements: ['10th Pass minimum', 'Height 5ft 7in+', 'Age 21-45 years', 'Clean background record']
             },
             {
+                id: 'sec-2',
                 title: 'Patrol Driver',
-                type: 'Full-time (Rotational Shifts)',
+                type: 'Full-time',
                 location: 'Vijayawada',
-                desc: 'Experienced drivers with valid license for mobile patrol units.'
+                desc: 'Experienced drivers with valid license for mobile patrol units. Responsible for night patrolling and quick response.',
+                requirements: ['Valid Driving License (LMV/HMV)', 'Minimum 3 years driving experience', 'Knowledge of local routes']
             },
             {
+                id: 'sec-3',
                 title: 'Control Room Operator',
                 type: 'Full-time',
                 location: 'Vijayawada',
-                desc: 'Monitoring CCTV feeds and coordinating with field teams. Computer literacy required.'
-            },
-            {
-                title: 'Bouncer / Event Security',
-                type: 'Part-time / Contract',
-                location: 'Vijayawada',
-                desc: 'Crowd management and VIP protection for special events.'
+                desc: 'Monitoring CCTV feeds and coordinating with field teams. Computer literacy required.',
+                requirements: ['Basic Computer Skills', 'Observation skills', 'Communication skills']
             }
         ]
     },
@@ -34,134 +36,142 @@ const jobOpenings = [
         category: 'Housekeeping & Facility Management',
         jobs: [
             {
-                title: 'Housekeeping Staff',
+                id: 'hk-1',
+                title: 'Housekeeping Supervisor',
                 type: 'Full-time',
                 location: 'Vijayawada',
-                desc: 'Cleaning and maintenance staff for offices and residential complexes.'
+                desc: 'Supervise cleaning staff and ensure hygiene standards are met at client sites.',
+                requirements: ['Experience in facility management', 'Team leadership skills']
             },
             {
+                id: 'hk-2',
                 title: 'Deep Cleaning Specialist',
                 type: 'Full-time',
                 location: 'Vijayawada',
-                desc: 'Specialized in deep cleaning machinery and techniques for residences.'
-            },
-            {
-                title: 'Event Support Staff',
-                type: 'Contract',
-                location: 'Vijayawada',
-                desc: 'Support staff for setting up and managing event venues.'
-            }
-        ]
-    },
-    {
-        category: 'Specialized Care & Staffing',
-        jobs: [
-            {
-                title: 'Nanny / Ayama',
-                type: 'Full-time / Live-in',
-                location: 'Vijayawada',
-                desc: 'Experienced caregivers for infants and toddlers with verified references.'
-            },
-            {
-                title: 'Patient Care Taker',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Compassionate staff for elderly care and patient recovery assistance.'
-            },
-            {
-                title: 'Cook / Chef',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Skilled cooks proficient in various cuisines for private households.'
-            },
-            {
-                title: 'Receptionist / Front Desk',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Professional front office executives with good communication skills.'
+                desc: 'Specialized in deep cleaning machinery and techniques for residences and offices.',
+                requirements: ['Experience with cleaning machinery', 'Attention to detail']
             }
         ]
     }
 ];
 
-import { SEO } from '../components/SEO';
-
 export function Careers() {
     return (
-        <main className="pt-24">
+        <main className="bg-gray-50 min-h-screen pb-20">
             <SEO
-                title="Security Jobs in Vijayawada - Hiring Now"
-                description="Join Hindusthan Supervision. Openings for Security Guards, Housekeeping Staff, Drivers, and Gunmen in Vijayawada. Apply today!"
-                keywords="security guard jobs Vijayawada, housekeeping jobs Vijayawada, driver jobs, gunman jobs, security careers"
+                title="Careers at Hindusthan Supervision | Security Jobs"
+                description="Join our team of security professionals. We are hiring Security Guards, Supervisors, and Facility Managers in Vijayawada."
+                keywords="jobs in vijayawada, security jobs, housekeeping jobs, careers"
             />
-            <SectionShell
-                eyebrow="Join Our Team"
-                title="Build a career with purpose."
-                subtitle="We are always looking for dedicated individuals to join our growing family. Whether you are an experienced security professional or starting your career in facility management, we have a place for you."
-            >
-                <div className="space-y-16">
-                    {jobOpenings.map((section) => (
-                        <section key={section.category}>
-                            <h3 className="mb-6 text-xl font-bold text-slate-900 border-l-4 border-brand-500 pl-4">
-                                {section.category}
-                            </h3>
-                            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-                                {section.jobs.map((job) => (
-                                    <JobCard key={job.title} job={job} />
-                                ))}
-                            </div>
-                        </section>
-                    ))}
-                </div>
 
-                <div className="mt-20 rounded-3xl bg-slate-900 p-8 text-center text-white md:p-12">
-                    <h3 className="text-2xl font-bold">Don't see a matching role?</h3>
-                    <p className="mx-auto mt-4 max-w-2xl text-slate-300">
-                        We are constantly expanding. Send us your resume and we will contact you when a suitable position opens up.
+            {/* Page Header */}
+            <section className="bg-primary-blue text-white py-16 text-center">
+                <div className="container-custom">
+                    <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
+                    <p className="text-xl opacity-90 max-w-2xl mx-auto">
+                        Build a career with a company that values integrity, vigilance, and service.
                     </p>
-                    <a
-                        href="mailto:careers@crksecurity.in"
-                        className="mt-8 inline-block rounded-full bg-white px-8 py-3 text-sm font-bold uppercase tracking-wider text-slate-900 transition hover:bg-brand-50"
-                    >
-                        Email Resume
-                    </a>
                 </div>
-            </SectionShell>
+            </section>
+
+            {/* Content */}
+            <div className="container-custom mt-12">
+                <div className="grid lg:grid-cols-3 gap-8">
+                    {/* Sidebar / Intro */}
+                    <div className="lg:col-span-1">
+                        <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary-green sticky top-24">
+                            <h3 className="text-xl font-bold text-primary-blue mb-4">Why Work With Us?</h3>
+                            <ul className="space-y-4 text-gray-600">
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 p-2 rounded-full text-primary-green"><Briefcase size={18} /></div>
+                                    <span>Stable Employment & PF/ESI Benefits</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 p-2 rounded-full text-primary-green"><Clock size={18} /></div>
+                                    <span>On-time Salary Payments</span>
+                                </li>
+                                <li className="flex gap-3">
+                                    <div className="bg-green-100 p-2 rounded-full text-primary-green"><MapPin size={18} /></div>
+                                    <span>Multiple Locations in Vijayawada</span>
+                                </li>
+                            </ul>
+                            <div className="mt-8 pt-6 border-t">
+                                <p className="text-sm text-gray-500 mb-4">Send your resume directly to:</p>
+                                <a href="mailto:careers@securityservices.com" className="block w-full bg-accent-yellow text-dark-text text-center font-bold py-3 rounded uppercase hover:bg-opacity-90 transition inline-block">
+                                    Email Resume
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Job Listings - Accordion */}
+                    <div className="lg:col-span-2 space-y-8">
+                        {jobOpenings.map((category) => (
+                            <div key={category.category}>
+                                <h2 className="text-2xl font-bold text-dark-text mb-6 flex items-center">
+                                    <span className="w-2 h-8 bg-primary-green mr-3 rounded-full"></span>
+                                    {category.category}
+                                </h2>
+                                <div className="space-y-4">
+                                    {category.jobs.map((job) => (
+                                        <JobAccordion key={job.id} job={job} />
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </main>
     );
 }
 
-function JobCard({ job }: { job: { title: string; type: string; location: string; desc: string } }) {
-    const emailUrl = `mailto:careers@crksecurity.in?subject=${encodeURIComponent(
-        `Application for ${job.title} - ${job.location}`
-    )}&body=${encodeURIComponent(
-        `Hi,\n\nI am interested in applying for the position of ${job.title}. Please find my resume attached.\n\nRegards,`
-    )}`;
+function JobAccordion({ job }: { job: any }) {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <article className="premium-card flex flex-col rounded-xl p-8 hover:-translate-y-1">
-            <div className="mb-5 flex items-start justify-between">
-                <div>
-                    <h4 className="text-xl font-bold text-brand-950 font-display">{job.title}</h4>
-                    <p className="text-xs font-bold text-accent-600 uppercase tracking-widest mt-1.5">{job.type}</p>
-                </div>
-                <span className="rounded-md bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600 border border-slate-200">
-                    {job.location}
-                </span>
-            </div>
-            <p className="mb-8 text-sm leading-relaxed text-slate-600 flex-grow">{job.desc}</p>
-
-            <a
-                href={emailUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto flex w-full items-center justify-center gap-2 rounded-lg border-2 border-brand-950 bg-transparent py-2.5 text-xs font-bold uppercase tracking-wider text-brand-950 transition hover:bg-brand-950 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-md">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
             >
-                <span>Apply Now</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-            </a>
-        </article>
+                <div>
+                    <h3 className="text-lg font-bold text-primary-blue">{job.title}</h3>
+                    <div className="flex gap-4 mt-2 text-sm text-gray-500">
+                        <span className="flex items-center gap-1"><Briefcase size={14} /> {job.type}</span>
+                        <span className="flex items-center gap-1"><MapPin size={14} /> {job.location}</span>
+                    </div>
+                </div>
+                <div className={`p-2 rounded-full bg-gray-50 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                    <ChevronDown size={20} className="text-gray-600" />
+                </div>
+            </button>
+
+            {isOpen && (
+                <div className="px-6 pb-6 border-t border-gray-100 bg-gray-50/50">
+                    <div className="pt-4 space-y-4">
+                        <p className="text-gray-700">{job.desc}</p>
+
+                        <div>
+                            <h4 className="font-bold text-sm text-dark-text mb-2 uppercase tracking-wide">Requirements:</h4>
+                            <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                {job.requirements.map((req: string, i: number) => (
+                                    <li key={i}>{req}</li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="pt-4">
+                            <a
+                                href={`mailto:careers@securityservices.com?subject=Application for ${job.title}`}
+                                className="inline-block bg-primary-green text-white px-6 py-2 rounded text-sm font-bold uppercase hover:bg-opacity-90 transition-colors"
+                            >
+                                Apply Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 }

@@ -9,13 +9,17 @@ import { Solutions } from './pages/Solutions';
 import { Testimonials } from './pages/Testimonials';
 import { Contact } from './pages/Contact';
 import { Careers } from './pages/Careers';
+import { Gallery } from './pages/Gallery';
+import { Blog } from './pages/Blog';
+
+// ... existing imports ...
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-slate-50 to-slate-100">
+    <div className="min-h-screen flex flex-col bg-white">
       <ScrollToTop />
       <Navbar />
-      <div className="pt-4">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
@@ -24,8 +28,10 @@ function App() {
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
-      </div>
+      </main>
       <Footer />
     </div>
   );

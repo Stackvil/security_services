@@ -24,15 +24,15 @@ export function SectionShell({
         className="mb-10 max-w-3xl"
       >
         {eyebrow && (
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-accent-500 font-display">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-primary-green font-display">
             {eyebrow}
           </p>
         )}
-        <h2 className="text-3xl font-bold tracking-tight text-brand-950 sm:text-4xl lg:text-5xl font-display">
+        <h2 className="text-3xl font-bold tracking-tight text-primary-blue sm:text-4xl lg:text-5xl font-display">
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg max-w-2xl">{subtitle}</p>
+          <p className="mt-4 text-base leading-relaxed text-dark-text sm:text-lg max-w-2xl">{subtitle}</p>
         )}
       </motion.header>
       <motion.div
