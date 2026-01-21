@@ -5,6 +5,7 @@ import { CheckCircle, Shield, Sparkles, Sofa, Clock } from 'lucide-react';
 const pricingData = [
   {
     category: 'Home Deep Cleaning',
+    image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
     icon: Sparkles,
     color: 'text-primary-blue',
     items: [
@@ -19,6 +20,7 @@ const pricingData = [
 
   {
     category: 'Specialized Cleaning',
+    image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
     icon: Sparkles,
     color: 'text-purple-600',
     items: [
@@ -32,6 +34,7 @@ const pricingData = [
   },
   {
     category: 'Staffing & Care Services',
+    image: `${import.meta.env.BASE_URL ?? '/'}images/services/staffing services.avif`,
     icon: CheckCircle,
     color: 'text-pink-500',
     items: [
@@ -45,6 +48,7 @@ const pricingData = [
   },
   {
     category: 'Security Services',
+    image: `${import.meta.env.BASE_URL ?? '/'}images/services/Security Services.jpg`,
     icon: Shield,
     color: 'text-primary-green',
     items: [
@@ -77,26 +81,31 @@ export function Services() {
       </section>
 
       <SectionShell title="Transparent Pricing" subtitle="Get the best value for your money. Custom packages available for corporate clients.">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingData.map((plan, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
-              <div className="p-6 border-b border-gray-100 bg-gray-50">
-                <div className={`w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mb-4 ${plan.color}`}>
-                  <plan.icon size={24} />
+            <div key={idx} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
+              <div className="h-48 overflow-hidden relative group">
+                <img
+                  src={plan.image}
+                  alt={plan.category}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                  <h3 className="text-xl font-bold text-white shadow-sm">{plan.category}</h3>
                 </div>
-                <h3 className="text-xl font-bold text-dark-text">{plan.category}</h3>
               </div>
-              <div className="p-6">
+
+              <div className="p-6 flex-grow">
                 <ul className="space-y-4">
                   {plan.items.map((item, i) => (
-                    <li key={i} className="flex justify-between items-center text-sm border-b border-gray-100 pb-2 last:border-0 last:pb-0">
+                    <li key={i} className="flex justify-between items-start text-sm border-b border-gray-100 pb-2 last:border-0 last:pb-0">
                       <span className="text-gray-600 font-medium">{item.name}</span>
-                      <span className="font-bold text-primary-blue">{item.price}</span>
+                      <span className="font-bold text-primary-blue whitespace-nowrap ml-2">{item.price}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="p-4 bg-gray-50 border-t border-gray-100 text-center">
+              <div className="p-4 bg-gray-50 border-t border-gray-100 text-center mt-auto">
                 <a href="/contact" className="block w-full py-2 rounded border border-primary-green text-primary-green font-bold text-sm hover:bg-primary-green hover:text-white transition-colors uppercase">
                   Book Now
                 </a>

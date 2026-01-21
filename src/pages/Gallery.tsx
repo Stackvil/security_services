@@ -2,12 +2,12 @@ import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
 
 const galleryImages = [
-    { src: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800', alt: 'Security Briefing', category: 'Security' },
-    { src: 'https://images.unsplash.com/photo-1581578731117-104f2a417954?auto=format&fit=crop&q=80&w=800', alt: 'CCTV Monitoring', category: 'Surveillance' },
-    { src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=800', alt: 'Corporate Event', category: 'Events' },
-    { src: 'https://images.unsplash.com/photo-1584620862241-164eac79502e?auto=format&fit=crop&q=80&w=800', alt: 'Housekeeping Staff', category: 'Housekeeping' },
-    { src: 'https://images.unsplash.com/photo-1527513232057-9db6691a83cc?auto=format&fit=crop&q=80&w=800', alt: 'Residential Security', category: 'Security' },
-    { src: 'https://images.unsplash.com/photo-1613665813446-82a781468458?auto=format&fit=crop&q=80&w=800', alt: 'Deep Cleaning', category: 'Housekeeping' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Security Briefing.webp`, alt: 'Security Briefing', category: 'Training' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/CCTV Monitoring.webp`, alt: 'CCTV Monitoring', category: 'Technology' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Corporate Event cleaning.jpg`, alt: 'Corporate Event', category: 'Events' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`, alt: 'Housekeeping Staff', category: 'Housekeeping' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Residential Security.jpg`, alt: 'Residential Security', category: 'Security' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Deep Cleaning.jpg`, alt: 'Deep Cleaning', category: 'Cleaning' },
 ];
 
 export function Gallery() {

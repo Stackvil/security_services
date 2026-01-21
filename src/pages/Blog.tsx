@@ -11,16 +11,102 @@ export function Blog() {
             />
 
             <SectionShell title="Our Blog" subtitle="Insights and updates from the world of security and facility management.">
-                <div className="flex flex-col items-center justify-center py-12 text-center">
-                    <div className="bg-gray-100 p-8 rounded-full mb-6">
-                        <svg className="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                        </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-dark-text mb-2">Coming Soon</h3>
-                    <p className="text-gray-600 max-w-md">
-                        We are currently crafting valuable content for you. Check back later for expert security tips and industry news.
-                    </p>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                    {/* Blog Post 1 */}
+                    <article className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-xl border border-gray-100">
+                        <div className="aspect-video overflow-hidden">
+                            <img
+                                src={`${import.meta.env.BASE_URL ?? '/'}images/blog/5 Essential Security Tips for Your Home.jpg`}
+                                alt="Residential Security"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="p-6">
+                            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase text-brand-600">
+                                <span>Security Tips</span>
+                                <span>•</span>
+                                <span>5 Min Read</span>
+                            </div>
+                            <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">
+                                5 Essential Security Tips for Your Home
+                            </h3>
+                            <p className="text-sm text-slate-600">
+                                Security isn't just about guards; it's about mindset. Learn practical advice to secure your perimeter, manage visitor access, and protect your loved ones from common threats.
+                            </p>
+                        </div>
+                    </article>
+
+                    {/* Blog Post 2 */}
+                    <article className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-xl border border-gray-100">
+                        <div className="aspect-video overflow-hidden">
+                            <img
+                                src={`${import.meta.env.BASE_URL ?? '/'}images/blog/The Hidden Benefits of Professional Deep Cleaning.webp`}
+                                alt="Deep Cleaning"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="p-6">
+                            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase text-purple-600">
+                                <span>Hygiene</span>
+                                <span>•</span>
+                                <span>4 Min Read</span>
+                            </div>
+                            <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
+                                The Hidden Benefits of Professional Deep Cleaning
+                            </h3>
+                            <p className="text-sm text-slate-600">
+                                Regular mopping clears dust, but deep cleaning eradicates allergens and bacteria. Discover why a quarterly deep clean is essential for a healthy living environment.
+                            </p>
+                        </div>
+                    </article>
+
+                    {/* Blog Post 3 */}
+                    <article className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-xl border border-gray-100">
+                        <div className="aspect-video overflow-hidden">
+                            <img
+                                src={`${import.meta.env.BASE_URL ?? '/'}images/blog/Surveillance Technology.jpg`}
+                                alt="CCTV Monitoring"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="p-6">
+                            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase text-blue-600">
+                                <span>Technology</span>
+                                <span>•</span>
+                                <span>6 Min Read</span>
+                            </div>
+                            <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                                Surveillance Technology: Beyond Just Recording
+                            </h3>
+                            <p className="text-sm text-slate-600">
+                                Modern CCTV systems do more than just record playback. From motion detection to perimeter intrusion alerts, see how technology is proactively preventing incidents.
+                            </p>
+                        </div>
+                    </article>
+
+                    {/* Blog Post 4 */}
+                    <article className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all hover:shadow-xl border border-gray-100">
+                        <div className="aspect-video overflow-hidden">
+                            <img
+                                src={`${import.meta.env.BASE_URL ?? '/'}images/blog/The Backbone of Effective Security.jpg`}
+                                alt="Security Training"
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="p-6">
+                            <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase text-green-600">
+                                <span>Training</span>
+                                <span>•</span>
+                                <span>3 Min Read</span>
+                            </div>
+                            <h3 className="mb-3 text-xl font-bold text-slate-900 group-hover:text-green-600 transition-colors">
+                                Training: The Backbone of Effective Security
+                            </h3>
+                            <p className="text-sm text-slate-600">
+                                A uniform doesn't make a guard; training does. Take a peek inside our rigorous training programs that cover soft skills, emergency response, and fire safety.
+                            </p>
+                        </div>
+                    </article>
                 </div>
             </SectionShell>
         </main>

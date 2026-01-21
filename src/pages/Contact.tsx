@@ -82,8 +82,8 @@ export function Contact() {
               />
             </div>
             <button
-              type="button"
-              className="mt-2 w-full rounded-full bg-brand-500 py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-brand-500/40 transition hover:bg-brand-400"
+              type="submit"
+              className="mt-2 w-full rounded-full bg-primary-blue py-3 text-xs font-semibold uppercase tracking-[0.18em] text-white shadow-lg shadow-blue-500/40 transition hover:bg-blue-700"
             >
               Submit Enquiry
             </button>

@@ -18,6 +18,12 @@ const pillars = [
     copy: 'CCTV, access control, GPS tracking and command centre dashboards that give you complete visibility.',
     metric: '20+',
     label: 'integrated technology partners'
+  },
+  {
+    title: 'Hygiene',
+    copy: 'Specialized housekeeping, deep cleaning, and waste management services to ensure a pristine environment.',
+    metric: '100+',
+    label: 'trained housekeeping staff'
   }
 ];
 
@@ -41,19 +47,18 @@ export function About() {
             <p>
               We understand that every site is unique. Our approach always
               begins with a detailed assessment of your layout, people movement,
-              assets and current risks. From there we design a layered security
-              program that grows with your business.
+              assets, hygiene requirements, and current risks. From there we design a layered security
+              and facility management program that grows with your business.
             </p>
             <p>
               Our field teams are supported by a 24/7 command centre that
-              monitors alarms, CCTV feeds and patrols. Site supervisors conduct
-              surprise checks, drills and refresher trainings so that your
-              security posture never becomes complacent.
+              monitors alarms, CCTV feeds and patrols. Additionally, our housekeeping supervisors conduct
+              regular hygiene checks, ensuring that your premises remain spotless and welcoming.
             </p>
             <p>
               At Hindusthan Supervision, we measure our success in the number of incidents that are
-              prevented – not just responded to. That is why our clients retain
-              us year after year as their long-term security partner.
+              prevented – and the cleanliness maintained. That is why our clients retain
+              us year after year as their long-term facility partner.
             </p>
             <p>
               Management reviews and client feedback sessions are scheduled at
@@ -84,6 +89,34 @@ export function About() {
           </div>
         </div>
       </SectionShell>
+
+      <div className="bg-slate-50 py-24">
+        <SectionShell
+          eyebrow="Comprehensive Facility Management"
+          title="Elevating Standards in Housekeeping & Hygiene"
+          subtitle="Beyond security, we serve as the custodians of your facility's health and aesthetic appeal."
+        >
+          <div className="prose prose-lg text-slate-600 max-w-none">
+            <p>
+              At Hindusthan Supervision, we recognize that a clean environment is fundamental to a productive workspace and a healthy living area. Our foray into housekeeping services was driven by our client's desire for a single, accountable partner who could manage their entire facility ecosystem with the same rigor we apply to security.
+            </p>
+            <h3>Our Approach to Cleanliness</h3>
+            <p>
+              We don't just "clean"; we sanitize and preserve. Our housekeeping protocols are modeled on international standards of hygiene. From corporate boardrooms to high-traffic industrial floors, we deploy specialized teams equipped with industry-grade machinery and eco-friendly cleaning agents.
+            </p>
+            <p>
+              Our staff undergoes rigorous training in chemical handling, waste segregation, and infection control, ensuring that your premises are not just visually appealing but clinically safe.
+            </p>
+            <h3>Integrated Facility Solutions</h3>
+            <p>
+              What sets us apart is the seamless integration of our services. The same discipline that governs our security guards—punctuality, uniform compliance, and reporting—applies to our housekeeping staff. Our supervisors coordinate effortlessly between shifts, ensuring that security checks and cleaning schedules compliment each other, providing you with a hassle-free, well-managed property.
+            </p>
+            <p>
+              Whether it's deep cleaning, daily maintenance, or specialized facade cleaning, Hindusthan Supervision stands as your trusted partner in maintaining the dignity and value of your infrastructure.
+            </p>
+          </div>
+        </SectionShell>
+      </div>
     </main>
   );
 }

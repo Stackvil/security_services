@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 
-const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/crk_logo.png`;
+const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/logo.jpg.jpeg`;
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -62,7 +62,7 @@ export function Footer() {
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
               <MapPin size={20} className="text-primary-green mt-1 flex-shrink-0" />
-              <span className="text-sm">Door No. 48-18-4/4 (1), Flat No. 101, Near NTR University, Vijayawada - 520008</span>
+              <span className="text-sm">Second Floor, Ramu Enclave, Eluru Rd, Opp. SRR Govt College, Maruthi Nagar, Machavaram, Vijayawada, Andhra Pradesh 520004</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={20} className="text-primary-green flex-shrink-0" />

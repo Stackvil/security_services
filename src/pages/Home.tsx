@@ -12,10 +12,10 @@ export function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-brand-900 text-white py-20 lg:py-32 overflow-hidden">
-        {/* Abstract Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-blue to-primary-green opacity-90 z-0"></div>
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 z-0"></div>
+      <section
+        className="relative bg-brand-900 text-white py-20 lg:py-32 overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: `url("${import.meta.env.BASE_URL ?? '/'}images/clean img.webp")` }}
+      >
 
         <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
@@ -134,32 +134,30 @@ export function Home() {
               </div>
             </div>
 
-            {/* Card 2: Sofa Cleaning - Highlighted */}
+            {/* Card 2: Security Services - Highlighted */}
             <div className="bg-white rounded-lg overflow-hidden shadow-2xl transform scale-105 z-10 relative group border-t-4 border-accent-yellow">
               <div className="bg-blue-500 h-40 relative flex items-center justify-center">
                 <div className="text-center text-white z-10">
                   <div className="flex items-center justify-center gap-1">
-                    <span className="text-5xl font-bold">₹1000</span>
-                    <span className="text-xs opacity-80 mt-4">/ Onwards</span>
+                    <span className="text-5xl font-bold">Call</span>
+                    <span className="text-xs opacity-80 mt-4">/ For Quote</span>
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 h-10 bg-white rounded-t-[50%] scale-x-150 translate-y-1/2"></div>
               </div>
               <div className="relative z-10 -mt-5 text-center mb-8">
-                <span className="bg-brand-900 text-white px-6 py-2 rounded-full text-sm font-bold shadow-md inline-block">
-                  Fabric Sofa Cleaning
+                <span className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-md inline-block">
+                  Security Services
                 </span>
               </div>
 
               <div className="px-8 pb-8 text-center space-y-4 text-sm text-gray-600">
-                <p className="border-b border-gray-100 pb-2">Fabric Sofa Shampoo 4 Seats - ₹1000/-*</p>
-                <p className="border-b border-gray-100 pb-2">Fabric Sofa Shampoo 5 Seats - ₹1250/-*</p>
-                <p className="border-b border-gray-100 pb-2">Fabric Sofa Shampoo 7 Seats - ₹1750/-*</p>
-                <p className="border-b border-gray-100 pb-2">Fabric Sofa Shampoo 8 or more Seats - ₹2000/-*</p>
-                <p className="border-b border-gray-100 pb-2">Leather Sofa (Min. 3 seats) - ₹300/ per seat</p>
-                <p className="border-b border-gray-100 pb-2">Dining Chair - ₹150(per seat)</p>
-                <p className="border-b border-gray-100 pb-2">Small Cushion - ₹75(per cushion)</p>
-                <p>Large Cushion - ₹125(per cushion)</p>
+                <p className="border-b border-gray-100 pb-2">Unarmed Guard (8 Hours) - Call for Quote</p>
+                <p className="border-b border-gray-100 pb-2">Unarmed Guard (12 Hours) - Call for Quote</p>
+                <p className="border-b border-gray-100 pb-2">Armed Security (8 Hours) - Call for Quote</p>
+                <p className="border-b border-gray-100 pb-2">Armed Security (12 Hours) - Call for Quote</p>
+                <p className="border-b border-gray-100 pb-2">Event Bouncer (Per Shift) - Call for Quote</p>
+                <p className="border-b border-gray-100 pb-2">Personal Bodyguard - Call for Quote</p>
               </div>
               <div className="p-8 pt-0 text-center">
                 <Link to="/contact" className="inline-block bg-accent-yellow text-brand-950 font-bold py-3 px-8 rounded hover:bg-opacity-90 transition-all uppercase text-sm">

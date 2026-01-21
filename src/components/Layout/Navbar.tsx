@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, Facebook, Twitter, Instagram, Linkedin, Menu, X, ChevronDown } from 'lucide-react';
 
-const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/crk_logo.png`;
+const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/logo.jpg.jpeg`;
 
 const navItems = [
   { to: '/', label: 'HOME' },
@@ -57,13 +57,14 @@ export function Navbar() {
 
       {/* Main Navigation */}
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'}`}>
-        <div className="container-custom flex justify-between items-center">
+        <div className="w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoSrc} alt="Logo" className="h-12 w-auto object-contain" />
-            <div className="leading-tight hidden sm:block">
-              <p className="text-primary-blue font-bold text-lg tracking-wide">HINDUSTHAN SUPERVISION</p>
-              <p className="text-primary-green font-bold text-sm tracking-wider uppercase">Security Services</p>
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-4 group">
+            <img src={logoSrc} alt="Logo" className="h-16 w-auto object-contain transition-transform group-hover:scale-105" />
+            <div className="leading-tight hidden sm:block flex flex-col justify-center">
+              <p className="text-primary-blue font-bold text-xl tracking-wide">HINDUSTHAN SUPERVISION</p>
+              <p className="text-primary-green font-semibold text-sm tracking-[0.2em] uppercase">Security Services</p>
             </div>
           </Link>
 
