@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 
 const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/logo.jpg.jpeg`;
 
@@ -19,9 +19,7 @@ export function Footer() {
           </p>
           <div className="flex gap-3">
             <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Facebook size={18} /></a>
-            <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Twitter size={18} /></a>
             <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Instagram size={18} /></a>
-            <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Linkedin size={18} /></a>
           </div>
         </div>
 
@@ -50,6 +48,8 @@ export function Footer() {
             <li><Link to="/careers" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Careers</Link></li>
             <li><Link to="/gallery" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Gallery</Link></li>
             <li><Link to="/blog" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Blog</Link></li>
+            <li><Link to="/privacy-policy" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Privacy Policy</Link></li>
+            <li><Link to="/terms-of-service" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Terms of Service</Link></li>
             <li><Link to="/contact" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Contact Us</Link></li>
           </ul>
         </div>
@@ -80,8 +80,8 @@ export function Footer() {
         <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>&copy; {currentYear} Hindusthan Supervision Security. All Rights Reserved.</p>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
+            <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-white">Terms of Service</Link>
           </div>
         </div>
       </div>

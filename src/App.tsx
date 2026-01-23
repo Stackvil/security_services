@@ -11,6 +11,8 @@ import { Contact } from './pages/Contact';
 import { Careers } from './pages/Careers';
 import { Gallery } from './pages/Gallery';
 import { Blog } from './pages/Blog';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfService } from './pages/TermsOfService';
 
 // ... existing imports ...
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </main>
       <Footer />
