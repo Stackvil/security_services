@@ -1,8 +1,47 @@
+import { useState } from 'react';
 import { SectionShell } from '../components/Sections/SectionShell';
 
 import { SEO } from '../components/SEO';
 
+interface FormData {
+  fullName: string;
+  company: string;
+  email: string;
+  phone: string;
+  facilityType: string;
+  requirement: string;
+}
+
 export function Contact() {
+  const [formData, setFormData] = useState<FormData>({
+    fullName: '',
+    company: '',
+    email: '',
+    phone: '',
+    facilityType: 'Corporate Office',
+    requirement: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { fullName, company, email, phone, facilityType, requirement } =
+      formData;
+
+    const message = `*New Service Enquiry form Website*\n\n*Name:* ${fullName}\n*Company:* ${company}\n*Email:* ${email}\n*Phone:* ${phone}\n*Facility Type:* ${facilityType}\n*Requirement:* ${requirement}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/919059501501?text=${encodedMessage}`, '_blank');
+  };
+
   return (
     <main className="pt-24">
       <SEO
@@ -16,13 +55,20 @@ export function Contact() {
         subtitle="Share a few details and our security consultant will get back to you with a no-obligation site visit slot. For urgent requirements, you can also reach our 24/7 control room directly on phone."
       >
         <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
-          <form className="glass-panel space-y-4 rounded-3xl p-6 text-sm text-slate-800">
+          <form
+            onSubmit={handleSubmit}
+            className="glass-panel space-y-4 rounded-3xl p-6 text-sm text-slate-800"
+          >
             <div className="grid gap-4 md:grid-cols-2">
               <div>
                 <label className="mb-1 block text-xs text-slate-500">
                   Full Name
                 </label>
                 <input
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
                   className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none ring-brand-500/40 placeholder:text-slate-400 focus:border-brand-400 focus:ring-2"
                   placeholder="Your name"
                 />
@@ -32,6 +78,9 @@ export function Contact() {
                   Company / Community
                 </label>
                 <input
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
                   className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none ring-brand-500/40 placeholder:text-slate-400 focus:border-brand-400 focus:ring-2"
                   placeholder="Organisation name"
                 />
@@ -44,6 +93,9 @@ export function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none ring-brand-500/40 placeholder:text-slate-400 focus:border-brand-400 focus:ring-2"
                   placeholder="you@example.com"
                 />
@@ -53,7 +105,11 @@ export function Contact() {
                   Phone
                 </label>
                 <input
-                  className="w-full rounded-2xl border border-slate-700 bg-slate-900/70 px-3 py-2 text-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-900/70 text-white px-3 py-2 text-sm outline-none ring-brand-500/40 placeholder:text-slate-500 focus:border-brand-400 focus:ring-2"
                   placeholder="+91-"
                 />
               </div>
@@ -62,7 +118,12 @@ export function Contact() {
               <label className="mb-1 block text-xs text-slate-500">
                 Type of Facility
               </label>
-              <select className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none ring-brand-500/40 focus:border-brand-400 focus:ring-2">
+              <select
+                name="facilityType"
+                value={formData.facilityType}
+                onChange={handleChange}
+                className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none ring-brand-500/40 focus:border-brand-400 focus:ring-2"
+              >
                 <option>Corporate Office</option>
                 <option>IT / Tech Park</option>
                 <option>Manufacturing / Industrial</option>
@@ -76,6 +137,9 @@ export function Contact() {
                 Brief About Requirement
               </label>
               <textarea
+                name="requirement"
+                value={formData.requirement}
+                onChange={handleChange}
                 rows={4}
                 className="w-full resize-none rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none ring-brand-500/40 placeholder:text-slate-400 focus:border-brand-400 focus:ring-2"
                 placeholder="Number of gates, towers / blocks, sensitive areas, expected go-live timeline, etc."

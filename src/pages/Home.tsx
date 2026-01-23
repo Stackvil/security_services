@@ -1,8 +1,30 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
 import { Shield, Users, Clock, CheckCircle, Award, ThumbsUp, ChevronRight } from 'lucide-react';
 
 export function Home() {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: 'Security Services',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const { name, phone, service } = formData;
+    const message = `*New Estimate Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Service:* ${service}`;
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/919059501501?text=${encodedMessage}`, '_blank');
+  };
+
   return (
     <>
       <SEO
@@ -40,11 +62,31 @@ export function Home() {
 
           <div className="bg-white text-dark-text p-8 rounded-lg shadow-2xl max-w-md ml-auto">
             <h3 className="text-2xl font-bold text-primary-blue mb-4 text-center">Request A Free Estimate</h3>
-            <form className="space-y-4">
-              <input type="text" placeholder="Your Name" className="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary-green focus:outline-none" />
-              <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary-green focus:outline-none" />
-              <select className="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary-green focus:outline-none text-gray-500">
-                <option>Select Service</option>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                className="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary-green focus:outline-none"
+                required
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Phone Number"
+                className="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary-green focus:outline-none"
+                required
+              />
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary-green focus:outline-none text-gray-500"
+              >
                 <option>Security Services</option>
                 <option>Housekeeping</option>
                 <option>Manpower Supply</option>
