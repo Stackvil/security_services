@@ -245,6 +245,28 @@ export function Home() {
         </div>
       </section>
 
+      {/* Bottom Hero Images Section */}
+      <section className="py-12 bg-white">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+              <img
+                src={`${import.meta.env.BASE_URL ?? '/'}images/home/img1.jpeg`}
+                alt="Security Services Showcase 1"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+              <img
+                src={`${import.meta.env.BASE_URL ?? '/'}images/home/img2.jpeg`}
+                alt="Security Services Showcase 2"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom grid lg:grid-cols-2 gap-12 items-center">
