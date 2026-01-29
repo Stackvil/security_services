@@ -36,26 +36,31 @@ const pricingData: PricingCategory[] = [
       {
         name: 'Studio Apartment (Up to 400 Sqft)',
         price: '₹2500/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
         description: 'Complete studio cleaning with specialized chemicals and high-end equipment for a spot-free finish.'
       },
       {
         name: '1 BHK Apartment (Up to 700 Sqft)',
         price: '₹3500/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
         description: 'Thorough cleaning of living areas, kitchen, bathroom, and bedroom for medium-sized apartments.'
       },
       {
         name: '2 BHK Apartment (Up to 1100 Sqft)',
         price: '₹4500/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
         description: 'Full-service hygiene for 2 BHK units, focusing on high-touch areas and deep flooring sanitation.'
       },
       {
         name: '3 BHK Apartment (Up to 1500 Sqft)',
         price: '₹5500/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
         description: 'Elite cleaning protocol for large 3 BHK homes, ensuring every corner meets our high hygiene standards.'
       },
       {
         name: '4 BHK Apartment (Above 1500 Sqft)',
         price: '₹6500/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
         description: 'Scale-up cleaning for larger residences, deployed with a 4-member specialized team.'
       },
     ]
@@ -76,11 +81,13 @@ const pricingData: PricingCategory[] = [
       {
         name: 'Office Space Cleaning',
         price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
         description: 'Regular maintenance of office premises, including workstations, restrooms, and common areas.'
       },
       {
         name: 'Full Day Helper (9 AM - 6 PM)',
         price: '₹1200/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
         description: 'Dedicated housekeeping staff for 8-hour shifts to manage ongoing premises maintenance.'
       },
       {
@@ -113,11 +120,13 @@ const pricingData: PricingCategory[] = [
       {
         name: 'ATM/Bank Guarding',
         price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/atm   bank guarding.jpg`,
         description: 'Specialized security for financial institutions with focus on protocol adherence and vigilance.'
       },
       {
         name: 'Industrial Estate Patrol',
         price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/industrial estate patrol.jpg`,
         description: 'Perimeter protection and access control for large industrial sites with perimeter mobile patrols.'
       },
     ]
@@ -125,18 +134,20 @@ const pricingData: PricingCategory[] = [
   {
     category: 'Manpower Outsourcing',
     mainCategory: 'security', // Mapping to security for discipline
-    image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`,
+    image: `${import.meta.env.BASE_URL ?? '/'}images/services/staffing services.avif`,
     icon: Shield,
     color: 'text-primary-blue',
     items: [
       {
         name: 'Technical Manpower',
         price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/technical manpower.jpg`,
         description: 'Provision of skilled technical personnel for specialized industrial and commercial operations.'
       },
       {
         name: 'Labour Supply Services',
         price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/labour supply services.jpg`,
         description: 'Reliable and verified general labour supply for large-scale institutional requirements.'
       }
     ]
@@ -232,15 +243,13 @@ export function Services() {
                       key={`${group.category}-${i}`}
                       className="bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col group p-8"
                     >
-                      {item.image && (
-                        <div className="w-full h-48 overflow-hidden mb-6 rounded-2xl">
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                          />
-                        </div>
-                      )}
+                      <div className="w-full h-48 overflow-hidden mb-6 rounded-2xl">
+                        <img
+                          src={item.image || group.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
 
                       <div className="flex items-center gap-5 mb-6">
                         <div className={`w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center transition-all duration-500 group-hover:bg-opacity-100 ${group.mainCategory === 'security' ? 'group-hover:bg-primary-green' : 'group-hover:bg-primary-blue'}`}>
