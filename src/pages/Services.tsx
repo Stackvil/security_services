@@ -36,31 +36,31 @@ const pricingData: PricingCategory[] = [
       {
         name: 'Studio Apartment (Up to 400 Sqft)',
         price: '₹2500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/studio appartement.png`,
         description: 'Complete studio cleaning with specialized chemicals and high-end equipment for a spot-free finish.'
       },
       {
         name: '1 BHK Apartment (Up to 700 Sqft)',
         price: '₹3500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/1bhk.png`,
         description: 'Thorough cleaning of living areas, kitchen, bathroom, and bedroom for medium-sized apartments.'
       },
       {
         name: '2 BHK Apartment (Up to 1100 Sqft)',
         price: '₹4500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/2bhk apartment (up to 1100 sqft).png`,
         description: 'Full-service hygiene for 2 BHK units, focusing on high-touch areas and deep flooring sanitation.'
       },
       {
         name: '3 BHK Apartment (Up to 1500 Sqft)',
         price: '₹5500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/3bhk aparment (up to 1500 sqft).png`,
         description: 'Elite cleaning protocol for large 3 BHK homes, ensuring every corner meets our high hygiene standards.'
       },
       {
         name: '4 BHK Apartment (Above 1500 Sqft)',
         price: '₹6500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/4bhk apparment (above 1500 sqft).png`,
         description: 'Scale-up cleaning for larger residences, deployed with a 4-member specialized team.'
       },
     ]
@@ -81,13 +81,13 @@ const pricingData: PricingCategory[] = [
       {
         name: 'Office Space Cleaning',
         price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/office space cleaning.png`,
         description: 'Regular maintenance of office premises, including workstations, restrooms, and common areas.'
       },
       {
         name: 'Full Day Helper (9 AM - 6 PM)',
         price: '₹1200/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/full day helper.png`,
         description: 'Dedicated housekeeping staff for 8-hour shifts to manage ongoing premises maintenance.'
       },
       {
