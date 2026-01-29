@@ -1,146 +1,280 @@
+import { useState } from 'react';
 import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
-import { CheckCircle, Shield, Sparkles, Sofa, Clock } from 'lucide-react';
+import { CheckCircle, Shield, Sparkles, ArrowLeft } from 'lucide-react';
 
-const pricingData = [
+type PricingItem = {
+  name: string;
+  price: string;
+  image?: string;
+  description?: string;
+};
+
+type PricingCategory = {
+  category: string;
+  mainCategory: 'housekeeping' | 'security';
+  image: string;
+  icon: any;
+  color: string;
+  items: PricingItem[];
+};
+
+const pricingData: PricingCategory[] = [
   {
     category: 'Home Deep Cleaning',
+    mainCategory: 'housekeeping',
     image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
     icon: Sparkles,
     color: 'text-primary-blue',
     items: [
-      { name: 'Studio Apartment (Up to 400 Sqft)', price: '₹2500/-' },
-      { name: '1 BHK (401 to 600 Sqft)', price: '₹3800/-' },
-      { name: '2 BHK (601 to 1000 Sqft)', price: '₹4500/-' },
-      { name: '3 BHK (1001 to 1500 Sqft)', price: '₹6000/-' },
-      { name: '4 BHK (1501 to 2100 Sqft)', price: '₹7000/-' },
-      { name: 'Villa (3000 to 4000 Sqft)', price: '₹11999/-' },
+      {
+        name: 'Villa (Full Deep Clean)',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Deep Cleaning.jpg`,
+        description: 'Comprehensive top-to-bottom sanitation for villas, including floor scrubbing, window cleaning, and high-pressure washing.'
+      },
+      {
+        name: 'Studio Apartment (Up to 400 Sqft)',
+        price: '₹2500/-',
+        description: 'Complete studio cleaning with specialized chemicals and high-end equipment for a spot-free finish.'
+      },
+      {
+        name: '1 BHK Apartment (Up to 700 Sqft)',
+        price: '₹3500/-',
+        description: 'Thorough cleaning of living areas, kitchen, bathroom, and bedroom for medium-sized apartments.'
+      },
+      {
+        name: '2 BHK Apartment (Up to 1100 Sqft)',
+        price: '₹4500/-',
+        description: 'Full-service hygiene for 2 BHK units, focusing on high-touch areas and deep flooring sanitation.'
+      },
+      {
+        name: '3 BHK Apartment (Up to 1500 Sqft)',
+        price: '₹5500/-',
+        description: 'Elite cleaning protocol for large 3 BHK homes, ensuring every corner meets our high hygiene standards.'
+      },
+      {
+        name: '4 BHK Apartment (Above 1500 Sqft)',
+        price: '₹6500/-',
+        description: 'Scale-up cleaning for larger residences, deployed with a 4-member specialized team.'
+      },
     ]
   },
-
   {
-    category: 'Specialized Cleaning',
+    category: 'Commercial Cleaning',
+    mainCategory: 'housekeeping',
     image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
     icon: Sparkles,
-    color: 'text-purple-600',
+    color: 'text-primary-blue',
     items: [
-      { name: 'Bathroom Deep Cleaning', price: '₹599/-' },
-      { name: 'Kitchen Deep Cleaning', price: '₹999/-' },
-      { name: 'Festival Deep Cleaning', price: 'Call for Quote' },
-      { name: 'Party/Function Cleanup', price: 'Call for Quote' },
-      { name: 'Move-in/Move-out Cleaning', price: 'Call for Quote' },
-      { name: 'Balcony/Terrace Cleaning', price: '₹499/-' },
-    ]
-  },
-  {
-    category: 'Staffing & Care Services',
-    image: `${import.meta.env.BASE_URL ?? '/'}images/services/staffing services.avif`,
-    icon: CheckCircle,
-    color: 'text-pink-500',
-    items: [
-      { name: 'Ayama / Nanny', price: 'Monthly' },
-      { name: 'Baby Care Specialist', price: 'Monthly' },
-      { name: 'Patient Care Taker', price: 'Monthly' },
-      { name: 'Cooking Staff', price: 'Monthly' },
-      { name: 'Receptionist / Front Desk', price: 'Monthly' },
-      { name: 'Housemaid (Full Day)', price: 'Monthly' },
+      {
+        name: 'Party/Function Cleanup',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Corporate Event cleaning.jpg`,
+        description: 'Pre and post-event sanitation for banquet halls and convention centers with rapid response teams.'
+      },
+      {
+        name: 'Office Space Cleaning',
+        price: 'Contact for Quote',
+        description: 'Regular maintenance of office premises, including workstations, restrooms, and common areas.'
+      },
+      {
+        name: 'Full Day Helper (9 AM - 6 PM)',
+        price: '₹1200/-',
+        description: 'Dedicated housekeeping staff for 8-hour shifts to manage ongoing premises maintenance.'
+      },
+      {
+        name: 'Housemaid (Full Day)',
+        price: '₹1000/-',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`,
+        description: 'Reliable and verified domestic help for comprehensive home management and daily chores.'
+      },
     ]
   },
   {
     category: 'Security Services',
+    mainCategory: 'security',
     image: `${import.meta.env.BASE_URL ?? '/'}images/services/Security Services.jpg`,
     icon: Shield,
     color: 'text-primary-green',
     items: [
-      { name: 'Unarmed Guard (8 Hours)', price: 'Call for Quote' },
-      { name: 'Unarmed Guard (12 Hours)', price: 'Call for Quote' },
-      { name: 'Armed Security (8 Hours)', price: 'Call for Quote' },
-      { name: 'Armed Security (12 Hours)', price: 'Call for Quote' },
-      { name: 'Event Bouncer (Per Shift)', price: 'Call for Quote' },
-      { name: 'Personal Bodyguard', price: 'Call for Quote' },
+      {
+        name: 'Residential Security (24/7)',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Residential Security.jpg`,
+        description: 'Round-the-clock manned guarding for residential complexes with visitor tracking and night checks.'
+      },
+      {
+        name: 'Armed Security Briefing',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Security Briefing.webp`,
+        description: 'High-level protection with licensed armed personnel, trained in military-grade crisis response.'
+      },
+      {
+        name: 'ATM/Bank Guarding',
+        price: 'Contact for Quote',
+        description: 'Specialized security for financial institutions with focus on protocol adherence and vigilance.'
+      },
+      {
+        name: 'Industrial Estate Patrol',
+        price: 'Contact for Quote',
+        description: 'Perimeter protection and access control for large industrial sites with perimeter mobile patrols.'
+      },
+    ]
+  },
+  {
+    category: 'Manpower Outsourcing',
+    mainCategory: 'security', // Mapping to security for discipline
+    image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`,
+    icon: Shield,
+    color: 'text-primary-blue',
+    items: [
+      {
+        name: 'Technical Manpower',
+        price: 'Contact for Quote',
+        description: 'Provision of skilled technical personnel for specialized industrial and commercial operations.'
+      },
+      {
+        name: 'Labour Supply Services',
+        price: 'Contact for Quote',
+        description: 'Reliable and verified general labour supply for large-scale institutional requirements.'
+      }
     ]
   }
 ];
 
 export function Services() {
+  const [selectedCategory, setSelectedCategory] = useState<'security' | 'housekeeping' | null>(null);
+
+  const filteredData = selectedCategory
+    ? pricingData.filter(item => item.mainCategory === selectedCategory)
+    : [];
+
   return (
     <main className="pt-24 min-h-screen bg-gray-50">
       <SEO
-        title="Services & Pricing | Hindusthan Supervision Security"
-        description="Transparent pricing for security and cleaning services in Vijayawada. Deep cleaning starts at ₹2500, Sofa cleaning at ₹1000."
-        keywords="cleaning rates vijayawada, security guard charges, deep cleaning price list, housekeeping rates"
+        title="Our Services | Hindusthan Security"
+        description="Explore our comprehensive security and cleaning services in Vijayawada. Expert solutions for residential and corporate needs."
+        keywords="security services vijayawada, home deep cleaning, housekeeping services, manpower supply"
       />
 
       <section className="bg-primary-blue text-white py-16 text-center">
         <div className="container-custom">
-          <h1 className="text-4xl font-bold mb-4">Our Services & Pricing</h1>
+          <h1 className="text-4xl font-bold mb-4">Our Services</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Professional services with transparent, affordable rates. No hidden charges.
+            Professional solutions tailored to your specific requirements.
           </p>
         </div>
       </section>
 
-      <SectionShell title="Transparent Pricing" subtitle="Get the best value for your money. Custom packages available for corporate clients.">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pricingData.map((plan, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col">
-              <div className="h-48 overflow-hidden relative group">
-                <img
-                  src={plan.image}
-                  alt={plan.category}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                  <h3 className="text-xl font-bold text-white shadow-sm">{plan.category}</h3>
+      <section className="py-20 lg:py-32">
+        <div className="container-custom">
+          {!selectedCategory ? (
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl font-black text-primary-blue mb-6 tracking-tight">Select a Discipline</h2>
+                <div className="w-20 h-1.5 bg-primary-green mx-auto rounded-full opacity-40"></div>
+              </div>
+              <div className="grid md:grid-cols-2 gap-10">
+                {/* Security Option */}
+                <button
+                  onClick={() => setSelectedCategory('security')}
+                  className="group bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-primary-green hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center"
+                >
+                  <div className="w-28 h-28 mx-auto bg-green-50 rounded-3xl flex items-center justify-center mb-8 group-hover:bg-primary-green transition-all duration-500 group-hover:rotate-6">
+                    <Shield className="text-primary-green group-hover:text-white transition-colors" size={56} />
+                  </div>
+                  <h3 className="text-3xl font-black text-primary-blue mb-4 uppercase tracking-tight">Security Services</h3>
+                  <p className="text-slate-500 mb-8 max-w-xs mx-auto leading-relaxed">Professional guarding, armed security, and mission-critical protection.</p>
+                  <span className="inline-block bg-primary-green text-white px-10 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs shadow-lg group-hover:bg-black transition-all">
+                    Explore Rigor
+                  </span>
+                </button>
+
+                {/* Housekeeping Option */}
+                <button
+                  onClick={() => setSelectedCategory('housekeeping')}
+                  className="group bg-white p-12 rounded-[2.5rem] shadow-sm border border-slate-100 hover:border-primary-blue hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 text-center"
+                >
+                  <div className="w-28 h-28 mx-auto bg-blue-50 rounded-3xl flex items-center justify-center mb-8 group-hover:bg-primary-blue transition-all duration-500 group-hover:-rotate-6">
+                    <Sparkles className="text-primary-blue group-hover:text-white transition-colors" size={56} />
+                  </div>
+                  <h3 className="text-3xl font-black text-primary-blue mb-4 uppercase tracking-tight">Housekeeping</h3>
+                  <p className="text-slate-500 mb-8 max-w-xs mx-auto leading-relaxed">Deep cleaning, sanitation, and specialized facility maintenance.</p>
+                  <span className="inline-block bg-primary-blue text-white px-10 py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs shadow-lg group-hover:bg-black transition-all">
+                    Explore Hygiene
+                  </span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="mb-12 flex items-center justify-between border-b border-slate-100 pb-8">
+                <button
+                  onClick={() => setSelectedCategory(null)}
+                  className="flex items-center gap-3 text-primary-blue font-black uppercase tracking-widest text-xs hover:text-primary-green transition-colors group"
+                >
+                  <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
+                  All Categories
+                </button>
+                <div className="text-right">
+                  <h2 className="text-2xl font-black text-primary-blue uppercase tracking-[0.15em]">
+                    {selectedCategory === 'security' ? 'Operational Guarding' : 'Integrated Facility Management'}
+                  </h2>
+                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Professional Solutions for Premises</p>
                 </div>
               </div>
 
-              <div className="p-6 flex-grow">
-                <ul className="space-y-4">
-                  {plan.items.map((item, i) => (
-                    <li key={i} className="flex justify-between items-start text-sm border-b border-gray-100 pb-2 last:border-0 last:pb-0">
-                      <span className="text-gray-600 font-medium">{item.name}</span>
-                      <span className="font-bold text-primary-blue whitespace-nowrap ml-2">{item.price}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="p-4 bg-gray-50 border-t border-gray-100 text-center mt-auto">
-                <a href="/contact" className="block w-full py-2 rounded border border-primary-green text-primary-green font-bold text-sm hover:bg-primary-green hover:text-white transition-colors uppercase">
-                  Book Now
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </SectionShell>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredData.flatMap((group) =>
+                  group.items.map((item, i) => (
+                    <div
+                      key={`${group.category}-${i}`}
+                      className="bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-500 flex flex-col group p-8"
+                    >
+                      {item.image && (
+                        <div className="w-full h-48 overflow-hidden mb-6 rounded-2xl">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </div>
+                      )}
 
-      <section className="py-16 bg-white">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold text-center text-primary-blue mb-12">Why Our Pricing?</h2>
-          <div className="grid md:grid-cols-3 gap-6 text-center">
-            <div className="p-6">
-              <div className="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center text-primary-green mb-4">
-                <CheckCircle size={32} />
+                      <div className="flex items-center gap-5 mb-6">
+                        <div className={`w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center transition-all duration-500 group-hover:bg-opacity-100 ${group.mainCategory === 'security' ? 'group-hover:bg-primary-green' : 'group-hover:bg-primary-blue'}`}>
+                          <group.icon className={`${group.mainCategory === 'security' ? 'text-primary-green' : 'text-primary-blue'} group-hover:text-white transition-colors`} size={28} />
+                        </div>
+                        <div className="flex-grow">
+                          <span className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 block mb-1 group-hover:text-primary-green transition-colors">{group.category}</span>
+                          <h3 className="text-lg font-black text-slate-900 leading-tight tracking-tight">{item.name}</h3>
+                        </div>
+                      </div>
+
+                      <div className="flex-grow mb-8">
+                        <p className="text-sm text-slate-500 leading-relaxed opacity-80 h-16 overflow-hidden">
+                          {item.description ?? `Standardized ${group.category.toLowerCase()} deployment with verified personnel and 100% statutory compliance protocols.`}
+                        </p>
+                      </div>
+
+                      <div className="pt-6 border-t border-slate-50 mt-auto">
+                        <a
+                          href="/contact"
+                          className={`block w-full py-3.5 rounded-xl text-center font-black text-[10px] transition-all uppercase tracking-[0.2em] shadow-sm hover:shadow-lg ${group.mainCategory === 'security'
+                            ? 'bg-primary-green text-white hover:bg-black'
+                            : 'bg-primary-blue text-white hover:bg-black'
+                            }`}
+                        >
+                          Request Inquiry
+                        </a>
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
-              <h3 className="font-bold text-lg mb-2">No Hidden Costs</h3>
-              <p className="text-gray-600">The price you see is the price you pay. Taxes applicable as per govt norms.</p>
             </div>
-            <div className="p-6">
-              <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary-blue mb-4">
-                <Shield size={32} />
-              </div>
-              <h3 className="font-bold text-lg mb-2">Fully Insured</h3>
-              <p className="text-gray-600">Our services are backed by comprehensive insurance for your peace of mind.</p>
-            </div>
-            <div className="p-6">
-              <div className="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center text-accent-yellow mb-4">
-                <Clock size={32} />
-              </div>
-              <h3 className="font-bold text-lg mb-2">Flexible Packages</h3>
-              <p className="text-gray-600">Customized monthly and annual contracts available for offices and societies.</p>
-            </div>
-          </div>
+          )}
         </div>
       </section>
     </main>

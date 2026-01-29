@@ -11,7 +11,7 @@ const testimonials = [
     name: 'Divya Menon',
     role: 'Secretary, Premium Apartment Association',
     quote:
-      'From guard behaviour to visitor management and patrolling, Hindusthan Supervision has brought structure and discipline to our community.'
+      'From guard behaviour to visitor management and patrolling, Hindusthan has brought structure and discipline to our community.'
   },
   {
     name: 'Col. (Retd.) S. Nair',
@@ -33,7 +33,7 @@ export function Testimonials() {
       />
       <SectionShell
         eyebrow="Testimonials"
-        title="What our clients say about working with Hindusthan Supervision."
+        title="What our clients say about working with Hindusthan."
       >
         <div className="mb-6 text-xs text-slate-500">
           The feedback below has been shared by clients across retail, housing

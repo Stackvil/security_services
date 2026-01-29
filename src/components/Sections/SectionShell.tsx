@@ -15,16 +15,16 @@ export function SectionShell({
   children
 }: SectionShellProps) {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-14 lg:px-0 lg:py-20">
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
       <motion.header
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="mb-10 max-w-3xl"
+        className="mb-6"
       >
         {eyebrow && (
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-primary-green font-display">
+          <p className="mb-2 text-xs font-bold uppercase tracking-[0.25em] text-primary-green font-display">
             {eyebrow}
           </p>
         )}

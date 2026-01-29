@@ -1,122 +1,136 @@
 import { SectionShell } from '../components/Sections/SectionShell';
 
-const pillars = [
-  {
-    title: 'People',
-    copy: 'Guarding teams recruited from defence and disciplined backgrounds, trained extensively on soft skills and emergency response.',
-    metric: '350+',
-    label: 'deployed guards & supervisors'
-  },
-  {
-    title: 'Process',
-    copy: 'Documented SOPs, visitor management, night checks and incident reporting built around your site-specific risk profile.',
-    metric: '4',
-    label: 'layer protection framework'
-  },
-  {
-    title: 'Technology',
-    copy: 'CCTV, access control, GPS tracking and command centre dashboards that give you complete visibility.',
-    metric: '20+',
-    label: 'integrated technology partners'
-  },
-  {
-    title: 'Hygiene',
-    copy: 'Specialized housekeeping, deep cleaning, and waste management services to ensure a pristine environment.',
-    metric: '100+',
-    label: 'trained housekeeping staff'
-  }
-];
 
 import { SEO } from '../components/SEO';
 
 export function About() {
   return (
-    <main className="pt-24">
+    <main className="pt-12">
       <SEO
         title="About Us - Security Experts in Vijayawada"
         description="Providing professional security guard services and risk management advisory in Vijayawada since 2012. 350+ deployed guards."
         keywords="about security company, security experience Vijayawada, manned guarding experts, risk management advisory"
       />
       <SectionShell
-        eyebrow="About Hindusthan Supervision"
-        title="A security partner that behaves like your in-house protection team."
-        subtitle="Hindusthan Supervision Security Services was built by professionals with decades of experience in industrial security, crisis management and large-scale facility administration."
+        eyebrow="Leadership & Expertise"
+        title="Backed by Discipline, Driven by Excellence."
+        subtitle="Hindusthan Security Services is led by a team of ex-service professionals dedicated to bringing military-grade precision to the private security and facility management sector."
       >
-        <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
-          <div className="space-y-6 text-sm text-slate-600">
-            <p>
-              We understand that every site is unique. Our approach always
-              begins with a detailed assessment of your layout, people movement,
-              assets, hygiene requirements, and current risks. From there we design a layered security
-              and facility management program that grows with your business.
-            </p>
-            <p>
-              Our field teams are supported by a 24/7 command centre that
-              monitors alarms, CCTV feeds and patrols. Additionally, our housekeeping supervisors conduct
-              regular hygiene checks, ensuring that your premises remain spotless and welcoming.
-            </p>
-            <p>
-              At Hindusthan Supervision, we measure our success in the number of incidents that are
-              prevented – and the cleanliness maintained. That is why our clients retain
-              us year after year as their long-term facility partner.
-            </p>
-            <p>
-              Management reviews and client feedback sessions are scheduled at
-              regular intervals, ensuring that every learning from the ground
-              is translated into stronger processes and better-trained teams.
-            </p>
-          </div>
-          <div className="grid gap-4 rounded-3xl border border-slate-200 bg-slate-50 p-5">
-            {pillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="flex items-start justify-between gap-3 rounded-2xl bg-white p-4"
-              >
-                <div>
-                  <h3 className="text-sm font-semibold text-slate-900">
-                    {pillar.title}
-                  </h3>
-                  <p className="mt-2 text-xs text-slate-600">{pillar.copy}</p>
-                </div>
-                <div className="text-right text-xs text-slate-500">
-                  <p className="text-lg font-semibold text-brand-600">
-                    {pillar.metric}
-                  </p>
-                  <p>{pillar.label}</p>
-                </div>
+        <div className="space-y-8">
+          {/* Leadership Cards - Horizontal Layout */}
+          <div className="grid gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
+            <div className="flex items-center gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
+              <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
+                <img
+                  src={`${import.meta.env.BASE_URL ?? '/'}images/85.png`}
+                  alt="B. Dharma Rao"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+              <div className="flex-grow">
+                <h3 className="text-2xl font-black text-slate-900 leading-tight">B. DHARMA RAO</h3>
+                <p className="text-[11px] font-bold text-primary-blue uppercase tracking-[0.25em] mt-3 mb-4 opacity-70">Ex. Serviceman</p>
+                <div className="h-1 w-12 bg-primary-green rounded-full opacity-60"></div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
+              <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
+                <img
+                  src={`${import.meta.env.BASE_URL ?? '/'}images/86.png`}
+                  alt="Y. Rangarao"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-grow">
+                <h3 className="text-2xl font-black text-slate-900 leading-tight">Y. RANGARAO</h3>
+                <p className="text-[11px] font-bold text-primary-blue uppercase tracking-[0.25em] mt-3 mb-4 opacity-70">Ex. Serviceman</p>
+                <div className="h-1 w-12 bg-primary-green rounded-full opacity-60"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Main Description - Now below */}
+          <div className="max-w-4xl mx-auto space-y-8 text-slate-600">
+            <div className="space-y-4">
+              <p className="text-3xl font-black text-slate-900 leading-[1.15] tracking-tight">
+                An ex-serviceman organisation that provides <span className="text-primary-blue">unrivalled experience</span> in protecting your business.
+              </p>
+              <p className="text-xl leading-relaxed opacity-80">
+                Hindusthan Security Services is a professionally managed organization backed by highly qualified ex-service professionals. Our operations are driven by military discipline, strong ethics, and practical field experience.
+              </p>
+              <p className="text-base leading-relaxed opacity-70">
+                We are an <span className="font-bold text-slate-900">ISO 9001:2008 compliant company</span>, committed to delivering international standards of security and facility management.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 py-8 border-y border-slate-100">
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 text-primary-green">
+                  <div className="w-10 h-[2px] bg-current opacity-40"></div>
+                  <span className="font-black uppercase tracking-[0.3em] text-[10px]">Rigorous Vetting</span>
+                </div>
+                <p className="text-sm leading-relaxed">Our pre-employment procedure involves a <span className="font-semibold text-slate-900">thorough background check</span> on all employees to ensure no criminal history, maintaining the highest levels of trust and integrity.</p>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 text-primary-green">
+                  <div className="w-10 h-[2px] bg-current opacity-40"></div>
+                  <span className="font-black uppercase tracking-[0.3em] text-[10px]">Quality Management</span>
+                </div>
+                <p className="text-sm leading-relaxed">We regularly update our Quality Management Systems to ensure customers receive the best services the industry has to offer, infusing quality and productivity in every operation.</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
+                <p className="text-4xl font-black text-primary-blue">100%</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Compliance</p>
+              </div>
+              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-blue/20">
+                <p className="text-4xl font-black text-primary-blue">Digital</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Tracking</p>
+              </div>
+              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-accent-yellow/20">
+                <p className="text-4xl font-black text-primary-blue">24/7</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Response</p>
+              </div>
+              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
+                <p className="text-4xl font-black text-primary-blue">Ex-SM</p>
+                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Managed</p>
+              </div>
+            </div>
           </div>
         </div>
       </SectionShell>
 
-      <div className="bg-slate-50 py-24">
-        <SectionShell
-          eyebrow="Comprehensive Facility Management"
-          title="Elevating Standards in Housekeeping & Hygiene"
-          subtitle="Beyond security, we serve as the custodians of your facility's health and aesthetic appeal."
-        >
-          <div className="prose prose-lg text-slate-600 max-w-none">
-            <p>
-              At Hindusthan Supervision, we recognize that a clean environment is fundamental to a productive workspace and a healthy living area. Our foray into housekeeping services was driven by our client's desire for a single, accountable partner who could manage their entire facility ecosystem with the same rigor we apply to security.
-            </p>
-            <h3>Our Approach to Cleanliness</h3>
-            <p>
-              We don't just "clean"; we sanitize and preserve. Our housekeeping protocols are modeled on international standards of hygiene. From corporate boardrooms to high-traffic industrial floors, we deploy specialized teams equipped with industry-grade machinery and eco-friendly cleaning agents.
-            </p>
-            <p>
-              Our staff undergoes rigorous training in chemical handling, waste segregation, and infection control, ensuring that your premises are not just visually appealing but clinically safe.
-            </p>
-            <h3>Integrated Facility Solutions</h3>
-            <p>
-              What sets us apart is the seamless integration of our services. The same discipline that governs our security guards—punctuality, uniform compliance, and reporting—applies to our housekeeping staff. Our supervisors coordinate effortlessly between shifts, ensuring that security checks and cleaning schedules compliment each other, providing you with a hassle-free, well-managed property.
-            </p>
-            <p>
-              Whether it's deep cleaning, daily maintenance, or specialized facade cleaning, Hindusthan Supervision stands as your trusted partner in maintaining the dignity and value of your infrastructure.
-            </p>
+      {/* Compliance Transition Section */}
+      <section className="pb-24 pt-8">
+        <div className="container-custom">
+          <div className="bg-slate-900 rounded-[3rem] p-12 md:p-16 relative overflow-hidden group shadow-2xl">
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+              <div className="max-w-xl text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-6 uppercase tracking-tight leading-none">
+                  Compliance is the residue of <span className="text-primary-green">good security.</span>
+                </h2>
+                <p className="text-slate-400 text-lg font-medium italic opacity-80 leading-relaxed">
+                  Explore our exhaustive list of statutory compliances and digital-first operational processes.
+                </p>
+              </div>
+              <a
+                href="/compliance"
+                className="group/btn relative inline-flex items-center gap-4 bg-white text-primary-blue px-10 py-5 rounded-2xl font-black uppercase tracking-[0.2em] text-xs hover:bg-primary-green hover:text-white transition-all shadow-xl hover:-translate-y-1"
+              >
+                View Full Compliance
+                <div className="w-8 h-[2px] bg-primary-blue group-hover/btn:bg-white transition-colors"></div>
+              </a>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-32 translate-x-32 group-hover:scale-110 transition-transform duration-700"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-primary-green/10 rounded-full translate-y-24 -translate-x-24 group-hover:scale-110 transition-transform duration-700"></div>
           </div>
-        </SectionShell>
-      </div>
+        </div>
+      </section>
     </main>
   );
 }

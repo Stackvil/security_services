@@ -15,7 +15,7 @@ export function Footer() {
             <img src={logoSrc} alt="Logo" className="h-12 w-auto" />
           </div>
           <p className="text-sm leading-relaxed mb-6 text-gray-400">
-            Hindusthan Supervision Security & Risk Management Advisory provides top-tier security and facility management services across India.
+            Hindusthan Security & Risk Management Advisory provides top-tier security and facility management services across India.
           </p>
           <div className="flex gap-3">
             <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Facebook size={18} /></a>
@@ -43,14 +43,12 @@ export function Footer() {
             Quick Links
           </h3>
           <ul className="space-y-3">
-            <li><Link to="/" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Home</Link></li>
-            <li><Link to="/about" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />About Us</Link></li>
-            <li><Link to="/careers" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Careers</Link></li>
-            <li><Link to="/gallery" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Gallery</Link></li>
-            <li><Link to="/blog" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Blog</Link></li>
-            <li><Link to="/privacy-policy" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Privacy Policy</Link></li>
-            <li><Link to="/terms-of-service" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Terms of Service</Link></li>
-            <li><Link to="/contact" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Contact Us</Link></li>
+            <li><Link to="/" className="text-slate-400 hover:text-primary-green transition-colors text-sm">About Us</Link></li>
+            <li><Link to="/services" className="text-slate-400 hover:text-primary-green transition-colors text-sm">Our Services</Link></li>
+            <li><Link to="/gallery" className="text-slate-400 hover:text-primary-green transition-colors text-sm">Training</Link></li>
+            <li><Link to="/careers" className="text-slate-400 hover:text-primary-green transition-colors text-sm">Careers</Link></li>
+            <li><Link to="/blog" className="text-slate-400 hover:text-primary-green transition-colors text-sm">Blog</Link></li>
+            <li><Link to="/contact" className="text-slate-400 hover:text-primary-green transition-colors text-sm">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -78,11 +76,7 @@ export function Footer() {
 
       <div className="border-t border-gray-800 pt-8 mt-8">
         <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>&copy; {currentYear} Hindusthan Supervision Security. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-white">Terms of Service</Link>
-          </div>
+          <p>&copy; {currentYear} Hindusthan Security. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

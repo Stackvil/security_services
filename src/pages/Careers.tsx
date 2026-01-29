@@ -59,7 +59,7 @@ export function Careers() {
     return (
         <main className="bg-gray-50 min-h-screen pb-20">
             <SEO
-                title="Careers at Hindusthan Supervision | Security Jobs"
+                title="Careers at Hindusthan | Security Jobs"
                 description="Join our team of security professionals. We are hiring Security Guards, Supervisors, and Facility Managers in Vijayawada."
                 keywords="jobs in vijayawada, security jobs, housekeeping jobs, careers"
             />
@@ -67,15 +67,21 @@ export function Careers() {
             {/* Page Header */}
             <section className="bg-primary-blue text-white py-16 text-center">
                 <div className="container-custom">
-                    <h1 className="text-4xl font-bold mb-4">Join Our Team</h1>
-                    <p className="text-xl opacity-90 max-w-2xl mx-auto">
-                        Build a career with a company that values integrity, vigilance, and service.
+                    <h1 className="text-4xl font-black mb-4 uppercase tracking-tight">Join Our Force</h1>
+                    <p className="text-xl opacity-90 max-w-2xl mx-auto font-medium">
+                        Hindustan Investigation and Security Services offers exciting challenges to individuals who have determination, vision and ambition.
                     </p>
                 </div>
             </section>
 
             {/* Content */}
             <div className="container-custom mt-12">
+                <div className="max-w-4xl mx-auto mb-16 text-center">
+                    <h2 className="text-3xl font-black text-slate-900 mb-6">We are inviting applications for office/field job openings.</h2>
+                    <p className="text-slate-600 text-lg leading-relaxed">
+                        If you are a professional who values discipline and excellence, join us by sending your updated resume. We provide a platform for growth and purpose-driven employment.
+                    </p>
+                </div>
                 <div className="grid lg:grid-cols-3 gap-8">
                     {/* Sidebar / Intro */}
                     <div className="lg:col-span-1">
@@ -97,7 +103,7 @@ export function Careers() {
                             </ul>
                             <div className="mt-8 pt-6 border-t">
                                 <p className="text-sm text-gray-500 mb-4">Send your resume directly to:</p>
-                                <a href="mailto:careers@securityservices.com" className="block w-full bg-accent-yellow text-dark-text text-center font-bold py-3 rounded uppercase hover:bg-opacity-90 transition inline-block">
+                                <a href="mailto:info@hindusthansecurityjobs.com" className="block w-full bg-accent-yellow text-dark-text text-center font-bold py-3 rounded uppercase hover:bg-opacity-90 transition inline-block">
                                     Email Resume
                                 </a>
                             </div>

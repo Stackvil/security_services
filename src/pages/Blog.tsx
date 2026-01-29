@@ -5,8 +5,8 @@ export function Blog() {
     return (
         <main className="pt-24 min-h-screen bg-white">
             <SEO
-                title="Blog | Hindusthan Supervision Security Services"
-                description="Latest news, security tips, and updates from Hindusthan Supervision."
+                title="Blog | Hindusthan Security Services"
+                description="Latest news, security tips, and updates from Hindusthan."
                 keywords="security blog, facility management news, vijayawada security updates"
             />
 

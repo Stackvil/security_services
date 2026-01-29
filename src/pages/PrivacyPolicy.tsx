@@ -5,8 +5,8 @@ export function PrivacyPolicy() {
     return (
         <main className="pt-24">
             <SEO
-                title="Privacy Policy - Hindusthan Supervision"
-                description="Privacy Policy for Hindusthan Supervision Security Services. We value your privacy and protect your data."
+                title="Privacy Policy - Hindusthan"
+                description="Privacy Policy for Hindusthan Security Services. We value your privacy and protect your data."
                 keywords="privacy policy, security services privacy, data protection"
             />
             <SectionShell

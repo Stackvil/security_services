@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Mail, Facebook, Twitter, Instagram, Linkedin, Menu, X, ChevronDown } from 'lucide-react';
+import { Phone, Mail, Facebook, Instagram, Menu, X, ChevronDown } from 'lucide-react';
 
 const logoSrc = `${import.meta.env.BASE_URL ?? '/'}images/logo.jpg.jpeg`;
 
 const navItems = [
-  { to: '/', label: 'HOME' },
-  { to: '/about', label: 'ABOUT US' },
+  { to: '/', label: 'ABOUT US' },
   { to: '/services', label: 'SERVICES' }, // Could be a dropdown
-  { to: '/gallery', label: 'GALLERY' },
+  { to: '/gallery', label: 'TRAINING' },
   { to: '/blog', label: 'BLOG' },
   { to: '/contact', label: 'CONTACT US' },
   { to: '/careers', label: 'CAREER' }, // Added as per user request
@@ -47,9 +46,7 @@ export function Navbar() {
             <span className="opacity-80">Follow Us:</span>
             <div className="flex gap-3">
               <a href="#" className="hover:text-accent-yellow transition-colors"><Facebook size={16} /></a>
-              <a href="#" className="hover:text-accent-yellow transition-colors"><Twitter size={16} /></a>
               <a href="#" className="hover:text-accent-yellow transition-colors"><Instagram size={16} /></a>
-              <a href="#" className="hover:text-accent-yellow transition-colors"><Linkedin size={16} /></a>
             </div>
           </div>
         </div>
@@ -57,45 +54,53 @@ export function Navbar() {
 
       {/* Main Navigation */}
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-white py-4'}`}>
-        <div className="w-full px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          {/* Logo */}
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-4 group">
-            <img src={logoSrc} alt="Logo" className="h-16 w-auto object-contain transition-transform group-hover:scale-105" />
-            <div className="leading-tight hidden sm:block flex flex-col justify-center">
-              <p className="text-primary-blue font-bold text-xl tracking-wide">HINDUSTHAN SUPERVISION</p>
-              <p className="text-primary-green font-semibold text-sm tracking-[0.2em] uppercase">Security Services</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-8">
+
+          {/* Left Side: Side Logo & Branding */}
+          <div className="flex-shrink-0 hidden md:flex items-center gap-6 group">
+            <img
+              src={`${import.meta.env.BASE_URL ?? '/'}images/sidelogo.png`}
+              alt="Side Logo"
+              className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105"
+            />
+            <div className="flex flex-col justify-center">
+              <span className="text-primary-blue font-black text-2xl lg:text-4xl tracking-tighter leading-none">HINDUSTHAN</span>
+              <span className="text-primary-green font-bold text-xs lg:text-sm tracking-[0.2em] uppercase opacity-90 mt-1">Security Services</span>
             </div>
-          </Link>
+          </div>
 
-          {/* Desktop Menu */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) =>
-                  `text-sm font-bold uppercase transition-colors hover:text-primary-green ${isActive ? 'text-primary-green' : 'text-dark-text'
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
-          </nav>
+          <div className="hidden lg:flex flex-grow justify-center items-center px-4">
+            {/* Desktop Menu */}
+            <nav className="flex items-center gap-6 xl:gap-8">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `text-[11px] font-black uppercase tracking-[0.15em] transition-all hover:text-primary-green relative whitespace-nowrap ${isActive ? 'text-primary-green' : 'text-slate-600'
+                    }`
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      {item.label}
+                      {isActive && <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary-green rounded-full"></span>}
+                    </>
+                  )}
+                </NavLink>
+              ))}
+            </nav>
+          </div>
 
-          {/* Call to Action & Mobile Toggle */}
-          <div className="flex items-center gap-4">
-            <Link
-              to="/contact"
-              className="hidden lg:inline-block bg-accent-yellow text-white px-6 py-2.5 rounded font-bold uppercase text-sm hover:bg-black transition-colors"
-            >
-              Get a Quote
+          <div className="flex items-center gap-6 flex-shrink-0">
+            {/* Branding - Strictly on the Right */}
+            <Link to="/" className="flex items-center group">
+              <img src={logoSrc} alt="Logo" className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
             </Link>
 
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="lg:hidden text-primary-blue hover:text-primary-green transition-colors"
+              className="lg:hidden text-primary-blue hover:text-primary-green transition-colors ml-2"
             >
               <Menu size={28} />
             </button>
