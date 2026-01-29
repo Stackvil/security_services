@@ -164,7 +164,7 @@ export function Services() {
   return (
     <main className="pt-24 min-h-screen bg-gray-50">
       <SEO
-        title="Our Services | Hindusthan Security"
+        title="Our Services | Hindustan Security"
         description="Explore our comprehensive security and cleaning services in Vijayawada. Expert solutions for residential and corporate needs."
         keywords="security services vijayawada, home deep cleaning, housekeeping services, manpower supply"
       />

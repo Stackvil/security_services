@@ -5,8 +5,8 @@ export function TermsOfService() {
     return (
         <main className="pt-24">
             <SEO
-                title="Terms of Service - Hindusthan"
-                description="Terms of Service for Hindusthan Security Services. Please read our terms carefully."
+                title="Terms of Service - Hindustan"
+                description="Terms of Service for Hindustan Security Services. Please read our terms carefully."
                 keywords="terms of service, legal, security services terms"
             />
             <SectionShell
@@ -19,12 +19,12 @@ export function TermsOfService() {
 
                     <h2 className="text-slate-900">1. Acceptance of Terms</h2>
                     <p>
-                        By accessing or using the services provided by Hindusthan, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                        By accessing or using the services provided by Hindustan, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
                     </p>
 
                     <h2 className="text-slate-900">2. Services</h2>
                     <p>
-                        Hindusthan provides security guarding, facility management, and hygiene services. The specific scope of services will be defined in individual service agreements with our clients.
+                        Hindustan provides security guarding, facility management, and hygiene services. The specific scope of services will be defined in individual service agreements with our clients.
                     </p>
 
                     <h2 className="text-slate-900">3. User Responsibilities</h2>
@@ -34,12 +34,12 @@ export function TermsOfService() {
 
                     <h2 className="text-slate-900">4. Intellectual Property</h2>
                     <p>
-                        All content on this website, including text, graphics, logos, and images, is the property of Hindusthan and is protected by copyright and other intellectual property laws.
+                        All content on this website, including text, graphics, logos, and images, is the property of Hindustan and is protected by copyright and other intellectual property laws.
                     </p>
 
                     <h2 className="text-slate-900">5. Limitation of Liability</h2>
                     <p>
-                        Hindusthan shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of our services.
+                        Hindustan shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of our services.
                     </p>
 
                     <h2 className="text-slate-900">6. Governing Law</h2>
@@ -54,7 +54,7 @@ export function TermsOfService() {
 
                     <h2 className="text-slate-900">8. Contact Information</h2>
                     <p>
-                        If you have any questions about these Terms of Service, please contact us at info@hindusthansecurityjobs.com.
+                        If you have any questions about these Terms of Service, please contact us at info@hindustansecurityjobs.com.
                     </p>
                 </div>
             </SectionShell>

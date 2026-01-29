@@ -37,9 +37,9 @@ export function Navbar() {
               <Phone size={16} fill="currentColor" />
               <span>+91 90595 01501</span>
             </a>
-            <a href="mailto:info@hindusthansecurityjobs.com" className="flex items-center gap-2 hover:text-accent-yellow transition-colors">
+            <a href="mailto:info@hindustansecurityjobs.com" className="flex items-center gap-2 hover:text-accent-yellow transition-colors">
               <Mail size={16} />
-              <span>info@hindusthansecurityjobs.com</span>
+              <span>info@hindustansecurityjobs.com</span>
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -64,7 +64,7 @@ export function Navbar() {
               className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col justify-center">
-              <span className="text-primary-blue font-black text-2xl lg:text-4xl tracking-tighter leading-none">HINDUSTHAN</span>
+              <span className="text-primary-blue font-black text-2xl lg:text-4xl tracking-tighter leading-none">HINDUSTAN</span>
               <span className="text-primary-green font-bold text-xs lg:text-sm tracking-[0.2em] uppercase opacity-90 mt-1">Security Services</span>
             </div>
           </div>

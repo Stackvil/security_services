@@ -5,8 +5,8 @@ export function PrivacyPolicy() {
     return (
         <main className="pt-24">
             <SEO
-                title="Privacy Policy - Hindusthan"
-                description="Privacy Policy for Hindusthan Security Services. We value your privacy and protect your data."
+                title="Privacy Policy - Hindustan"
+                description="Privacy Policy for Hindustan Security Services. We value your privacy and protect your data."
                 keywords="privacy policy, security services privacy, data protection"
             />
             <SectionShell
@@ -45,7 +45,7 @@ export function PrivacyPolicy() {
 
                     <h2 className="text-slate-900">5. Contact Us</h2>
                     <p>
-                        If you have any questions about this Privacy Policy, please contact us at info@hindusthansecurityjobs.com.
+                        If you have any questions about this Privacy Policy, please contact us at info@hindustansecurityjobs.com.
                     </p>
                 </div>
             </SectionShell>

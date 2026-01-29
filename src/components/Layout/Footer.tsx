@@ -15,7 +15,7 @@ export function Footer() {
             <img src={logoSrc} alt="Logo" className="h-12 w-auto" />
           </div>
           <p className="text-sm leading-relaxed mb-6 text-gray-400">
-            Hindusthan Security & Risk Management Advisory provides top-tier security and facility management services across India.
+            Hindustan Security & Risk Management Advisory provides top-tier security and facility management services across India.
           </p>
           <div className="flex gap-3">
             <a href="#" className="bg-primary-blue p-2 rounded hover:bg-primary-green transition-colors text-white"><Facebook size={18} /></a>
@@ -68,7 +68,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <Mail size={20} className="text-primary-green flex-shrink-0" />
-              <span className="text-sm">info@hindusthansecurityjobs.com</span>
+              <span className="text-sm">info@hindustansecurityjobs.com</span>
             </li>
           </ul>
         </div>
@@ -76,7 +76,7 @@ export function Footer() {
 
       <div className="border-t border-gray-800 pt-8 mt-8">
         <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>&copy; {currentYear} Hindusthan Security. All Rights Reserved.</p>
+          <p>&copy; {currentYear} Hindustan Security. All Rights Reserved. </p>
         </div>
       </div>
     </footer>

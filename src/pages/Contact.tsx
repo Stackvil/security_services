@@ -46,7 +46,7 @@ export function Contact() {
     <main className="pt-24">
       <SEO
         title="Contact Us - Security Agency Vijayawada"
-        description="Get in touch with Hindusthan for security assessments and quotes. 24/7 Control Room: +91 90595 01501."
+        description="Get in touch with Hindustan for security assessments and quotes. 24/7 Control Room: +91 90595 01501."
         keywords="contact security agency, security quote Vijayawada, control room number, security office address"
       />
       <SectionShell
@@ -170,7 +170,7 @@ export function Contact() {
               <p className="text-slate-600">
                 Email:{' '}
                 <span className="font-semibold text-slate-900">
-                  info@hindusthansecurityjobs.com
+                  info@hindustansecurityjobs.com
                 </span>
               </p>
               <p className="mt-3 text-xs text-slate-500">
@@ -180,7 +180,7 @@ export function Contact() {
             </div>
             <div className="glass-panel rounded-3xl p-5 text-sm text-slate-600">
               <h3 className="text-sm font-semibold text-slate-900">
-                Careers at Hindusthan
+                Careers at Hindustan
               </h3>
               <p className="mt-2">
                 We regularly hire guards, supervisors and control room
@@ -190,7 +190,7 @@ export function Contact() {
               <p className="mt-2 text-xs text-slate-500">
                 Share your CV on{' '}
                 <span className="font-semibold text-slate-900">
-                  info@hindusthansecurityjobs.com
+                  info@hindustansecurityjobs.com
                 </span>{' '}
                 or walk-in to our branch office between 10:00am and 5:00pm.
               </p>
@@ -216,12 +216,12 @@ export function Contact() {
           </div>
           <div className="w-full h-[450px] bg-slate-100">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.213!2d80.6472984!3d16.5186481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5170e69a2cd%3A0x3ce69ce2cbbad450!2sHindusthan%20Security%20Services!5e0!3m2!1sen!2sin!4v1716968800000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.213!2d80.6472984!3d16.5186481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5170e69a2cd%3A0x3ce69ce2cbbad450!2sHindustan%20Security%20Services!5e0!3m2!1sen!2sin!4v1716968800000!5m2!1sen!2sin"
               className="w-full h-full border-0"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Hindusthan Security Services Location"
+              title="Hindustan Security Services Location"
             ></iframe>
           </div>
         </div>

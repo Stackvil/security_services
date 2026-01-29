@@ -14,7 +14,7 @@ export function About() {
       <SectionShell
         eyebrow="Leadership & Expertise"
         title="Backed by Discipline, Driven by Excellence."
-        subtitle="Hindusthan Security Services is led by a team of ex-service professionals dedicated to bringing military-grade precision to the private security and facility management sector."
+        subtitle="Hindustan Security Services is led by a team of ex-service professionals dedicated to bringing military-grade precision to the private security and facility management sector."
       >
         <div className="space-y-8">
           {/* Leadership Cards - Horizontal Layout */}
@@ -57,7 +57,7 @@ export function About() {
                 An ex-serviceman organisation that provides <span className="text-primary-blue">unrivalled experience</span> in protecting your business.
               </p>
               <p className="text-xl leading-relaxed opacity-80">
-                Hindusthan Security Services is a professionally managed organization backed by highly qualified ex-service professionals. Our operations are driven by military discipline, strong ethics, and practical field experience.
+                Hindustan Security Services is a professionally managed organization backed by highly qualified ex-service professionals. Our operations are driven by military discipline, strong ethics, and practical field experience.
               </p>
               <p className="text-base leading-relaxed opacity-70">
                 We are an <span className="font-bold text-slate-900">ISO 9001:2008 compliant company</span>, committed to delivering international standards of security and facility management.

@@ -27,7 +27,7 @@ export function Gallery() {
     return (
         <main className="min-h-screen bg-white">
             <SEO
-                title="Training & Operations | Hindusthan Security Services"
+                title="Training & Operations | Hindustan Security Services"
                 description="View our training sessions and site deployments. Dedicated teams following strict protocols across Vijayawada."
                 keywords="security training, cleaning training sessions, facility management training, vijayawada training"
             />

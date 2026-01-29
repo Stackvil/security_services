@@ -10,12 +10,12 @@ interface SEOProps {
 
 export function SEO({
     title,
-    description = "Hindusthan - Trusted Security & Facility Management Services in Vijayawada.",
+    description = "Hindustan - Trusted Security & Facility Management Services in Vijayawada.",
     keywords = "security services, housekeeping, vijayawada, facility management, guards",
     canonical,
     type = 'website'
 }: SEOProps) {
-    const siteTitle = "Hindusthan Security Services";
+    const siteTitle = "Hindustan Security Services";
     const startUrl = window.location.origin;
     const fullCanonical = canonical ? `${startUrl}${canonical}` : window.location.href;
 

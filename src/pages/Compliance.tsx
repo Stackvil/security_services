@@ -6,7 +6,7 @@ export function Compliance() {
     return (
         <main className="pt-24 min-h-screen bg-white">
             <SEO
-                title="Compliance & Processes | Hindusthan Security"
+                title="Compliance & Processes | Hindustan Security"
                 description="Detailed overview of our statutory compliance and digital operational processes. ESI/PF, Insurance, and 100% digital facility management."
                 keywords="security compliance, ESI PF compliance, digital guarding, cashless security services"
             />
@@ -23,7 +23,7 @@ export function Compliance() {
             <SectionShell
                 eyebrow="Statutory Rigor"
                 title="Compliances that set us apart."
-                subtitle="Hindusthan Security maintains 100% adherence to national and regional statutory requirements, ensuring peace of mind for our clients."
+                subtitle="Hindustan Security maintains 100% adherence to national and regional statutory requirements, ensuring peace of mind for our clients."
             >
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {[
