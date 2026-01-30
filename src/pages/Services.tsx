@@ -96,6 +96,18 @@ const pricingData: PricingCategory[] = [
         image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`,
         description: 'Reliable and verified domestic help for comprehensive home management and daily chores.'
       },
+      {
+        name: 'Baby Care',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/1kn.jpg`,
+        description: 'Compassionate and trained baby care specialists ensuring your little ones are in safe and nurturing hands.'
+      },
+      {
+        name: 'Patient Care',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/sahdasdi.png`,
+        description: 'Supportive home-based patient and elderly care services provided by experienced, empathetic caregivers.'
+      },
     ]
   },
   {

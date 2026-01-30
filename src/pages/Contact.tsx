@@ -199,30 +199,67 @@ export function Contact() {
         </div>
 
         {/* Map Section */}
-        <div className="mt-16 overflow-hidden rounded-3xl shadow-xl border border-slate-200">
-          <div className="bg-slate-50 p-4 border-b border-slate-200 flex items-center justify-between">
-            <h3 className="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center gap-2">
-              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-              Visit Our Office
-            </h3>
-            <a
-              href="https://www.google.com/maps/dir//hindustan+security+services,+second+floor,+Ramu+enclave,+Eluru+Rd,+opp.+srr+govt+college,+Maruthi+Nagar,+Machavaram,+Vijayawada,+Andhra+Pradesh+520004"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold text-primary-blue hover:underline"
-            >
-              Get Directions
-            </a>
+        <div className="mt-16 grid gap-8 md:grid-cols-2">
+          {/* Head Office - Visakhapatnam */}
+          <div className="overflow-hidden rounded-3xl shadow-xl border border-slate-200">
+            <div className="bg-slate-50 p-4 border-b border-slate-200 flex items-center justify-between">
+              <h3 className="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center gap-2">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                Head Office - Vizag
+              </h3>
+              <a
+                href="https://www.google.com/maps/dir//36-18-8,+new+reddy+kancharapalem,visakhapatnam,530008"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-primary-blue hover:underline"
+              >
+                Get Directions
+              </a>
+            </div>
+            <div className="w-full h-[300px] bg-slate-100">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.0886!2d83.3108!3d17.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39433333333333%3A0x3333333333333333!2s36-18-8%2C%20new%20reddy%20kancharapalem%2C%20Visakhapatnam%2C%20530008!5e0!3m2!1sen!2sin!4v1716968800000!5m2!1sen!2sin"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Head Office Visakhapatnam Location"
+              ></iframe>
+            </div>
+            <div className="p-4 bg-white text-xs text-slate-600">
+              36-18-8, new reddy kancharapalem, visakhapatnam, 530008
+            </div>
           </div>
-          <div className="w-full h-[450px] bg-slate-100">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.213!2d80.6472984!3d16.5186481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5170e69a2cd%3A0x3ce69ce2cbbad450!2sHindustan%20Security%20Services!5e0!3m2!1sen!2sin!4v1716968800000!5m2!1sen!2sin"
-              className="w-full h-full border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Hindustan Security Services Location"
-            ></iframe>
+
+          {/* Branch Office - Vijayawada */}
+          <div className="overflow-hidden rounded-3xl shadow-xl border border-slate-200">
+            <div className="bg-slate-50 p-4 border-b border-slate-200 flex items-center justify-between">
+              <h3 className="font-bold text-slate-800 uppercase tracking-wider text-xs flex items-center gap-2">
+                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                Branch Office - Vijayawada
+              </h3>
+              <a
+                href="https://www.google.com/maps/dir//hindustan+security+services,+second+floor,+Ramu+enclave,+Eluru+Rd,+opp.+srr+govt+college,+Maruthi+Nagar,+Machavaram,+Vijayawada,+Andhra+Pradesh+520004"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-bold text-primary-blue hover:underline"
+              >
+                Get Directions
+              </a>
+            </div>
+            <div className="w-full h-[300px] bg-slate-100">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.213!2d80.6472984!3d16.5186481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5170e69a2cd%3A0x3ce69ce2cbbad450!2sHindustan%20Security%20Services!5e0!3m2!1sen!2sin!4v1716968800000!5m2!1sen!2sin"
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Branch Office Vijayawada Location"
+              ></iframe>
+            </div>
+            <div className="p-4 bg-white text-xs text-slate-600">
+              Second Floor, Ramu Enclave, Eluru Rd, Machavaram, Vijayawada, 520004
+            </div>
           </div>
         </div>
       </SectionShell>

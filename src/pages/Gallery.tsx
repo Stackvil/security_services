@@ -23,6 +23,16 @@ const trainingImages = [
     { src: `${import.meta.env.BASE_URL ?? '/'}images/training/bbe20275-f113-4bd6-92c0-5d9e4013d5c8.jpg`, alt: 'Training Session 10' },
 ];
 
+const policeTrainingImages = [
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/2.jpeg`, alt: 'Police Training Session 1' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/3.jpeg`, alt: 'Police Training Session 2' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/4.jpeg`, alt: 'Police Training Session 3' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/5.jpeg`, alt: 'Police Training Session 4' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/6.jpeg`, alt: 'Police Training Session 5' },
+];
+
+const leaderPhoto = `${import.meta.env.BASE_URL ?? '/'}images/training/police/idub.png`;
+
 export function Gallery() {
     return (
         <main className="min-h-screen bg-white">
@@ -39,6 +49,112 @@ export function Gallery() {
                     alt="Training & Operations"
                     className="w-full h-auto object-contain block"
                 />
+            </section>
+
+            {/* Lead Trainer Section */}
+            <section className="py-20 bg-slate-50">
+                <div className="container-custom">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                            {/* Trainer Photo */}
+                            <div className="relative group max-w-sm mx-auto lg:mx-0">
+                                <div className="absolute -inset-4 bg-primary-green/20 rounded-[3rem] blur-2xl group-hover:bg-primary-green/30 transition-all duration-700"></div>
+                                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white aspect-square">
+                                    <img
+                                        src={leaderPhoto}
+                                        alt="Lead Trainer"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                                        <h3 className="text-2xl font-black text-white uppercase tracking-tight">ASI Ramanjaneya (Retd.)</h3>
+                                        <p className="text-primary-green font-bold uppercase tracking-widest text-xs mt-1">Lead Trainer / Ex-CRPF Officer</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Introduction */}
+                            <div className="space-y-8">
+                                <div className="space-y-4">
+                                    <div className="inline-block px-4 py-1.5 bg-primary-green/10 rounded-full">
+                                        <span className="text-[10px] font-black text-primary-green uppercase tracking-[0.25em]">Expert Instruction</span>
+                                    </div>
+                                    <h2 className="text-4xl lg:text-5xl font-black text-primary-blue uppercase tracking-tight leading-none">
+                                        Training by <br /> <span className="text-primary-green">ASI Ramanjaneya.</span>
+                                    </h2>
+                                    <p className="text-slate-600 text-lg leading-relaxed">
+                                        Our training programs are spearheaded by **ASI Ramanjaneya (Retd.)**, a highly decorated veteran of the **Central Reserve Police Force (CRPF)**. With nearly 30 years of distinguished service (1992–2021) in tactical response and General Duty operations, he brings military-grade discipline and unmatched field expertise to our security force.
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                                        <div className="text-primary-green font-black text-2xl mb-1">29 Years</div>
+                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">CRPF Service</div>
+                                    </div>
+                                    <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                                        <div className="text-primary-green font-black text-2xl mb-1">140 BN</div>
+                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Military Unit</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Certificate Reference */}
+                        <div className="grid md:grid-cols-2 gap-10 items-center bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm mb-20">
+                            <div>
+                                <h3 className="text-2xl font-black text-primary-blue uppercase tracking-tight mb-4">A Legacy of Service</h3>
+                                <p className="text-slate-600 leading-relaxed mb-6">
+                                    Enlisted in 1992, ASI Ramanjaneya served with distinction across various challenging environments in India. His voluntary retirement in 2021 marked the end of a long career defined by loyalty, duty, and professional excellence.
+                                </p>
+                                <ul className="space-y-3">
+                                    <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
+                                        Joined CRPF: 06-12-1992
+                                    </li>
+                                    <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
+                                        Rank: Assistant Sub-Inspector (ASI/GD)
+                                    </li>
+                                    <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
+                                        Honorably Discharged: 31-10-2021
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="relative group rounded-2xl overflow-hidden border-4 border-slate-50 shadow-lg">
+                                <img
+                                    src={`${import.meta.env.BASE_URL ?? '/'}images/training/police/3.jpeg`}
+                                    alt="CRPF Certificate of Service"
+                                    className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                    <span className="text-white font-black uppercase tracking-[0.2em] text-[10px] bg-primary-blue/80 px-4 py-2 rounded-full">Official Credentials</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Remaining Police Training Images */}
+                        <div className="space-y-8">
+                            <div className="flex items-center gap-4">
+                                <div className="h-px flex-grow bg-slate-200"></div>
+                                <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Training Drills & Operations</h4>
+                                <div className="h-px flex-grow bg-slate-200"></div>
+                            </div>
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                                {policeTrainingImages.map((img, idx) => (
+                                    <div key={idx} className="group relative overflow-hidden rounded-2xl shadow-sm aspect-[4/3] bg-white border border-slate-100">
+                                        <img
+                                            src={img.src}
+                                            alt={img.alt}
+                                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-primary-blue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <div className="py-24">

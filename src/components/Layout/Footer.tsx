@@ -60,7 +60,12 @@ export function Footer() {
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
               <MapPin size={20} className="text-primary-green mt-1 flex-shrink-0" />
-              <span className="text-sm">Second Floor, Ramu Enclave, Eluru Rd, Opp. SRR Govt College, Maruthi Nagar, Machavaram, Vijayawada, Andhra Pradesh 520004</span>
+              <div className="text-sm">
+                <p className="font-bold text-white mb-1">Head Office:</p>
+                <p>36-18-8, new reddy kancharapalem, visakhapatnam, 530008</p>
+                <p className="font-bold text-white mt-2 mb-1">Branch Office:</p>
+                <p>Second Floor, Ramu Enclave, Eluru Rd, Vijayawada, 520004</p>
+              </div>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={20} className="text-primary-green flex-shrink-0" />
