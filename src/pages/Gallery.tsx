@@ -55,9 +55,9 @@ export function Gallery() {
             <section className="py-20 bg-slate-50">
                 <div className="container-custom">
                     <div className="max-w-6xl mx-auto">
-                        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                        <div className="grid lg:grid-cols-2 gap-10 md:gap-12 items-center mb-16 md:mb-20">
                             {/* Trainer Photo */}
-                            <div className="relative group max-w-sm mx-auto lg:mx-0">
+                            <div className="relative group max-w-[280px] sm:max-w-sm mx-auto lg:mx-0">
                                 <div className="absolute -inset-4 bg-primary-green/20 rounded-[3rem] blur-2xl group-hover:bg-primary-green/30 transition-all duration-700"></div>
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white aspect-square">
                                     <img
@@ -180,7 +180,7 @@ export function Gallery() {
 
                         {/* Video Section */}
                         <div className="max-w-5xl mx-auto">
-                            <div className="relative group rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-white bg-slate-50 aspect-video">
+                            <div className="relative group rounded-3xl md:rounded-[2.5rem] overflow-hidden shadow-2xl border-4 md:border-[12px] border-white bg-slate-50 aspect-video">
                                 <video
                                     className="w-full h-full object-cover"
                                     controls
@@ -189,9 +189,9 @@ export function Gallery() {
                                     <source src={`${import.meta.env.BASE_URL ?? '/'}images/../videos/1.mp4`} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
-                                <div className="absolute top-8 left-8 flex items-center gap-3 bg-black/60 backdrop-blur-xl px-5 py-2.5 rounded-full border border-white/20">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></div>
-                                    <span className="text-[10px] font-black text-white uppercase tracking-[0.25em]">Session Live</span>
+                                <div className="absolute top-4 left-4 md:top-8 md:left-8 flex items-center gap-2 md:gap-3 bg-black/60 backdrop-blur-xl px-3 md:px-5 py-1.5 md:py-2.5 rounded-full border border-white/20">
+                                    <div className="w-2 md:w-2.5 h-2 md:h-2.5 rounded-full bg-red-500 animate-pulse"></div>
+                                    <span className="text-[8px] md:text-[10px] font-black text-white uppercase tracking-[0.25em]">Session Live</span>
                                 </div>
                             </div>
                             <div className="flex justify-center mt-8">
@@ -360,8 +360,8 @@ export function Gallery() {
                 </section>
 
                 {/* Final Call to Action Section */}
-                <section className="container-custom pb-20">
-                    <div className="bg-primary-blue text-white p-16 rounded-[4rem] text-center shadow-2xl relative overflow-hidden group">
+                <section className="container-custom pb-16 md:pb-20">
+                    <div className="bg-primary-blue text-white p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[4rem] text-center shadow-2xl relative overflow-hidden group">
                         <div className="relative z-10">
                             <h2 className="text-4xl font-black mb-6 tracking-tight">Experience Unrivalled Protection</h2>
                             <p className="text-xl opacity-80 mb-10 max-w-2xl mx-auto font-medium">

@@ -18,8 +18,8 @@ export function About() {
       >
         <div className="space-y-8">
           {/* Leadership Cards - Horizontal Layout */}
-          <div className="grid gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
-            <div className="flex items-center gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
+          <div className="grid gap-6 md:gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
               <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
                 <img
                   src={`${import.meta.env.BASE_URL ?? '/'}images/85.png`}
@@ -82,20 +82,20 @@ export function About() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
-                <p className="text-4xl font-black text-primary-blue">100%</p>
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
+                <p className="text-3xl sm:text-4xl font-black text-primary-blue">100%</p>
                 <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Compliance</p>
               </div>
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-blue/20">
-                <p className="text-4xl font-black text-primary-blue">Digital</p>
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-blue/20">
+                <p className="text-3xl sm:text-4xl font-black text-primary-blue">Digital</p>
                 <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Tracking</p>
               </div>
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-accent-yellow/20">
-                <p className="text-4xl font-black text-primary-blue">24/7</p>
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-accent-yellow/20">
+                <p className="text-3xl sm:text-4xl font-black text-primary-blue">24/7</p>
                 <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Response</p>
               </div>
-              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
-                <p className="text-4xl font-black text-primary-blue">Ex-SM</p>
+              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
+                <p className="text-3xl sm:text-4xl font-black text-primary-blue">Ex-SM</p>
                 <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Managed</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ export function About() {
       {/* Compliance Transition Section */}
       <section className="pb-24 pt-8">
         <div className="container-custom">
-          <div className="bg-slate-900 rounded-[3rem] p-12 md:p-16 relative overflow-hidden group shadow-2xl">
+          <div className="bg-slate-900 rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-16 relative overflow-hidden group shadow-2xl">
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
               <div className="max-w-xl text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-black text-white mb-6 uppercase tracking-tight leading-none">

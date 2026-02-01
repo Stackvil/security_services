@@ -57,15 +57,15 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-8">
 
           {/* Left Side: Side Logo & Branding */}
-          <div className="flex-shrink-0 hidden md:flex items-center gap-6 group">
+          <div className="flex-shrink-0 hidden md:flex items-center gap-4 lg:gap-6 group">
             <img
               src={`${import.meta.env.BASE_URL ?? '/'}images/sidelogo.png`}
               alt="Side Logo"
-              className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-12 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105"
             />
             <div className="flex flex-col justify-center">
-              <span className="text-primary-blue font-black text-2xl lg:text-4xl tracking-tighter leading-none">HINDUSTAN</span>
-              <span className="text-primary-green font-bold text-xs lg:text-sm tracking-[0.2em] uppercase opacity-90 mt-1">Security Services</span>
+              <span className="text-primary-blue font-black text-xl lg:text-4xl tracking-tighter leading-none">HINDUSTAN</span>
+              <span className="text-primary-green font-bold text-[10px] lg:text-sm tracking-[0.2em] uppercase opacity-90 mt-1">Security Services</span>
             </div>
           </div>
 
@@ -95,7 +95,7 @@ export function Navbar() {
           <div className="flex items-center gap-6 flex-shrink-0">
             {/* Branding - Strictly on the Right */}
             <Link to="/" className="flex items-center group">
-              <img src={logoSrc} alt="Logo" className="h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
+              <img src={logoSrc} alt="Logo" className="h-12 md:h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105" />
             </Link>
 
             <button
