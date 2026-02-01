@@ -10,8 +10,8 @@ interface SEOProps {
 
 export function SEO({
     title,
-    description = "Hindustan - Trusted Security & Facility Management Services in Vijayawada.",
-    keywords = "security services, housekeeping, vijayawada, facility management, guards",
+    description = "Hindustan Security Services - Providing the best security service and best cleaning service in Visakhapatnam and Vijayawada.",
+    keywords = "best security service Visakhapatnam, best cleaning service Vijayawada, security guards, housekeeping, facility management",
     canonical,
     type = 'website'
 }: SEOProps) {
