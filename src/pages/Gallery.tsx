@@ -301,6 +301,64 @@ export function Gallery() {
                     </div>
                 </SectionShell>
 
+                {/* All-Encompassing Security Expertise Section */}
+                <section className="py-24 bg-slate-50">
+                    <div className="container-custom">
+                        <div className="max-w-6xl mx-auto">
+                            <div className="grid lg:grid-cols-2 gap-16 items-center">
+                                <div className="order-2 lg:order-1 space-y-8">
+                                    <div className="space-y-4">
+                                        <div className="inline-block px-4 py-1.5 bg-primary-blue/10 rounded-full">
+                                            <span className="text-[10px] font-black text-primary-blue uppercase tracking-[0.25em]">Holistic Protection</span>
+                                        </div>
+                                        <h2 className="text-4xl md:text-5xl font-black text-primary-blue uppercase tracking-tight leading-none">
+                                            Complete Security <br /> <span className="text-primary-green">Mastery.</span>
+                                        </h2>
+                                        <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                                            Training is only as good as the mission it serves. At Hindustan Security, we provide **all types of security services**, ensuring our personnel are cross-trained for diverse environments.
+                                        </p>
+                                    </div>
+
+                                    <div className="space-y-6">
+                                        <div className="flex gap-4 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <div className="w-12 h-12 rounded-2xl bg-primary-green/10 flex items-center justify-center flex-shrink-0">
+                                                <div className="w-3 h-3 rounded-full bg-primary-green"></div>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-lg font-black text-slate-900 uppercase tracking-tight">Technical Surveillance</h4>
+                                                <p className="text-sm text-slate-500">Mastery over high-end CCTV systems, motion sensors, and digital access control protocols.</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-4 p-6 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                                            <div className="w-12 h-12 rounded-2xl bg-primary-blue/10 flex items-center justify-center flex-shrink-0">
+                                                <div className="w-3 h-3 rounded-full bg-primary-blue"></div>
+                                            </div>
+                                            <div>
+                                                <h4 className="text-lg font-black text-slate-900 uppercase tracking-tight">Tactical Guarding</h4>
+                                                <p className="text-sm text-slate-500">From bank security to residential protection, our guards follow military-grade SOPs.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="order-1 lg:order-2 relative group">
+                                    <div className="absolute -inset-4 bg-primary-green/20 rounded-[3rem] blur-2xl group-hover:bg-primary-green/30 transition-all duration-700"></div>
+                                    <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white aspect-[4/5]">
+                                        <img
+                                            src={`${import.meta.env.BASE_URL ?? '/'}images/training/security_services_montage.png`}
+                                            alt="Comprehensive Security Services Montage"
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-10">
+                                            <span className="text-white font-black uppercase tracking-[0.2em] text-xs">All Types of Security Services</span>
+                                            <p className="text-white/80 text-sm mt-2 font-medium">Integrated Protection for Every Sector</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Final Call to Action Section */}
                 <section className="container-custom pb-20">
                     <div className="bg-primary-blue text-white p-16 rounded-[4rem] text-center shadow-2xl relative overflow-hidden group">

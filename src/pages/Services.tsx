@@ -190,6 +190,26 @@ export function Services() {
         </div>
       </section>
 
+      {/* Services Highlight Banner */}
+      <section className="bg-primary-green py-8">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+            <div className="flex items-center gap-4">
+              <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+                <Shield className="text-white" size={32} />
+              </div>
+              <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">
+                We provide <span className="text-primary-blue">all types</span> of security services.
+              </h2>
+            </div>
+            <div className="h-px w-24 bg-white/30 hidden md:block"></div>
+            <p className="text-white/90 font-bold uppercase tracking-widest text-xs max-w-xs">
+              Manned Guarding • CCTV Monitoring • Industrial Patrol • Executive Protection
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 lg:py-32">
         <div className="container-custom">
           {!selectedCategory ? (

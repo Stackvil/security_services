@@ -103,6 +103,41 @@ export function About() {
         </div>
       </SectionShell>
 
+      {/* Comprehensive Services Highlight */}
+      <section className="py-24 bg-white">
+        <div className="container-custom text-center">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <div className="space-y-4">
+              <div className="inline-block px-4 py-1.5 bg-primary-green/10 rounded-full">
+                <span className="text-[10px] font-black text-primary-green uppercase tracking-[0.25em]">One-Stop Solution</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-primary-blue uppercase tracking-tight">
+                We provide <span className="text-primary-green">all types</span> of security services.
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                From elite manned guarding and industrial patrolling to digital surveillance and executive protection, our ex-serviceman managed teams cover the entire spectrum of security and safety needs.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {[
+                "Residential Guarding",
+                "Industrial Security",
+                "Event Management",
+                "ATM & Bank Protection",
+                "Executive Protection",
+                "CCTV Monitoring"
+              ].map((service, index) => (
+                <div key={index} className="flex items-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all group">
+                  <div className="w-2 h-2 rounded-full bg-primary-green group-hover:scale-150 transition-transform"></div>
+                  <span className="text-sm font-black text-slate-700 uppercase tracking-wide">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Compliance Transition Section */}
       <section className="pb-24 pt-8">
         <div className="container-custom">
