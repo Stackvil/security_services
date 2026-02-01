@@ -54,7 +54,7 @@ export function TermsOfService() {
 
                     <h2 className="text-slate-900">8. Contact Information</h2>
                     <p>
-                        If you have any questions about these Terms of Service, please contact us at info@hindustansecurityjobs.com.
+                        If you have any questions about these Terms of Service, please contact us at info@hindusthansecurityjobs.com.
                     </p>
                 </div>
             </SectionShell>

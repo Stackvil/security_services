@@ -176,9 +176,9 @@ export function Services() {
   return (
     <main className="pt-24 min-h-screen bg-gray-50">
       <SEO
-        title="Our Services | Hindustan Security"
-        description="Explore our comprehensive security and cleaning services in Vijayawada. Expert solutions for residential and corporate needs."
-        keywords="security services vijayawada, home deep cleaning, housekeeping services, manpower supply"
+        title="Best Security & Cleaning Services | Hindustan Security"
+        description="Professional security guards and top-tier housekeeping across Visakhapatnam and Vijayawada. Explore our mission-critical protection and deep cleaning solutions."
+        keywords="best security service, best cleaning service, security guards Visakhapatnam, housekeeping Vijayawada, Hindustan Security"
       />
 
       <section className="bg-primary-blue text-white py-16 text-center">

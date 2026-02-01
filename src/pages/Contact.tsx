@@ -45,9 +45,9 @@ export function Contact() {
   return (
     <main className="pt-24">
       <SEO
-        title="Contact Us - Security Agency Vijayawada"
-        description="Get in touch with Hindustan for security assessments and quotes. 24/7 Control Room: +91 90595 01501."
-        keywords="contact security agency, security quote Vijayawada, control room number, security office address"
+        title="Contact Best Security & Cleaning Service | Hindustan"
+        description="Get in touch for the best security and cleaning services in Visakhapatnam and Vijayawada. 24/7 Control Room: +91 90595 01501."
+        keywords="contact security service, contact cleaning service, security quote Vijayawada, cleaning quote Visakhapatnam"
       />
       <SectionShell
         eyebrow="Contact"
@@ -170,7 +170,7 @@ export function Contact() {
               <p className="text-slate-600">
                 Email:{' '}
                 <span className="font-semibold text-slate-900">
-                  info@hindustansecurityjobs.com
+                  info@hindusthansecurityjobs.com
                 </span>
               </p>
               <p className="mt-3 text-xs text-slate-500">
@@ -190,7 +190,7 @@ export function Contact() {
               <p className="mt-2 text-xs text-slate-500">
                 Share your CV on{' '}
                 <span className="font-semibold text-slate-900">
-                  info@hindustansecurityjobs.com
+                  info@hindusthansecurityjobs.com
                 </span>{' '}
                 or walk-in to our branch office between 10:00am and 5:00pm.
               </p>

@@ -7,9 +7,9 @@ export function About() {
   return (
     <main className="pt-12">
       <SEO
-        title="About Us - Security Experts in Vijayawada"
-        description="Providing professional security guard services and risk management advisory in Vijayawada since 2012. 350+ deployed guards."
-        keywords="about security company, security experience Vijayawada, manned guarding experts, risk management advisory"
+        title="Best Security & Cleaning Services in Visakhapatnam & Vijayawada"
+        description="Hindustan Security Services provides the best security service and best cleaning service in Visakhapatnam and Vijayawada. Expert security guards and professional housekeeping."
+        keywords="best security service Visakhapatnam, best cleaning service Vijayawada, security guards, housekeeping, Hindustan Security Services"
       />
       <SectionShell
         eyebrow="Leadership & Expertise"
