@@ -45,7 +45,7 @@ export function PrivacyPolicy() {
 
                     <h2 className="text-slate-900">5. Contact Us</h2>
                     <p>
-                        If you have any questions about this Privacy Policy, please contact us at info@hindusthansecurityjobs.com.
+                        If you have any questions about this Privacy Policy, please contact us at info@hindustansecurityjobs.com.
                     </p>
                 </div>
             </SectionShell>

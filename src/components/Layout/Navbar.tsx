@@ -37,9 +37,9 @@ export function Navbar() {
               <Phone size={16} fill="currentColor" />
               <span>+91 90595 01501</span>
             </a>
-            <a href="mailto:info@hindusthansecurityjobs.com" className="flex items-center gap-2 hover:text-accent-yellow transition-colors">
+            <a href="mailto:info@hindustansecurityjobs.com" className="flex items-center gap-2 hover:text-accent-yellow transition-colors">
               <Mail size={16} />
-              <span>info@hindusthansecurityjobs.com</span>
+              <span>info@hindustansecurityjobs.com</span>
             </a>
           </div>
           <div className="flex items-center gap-4">

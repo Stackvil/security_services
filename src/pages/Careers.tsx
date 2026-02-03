@@ -103,7 +103,7 @@ export function Careers() {
                             </ul>
                             <div className="mt-8 pt-6 border-t">
                                 <p className="text-sm text-gray-500 mb-4">Send your resume directly to:</p>
-                                <a href="mailto:info@hindusthansecurityjobs.com" className="block w-full bg-accent-yellow text-dark-text text-center font-bold py-3 rounded uppercase hover:bg-opacity-90 transition inline-block">
+                                <a href="mailto:info@hindustansecurityjobs.com" className="block w-full bg-accent-yellow text-dark-text text-center font-bold py-3 rounded uppercase hover:bg-opacity-90 transition inline-block">
                                     Email Resume
                                 </a>
                             </div>

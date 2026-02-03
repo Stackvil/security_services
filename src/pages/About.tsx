@@ -34,7 +34,7 @@ export function About() {
               </div>
             </div>
 
-            <div className="flex items-center gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
               <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
                 <img
                   src={`${import.meta.env.BASE_URL ?? '/'}images/86.png`}
