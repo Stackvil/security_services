@@ -34,6 +34,7 @@ export function Footer() {
             <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Manpower Supply</Link></li>
             <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Facility Management</Link></li>
             <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Event Security</Link></li>
+            <li><Link to="/services" className="flex items-center hover:text-primary-green transition-colors"><ChevronRight size={16} className="text-primary-green mr-2" />Hospital Security</Link></li>
           </ul>
         </div>
 

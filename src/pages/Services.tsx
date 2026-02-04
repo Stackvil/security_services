@@ -141,6 +141,12 @@ const pricingData: PricingCategory[] = [
         image: `${import.meta.env.BASE_URL ?? '/'}images/services/industrial estate patrol.jpg`,
         description: 'Perimeter protection and access control for large industrial sites with perimeter mobile patrols.'
       },
+      {
+        name: 'Hospital Security Services',
+        price: 'Contact for Quote',
+        image: `${import.meta.env.BASE_URL ?? '/'}images/services/hospital-security.png`,
+        description: 'Specialized healthcare security ensuring patient safety, asset protection, and 24/7 emergency response protocols within medical facilities.'
+      },
     ]
   },
   {

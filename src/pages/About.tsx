@@ -126,7 +126,8 @@ export function About() {
                 "Event Management",
                 "ATM & Bank Protection",
                 "Executive Protection",
-                "CCTV Monitoring"
+                "CCTV Monitoring",
+                "Hospital Security"
               ].map((service, index) => (
                 <div key={index} className="flex items-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all group">
                   <div className="w-2 h-2 rounded-full bg-primary-green group-hover:scale-150 transition-transform"></div>

@@ -8,6 +8,7 @@ const galleryImages = [
     { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`, alt: 'Housekeeping Staff', category: 'Housekeeping' },
     { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Residential Security.jpg`, alt: 'Residential Security', category: 'Security' },
     { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Deep Cleaning.jpg`, alt: 'Deep Cleaning', category: 'Cleaning' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/services/hospital-security.png`, alt: 'Hospital Security', category: 'Security' },
 ];
 
 const trainingImages = [

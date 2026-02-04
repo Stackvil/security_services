@@ -16,6 +16,11 @@ const solutions = [
     title: 'Warehouse & Logistics Security',
     copy: 'Dock security, yard management, GPS tracking and route monitoring for high-value goods.',
     tag: 'Logistics'
+  },
+  {
+    title: 'Healthcare Security Solutions',
+    copy: 'Custom security protocols for hospitals and clinics, focusing on sterile environment control and 24-hour patient safety.',
+    tag: 'Healthcare'
   }
 ];
 
