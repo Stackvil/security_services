@@ -31,6 +31,13 @@ const policeTrainingImages = [
     { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/6.jpeg`, alt: 'Pensioner\'s Identity Card' },
 ];
 
+const functionDutiesImages = [
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/1.png`, alt: 'Function Duty 1' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/2.jpeg`, alt: 'Function Duty 2' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/3.jpeg`, alt: 'Function Duty 3' },
+    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/4.jpeg`, alt: 'Function Duty 4' },
+];
+
 const leaderPhoto = `${import.meta.env.BASE_URL ?? '/'}images/training/police/idub.png`;
 
 export function Gallery() {
@@ -141,6 +148,32 @@ export function Gallery() {
                                         <div className="absolute inset-0 bg-primary-blue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                     </div>
                                 ))}
+                            </div>
+
+                            {/* Function Duties Section */}
+                            <div className="space-y-8 pt-12">
+                                <div className="flex items-center gap-4">
+                                    <div className="h-px flex-grow bg-slate-200"></div>
+                                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Function Duties</h4>
+                                    <div className="h-px flex-grow bg-slate-200"></div>
+                                </div>
+                                <div className="max-w-3xl mx-auto text-center">
+                                    <p className="text-slate-600 leading-relaxed">
+                                        We provide comprehensive security management for functions, events, and private gatherings. Our specialized event security teams ensure smooth crowd control, VIP protection, and incident management, allowing you to focus on your guests while we ensure complete safety.
+                                    </p>
+                                </div>
+                                <div className="flex flex-wrap justify-center gap-8 px-4">
+                                    {functionDutiesImages.map((img, idx) => (
+                                        <div key={idx} className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[4/3] bg-white border border-slate-100 w-full sm:w-[320px] lg:w-[400px]">
+                                            <img
+                                                src={img.src}
+                                                alt={img.alt}
+                                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                            />
+                                            <div className="absolute inset-0 bg-primary-blue/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -371,6 +404,6 @@ export function Gallery() {
                     </div>
                 </section>
             </div>
-        </main>
+        </main >
     );
 }
