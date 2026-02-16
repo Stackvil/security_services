@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react';
 import { SEO } from '../components/SEO';
 import { Shield, Sparkles, BookOpen, Briefcase, Plus, Trash2, Edit2, Save, X, LogOut, Image, Video, Link as LinkIcon, ExternalLink, Copy, Download, ShieldCheck, RefreshCw } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import servicesData from '../data/services.json';
+import trainingData from '../data/training.json';
+import blogData from '../data/blog.json';
+import careersData from '../data/careers.json';
+import testimonialsData from '../data/testimonials.json';
 
 const ADMIN_PASSWORD = 'admin123';
 
@@ -48,18 +53,20 @@ export function Admin() {
     const [error, setError] = useState('');
     const [activeTab, setActiveTab] = useState<'services' | 'training' | 'blog' | 'careers' | 'testimonials'>('services');
 
-    const [services, setServices] = useState<any[]>([]);
-    const [training, setTraining] = useState<any>(null);
-    const [blog, setBlog] = useState<any[]>([]);
-    const [careers, setCareers] = useState<any[]>([]);
-    const [testimonials, setTestimonials] = useState<any[]>([]);
+    const [services, setServices] = useState<any[]>(servicesData);
+    const [training, setTraining] = useState<any>(trainingData);
+    const [blog, setBlog] = useState<any[]>(blogData);
+    const [careers, setCareers] = useState<any[]>(careersData);
+    const [testimonials, setTestimonials] = useState<any[]>(testimonialsData);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const loggedIn = sessionStorage.getItem('admin_logged_in');
         if (loggedIn) setIsLoggedIn(true);
 
         const loadData = async () => {
-            const fetchTable = async (key: string, defaultImport: any) => {
+            setIsLoading(true);
+            const fetchTable = async (key: string, defaultData: any) => {
                 try {
                     const { data, error } = await supabase
                         .from('site_content')
@@ -72,20 +79,19 @@ export function Admin() {
                     const saved = localStorage.getItem(key);
                     if (saved) return JSON.parse(saved);
 
-                    const mod = await defaultImport();
-                    return mod.default;
+                    return defaultData;
                 } catch (e) {
                     console.error(`Error loading ${key}:`, e);
-                    const mod = await defaultImport();
-                    return mod.default;
+                    return defaultData;
                 }
             }
 
-            setServices(await fetchTable('services_data', () => import('../data/services.json')));
-            setTraining(await fetchTable('training_data', () => import('../data/training.json')));
-            setBlog(await fetchTable('blog_data', () => import('../data/blog.json')));
-            setCareers(await fetchTable('careers_data', () => import('../data/careers.json')));
-            setTestimonials(await fetchTable('testimonials_data', () => import('../data/testimonials.json')));
+            setServices(await fetchTable('services_data', servicesData));
+            setTraining(await fetchTable('training_data', trainingData));
+            setBlog(await fetchTable('blog_data', blogData));
+            setCareers(await fetchTable('careers_data', careersData));
+            setTestimonials(await fetchTable('testimonials_data', testimonialsData));
+            setIsLoading(false);
         };
 
         loadData();
@@ -173,7 +179,15 @@ export function Admin() {
                         </div>
                         <div>
                             <h1 className="text-3xl font-black text-primary-blue uppercase tracking-tight leading-none">Administration</h1>
-                            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] mt-2">Central Content Management System</p>
+                            <p className="text-slate-400 font-bold uppercase tracking-widest text-[10px] mt-2">
+                                {isLoading ? (
+                                    <span className="flex items-center gap-2 text-primary-green animate-pulse">
+                                        <RefreshCw size={12} className="animate-spin" /> Synchronizing with Supabase...
+                                    </span>
+                                ) : (
+                                    "Central Content Management System"
+                                )}
+                            </p>
                         </div>
                     </div>
                     <div className="flex gap-4">
