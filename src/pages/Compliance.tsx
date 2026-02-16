@@ -1,8 +1,20 @@
 import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
 import { ShieldCheck, Activity, Smartphone, CreditCard, ClipboardCheck, Clock } from 'lucide-react';
+import complianceData from '../data/compliance.json';
+
+const iconMap: any = {
+    ShieldCheck, Activity, Smartphone, CreditCard, ClipboardCheck, Clock
+};
+
+const getInitialData = () => {
+    const saved = localStorage.getItem('compliance_data');
+    return saved ? JSON.parse(saved) : complianceData;
+};
 
 export function Compliance() {
+    const data = getInitialData();
+
     return (
         <main className="pt-24 min-h-screen bg-white">
             <SEO
@@ -26,22 +38,18 @@ export function Compliance() {
                 subtitle="Hindustan Security maintains 100% adherence to national and regional statutory requirements, ensuring peace of mind for our clients."
             >
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {[
-                        { icon: Clock, title: 'ESI/PF Discipline', desc: 'All statutory deposits (ESI/PF) are made before the due date, ensuring 100% transparency.' },
-                        { icon: ShieldCheck, title: 'Gold Category', desc: 'Awarded Gold Category Certification from the Ministry of Finance (2017-2018).' },
-                        { icon: ClipboardCheck, title: 'PF Committee', desc: 'Active member of the Regional PF Committee, driving industry standards.' },
-                        { icon: Activity, title: 'Highest GST', desc: 'Consistently the highest GST payer in the region within our sector.' },
-                        { icon: Smartphone, title: 'Live Dashboards', desc: 'ECR of compliance readily available for client review on a per-site basis.' },
-                        { icon: ShieldCheck, title: 'Insurance Coverage', desc: 'Comprehensive coverage up to 3 Lacs for accident, death, and disability.' },
-                    ].map((item, idx) => (
-                        <div key={idx} className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-lg transition-all group">
-                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-green transition-colors">
-                                <item.icon className="text-primary-blue group-hover:text-white transition-colors" size={24} />
+                    {data.statutory.map((item: any, idx: number) => {
+                        const Icon = iconMap[item.icon] || ShieldCheck;
+                        return (
+                            <div key={idx} className="p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:shadow-lg transition-all group">
+                                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-green transition-colors">
+                                    <Icon className="text-primary-blue group-hover:text-white transition-colors" size={24} />
+                                </div>
+                                <h3 className="text-lg font-black text-slate-900 mb-3 uppercase tracking-tight">{item.title}</h3>
+                                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
                             </div>
-                            <h3 className="text-lg font-black text-slate-900 mb-3 uppercase tracking-tight">{item.title}</h3>
-                            <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </SectionShell>
 
@@ -53,12 +61,7 @@ export function Compliance() {
                 >
                     <div className="grid md:grid-cols-2 gap-12">
                         <div className="space-y-8">
-                            {[
-                                { title: 'iPad Enrollment', desc: 'On-site enrollment through dedicated iPads by well-trained officials.' },
-                                { title: 'Same Day Wages', desc: 'Online transfer of wages through our dedicated in-house bank portal.' },
-                                { title: 'CPTED Audit', desc: 'Randall L. Atlas Code compliant environment design audits.' },
-                                { title: '100% Cashless', desc: 'Transparent, accountable, and 100% cashless facility management.' },
-                            ].map((item, idx) => (
+                            {data.operational.map((item: any, idx: number) => (
                                 <div key={idx} className="flex gap-6 items-start">
                                     <div className="w-1.5 h-12 bg-primary-green rounded-full opacity-40"></div>
                                     <div>
@@ -70,16 +73,7 @@ export function Compliance() {
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
-                            {[
-                                '100% Digital facility',
-                                'Digital Guard Patrolling',
-                                'SOP Proforma',
-                                'Anti-Bribery Proforma',
-                                'Uniform Articles',
-                                'Client Feedback',
-                                'CCTV Capsule',
-                                'On-Site BSB'
-                            ].map((item) => (
+                            {data.tags.map((item: string) => (
                                 <div key={item} className="p-4 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-3">
                                     <div className="w-2 h-2 rounded-full bg-primary-green"></div>
                                     {item}

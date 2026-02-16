@@ -1,16 +1,34 @@
+import { useState, useEffect } from 'react';
 import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
-
+import { supabase } from '../lib/supabase';
 import blogDataRaw from '../data/blog.json';
 
-const getInitialData = () => {
-    const saved = localStorage.getItem('blog_data');
-    return saved ? JSON.parse(saved) : blogDataRaw;
-};
-
-const blogData = getInitialData();
-
 export function Blog() {
+    const [blogData, setBlogData] = useState<any[]>(blogDataRaw);
+
+    useEffect(() => {
+        const loadContent = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('site_content')
+                    .select('content')
+                    .eq('key', 'blog_data')
+                    .single();
+
+                if (data?.content) {
+                    setBlogData(data.content);
+                } else {
+                    const saved = localStorage.getItem('blog_data');
+                    if (saved) setBlogData(JSON.parse(saved));
+                }
+            } catch (e) {
+                console.error('Error loading blog data:', e);
+            }
+        };
+        loadContent();
+    }, []);
+
     return (
         <main className="pt-24 min-h-screen bg-white">
             <SEO

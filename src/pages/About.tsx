@@ -1,9 +1,34 @@
+import { useState, useEffect } from 'react';
 import { SectionShell } from '../components/Sections/SectionShell';
-
-
 import { SEO } from '../components/SEO';
+import { supabase } from '../lib/supabase';
+import aboutData from '../data/about.json';
 
 export function About() {
+  const [data, setData] = useState<any>(aboutData);
+
+  useEffect(() => {
+    const loadContent = async () => {
+      try {
+        const { data: dbData, error } = await supabase
+          .from('site_content')
+          .select('content')
+          .eq('key', 'about_data')
+          .single();
+
+        if (dbData?.content) {
+          setData(dbData.content);
+        } else {
+          const saved = localStorage.getItem('about_data');
+          if (saved) setData(JSON.parse(saved));
+        }
+      } catch (e) {
+        console.error('Error loading about data:', e);
+      }
+    };
+    loadContent();
+  }, []);
+
   return (
     <main className="pt-12">
       <SEO
@@ -19,35 +44,22 @@ export function About() {
         <div className="space-y-8">
           {/* Leadership Cards - Horizontal Layout */}
           <div className="grid gap-6 md:gap-8 lg:grid-cols-2 max-w-6xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
-              <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
-                <img
-                  src={`${import.meta.env.BASE_URL ?? '/'}images/85.png`}
-                  alt="B. Dharma Rao"
-                  className="w-full h-full object-cover"
-                />
+            {data.leadership.map((leader: any, idx: number) => (
+              <div key={idx} className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
+                <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
+                  <img
+                    src={leader.image}
+                    alt={leader.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-2xl font-black text-slate-900 leading-tight uppercase">{leader.name}</h3>
+                  <p className="text-[11px] font-bold text-primary-blue uppercase tracking-[0.25em] mt-3 mb-4 opacity-70">{leader.role}</p>
+                  <div className="h-1 w-12 bg-primary-green rounded-full opacity-60"></div>
+                </div>
               </div>
-              <div className="flex-grow">
-                <h3 className="text-2xl font-black text-slate-900 leading-tight">B. DHARMA RAO</h3>
-                <p className="text-[11px] font-bold text-primary-blue uppercase tracking-[0.25em] mt-3 mb-4 opacity-70">Ex. Serviceman</p>
-                <div className="h-1 w-12 bg-primary-green rounded-full opacity-60"></div>
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 shadow-sm transition-all hover:shadow-md hover:bg-white group">
-              <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 flex-shrink-0 transition-transform group-hover:scale-105">
-                <img
-                  src={`${import.meta.env.BASE_URL ?? '/'}images/86.png`}
-                  alt="Y. Rangarao"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="flex-grow">
-                <h3 className="text-2xl font-black text-slate-900 leading-tight">Y. RANGARAO</h3>
-                <p className="text-[11px] font-bold text-primary-blue uppercase tracking-[0.25em] mt-3 mb-4 opacity-70">Ex. Serviceman</p>
-                <div className="h-1 w-12 bg-primary-green rounded-full opacity-60"></div>
-              </div>
-            </div>
+            ))}
           </div>
 
           {/* Main Description - Now below */}
@@ -82,22 +94,12 @@ export function About() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
-                <p className="text-3xl sm:text-4xl font-black text-primary-blue">100%</p>
-                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Compliance</p>
-              </div>
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-blue/20">
-                <p className="text-3xl sm:text-4xl font-black text-primary-blue">Digital</p>
-                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Tracking</p>
-              </div>
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-accent-yellow/20">
-                <p className="text-3xl sm:text-4xl font-black text-primary-blue">24/7</p>
-                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Response</p>
-              </div>
-              <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
-                <p className="text-3xl sm:text-4xl font-black text-primary-blue">Ex-SM</p>
-                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">Managed</p>
-              </div>
+              {data.stats.map((stat: any, idx: number) => (
+                <div key={idx} className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm text-center transition-all hover:shadow-lg hover:border-primary-green/20">
+                  <p className="text-3xl sm:text-4xl font-black text-primary-blue">{stat.value}</p>
+                  <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 mt-3">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -120,15 +122,7 @@ export function About() {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {[
-                "Residential Guarding",
-                "Industrial Security",
-                "Event Management",
-                "ATM & Bank Protection",
-                "Executive Protection",
-                "CCTV Monitoring",
-                "Hospital Security"
-              ].map((service, index) => (
+              {data.servicesList.map((service: string, index: number) => (
                 <div key={index} className="flex items-center gap-3 p-5 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-all group">
                   <div className="w-2 h-2 rounded-full bg-primary-green group-hover:scale-150 transition-transform"></div>
                   <span className="text-sm font-black text-slate-700 uppercase tracking-wide">{service}</span>

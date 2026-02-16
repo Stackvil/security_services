@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { SEO } from '../components/SEO';
-import { Shield, Sparkles, BookOpen, Briefcase, Plus, Trash2, Edit2, Save, X, LogOut, Image, Video, Link as LinkIcon, ExternalLink, Copy, Download } from 'lucide-react';
+import { Shield, Sparkles, BookOpen, Briefcase, Plus, Trash2, Edit2, Save, X, LogOut, Image, Video, Link as LinkIcon, ExternalLink, Copy, Download, ShieldCheck, RefreshCw } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 const ADMIN_PASSWORD = 'admin123';
 
@@ -45,45 +46,46 @@ export function Admin() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [activeTab, setActiveTab] = useState<'services' | 'training' | 'blog' | 'careers'>('services');
+    const [activeTab, setActiveTab] = useState<'services' | 'training' | 'blog' | 'careers' | 'testimonials'>('services');
 
     const [services, setServices] = useState<any[]>([]);
     const [training, setTraining] = useState<any>(null);
     const [blog, setBlog] = useState<any[]>([]);
     const [careers, setCareers] = useState<any[]>([]);
+    const [testimonials, setTestimonials] = useState<any[]>([]);
 
     useEffect(() => {
         const loggedIn = sessionStorage.getItem('admin_logged_in');
         if (loggedIn) setIsLoggedIn(true);
 
         const loadData = async () => {
-            const savedServices = localStorage.getItem('services_data');
-            if (savedServices) setServices(JSON.parse(savedServices));
-            else {
-                const data = await import('../data/services.json');
-                setServices(data.default);
+            const fetchTable = async (key: string, defaultImport: any) => {
+                try {
+                    const { data, error } = await supabase
+                        .from('site_content')
+                        .select('content')
+                        .eq('key', key)
+                        .single();
+
+                    if (data?.content) return data.content;
+
+                    const saved = localStorage.getItem(key);
+                    if (saved) return JSON.parse(saved);
+
+                    const mod = await defaultImport();
+                    return mod.default;
+                } catch (e) {
+                    console.error(`Error loading ${key}:`, e);
+                    const mod = await defaultImport();
+                    return mod.default;
+                }
             }
 
-            const savedTraining = localStorage.getItem('training_data');
-            if (savedTraining) setTraining(JSON.parse(savedTraining));
-            else {
-                const data = await import('../data/training.json');
-                setTraining(data.default);
-            }
-
-            const savedBlog = localStorage.getItem('blog_data');
-            if (savedBlog) setBlog(JSON.parse(savedBlog));
-            else {
-                const data = await import('../data/blog.json');
-                setBlog(data.default);
-            }
-
-            const savedCareers = localStorage.getItem('careers_data');
-            if (savedCareers) setCareers(JSON.parse(savedCareers));
-            else {
-                const data = await import('../data/careers.json');
-                setCareers(data.default);
-            }
+            setServices(await fetchTable('services_data', () => import('../data/services.json')));
+            setTraining(await fetchTable('training_data', () => import('../data/training.json')));
+            setBlog(await fetchTable('blog_data', () => import('../data/blog.json')));
+            setCareers(await fetchTable('careers_data', () => import('../data/careers.json')));
+            setTestimonials(await fetchTable('testimonials_data', () => import('../data/testimonials.json')));
         };
 
         loadData();
@@ -105,9 +107,16 @@ export function Admin() {
         sessionStorage.removeItem('admin_logged_in');
     };
 
-    const saveData = (key: string, data: any) => {
+    const saveData = async (key: string, data: any) => {
         localStorage.setItem(key, JSON.stringify(data));
         window.dispatchEvent(new Event('storage'));
+        try {
+            await supabase
+                .from('site_content')
+                .upsert({ key, content: data });
+        } catch (e) {
+            console.error('Supabase sync error:', e);
+        }
     };
 
     const getImagePath = (path: string) => {
@@ -179,9 +188,10 @@ export function Admin() {
 
                 <div className="flex flex-wrap gap-3 mb-12 p-2 bg-white rounded-3xl shadow-sm border border-slate-200 inline-flex">
                     <TabButton active={activeTab === 'services'} onClick={() => setActiveTab('services')} icon={<Sparkles size={20} />} label="Services" />
-                    <TabButton active={activeTab === 'training'} onClick={() => setActiveTab('training')} icon={<Image size={20} />} label="Training" />
+                    <TabButton active={activeTab === 'training'} onClick={() => setActiveTab('training')} icon={<Image size={20} />} label="Gallery" />
                     <TabButton active={activeTab === 'blog'} onClick={() => setActiveTab('blog')} icon={<BookOpen size={20} />} label="Blog" />
                     <TabButton active={activeTab === 'careers'} onClick={() => setActiveTab('careers')} icon={<Briefcase size={20} />} label="Careers" />
+                    <TabButton active={activeTab === 'testimonials'} onClick={() => setActiveTab('testimonials')} icon={<ExternalLink size={20} />} label="Feedback" />
                 </div>
 
                 <div className="bg-white rounded-[3rem] shadow-xl shadow-slate-200 border border-slate-100 overflow-hidden">
@@ -211,11 +221,18 @@ export function Admin() {
                                     <DownloadButton data={careers} label="Careers" />
                                 </div>
                             )}
+                            {activeTab === 'testimonials' && (
+                                <div className="flex gap-2">
+                                    <CopyButton data={testimonials} label="Testimonials" />
+                                    <DownloadButton data={testimonials} label="Testimonials" />
+                                </div>
+                            )}
                         </div>
                         {activeTab === 'services' && <ServicesManager data={services} onSave={(d: any) => { setServices(d); saveData('services_data', d); }} getImagePath={getImagePath} />}
                         {activeTab === 'training' && training && <TrainingManager data={training} onSave={(d: any) => { setTraining(d); saveData('training_data', d); }} getImagePath={getImagePath} />}
                         {activeTab === 'blog' && <BlogManager data={blog} onSave={(d: any) => { setBlog(d); saveData('blog_data', d); }} getImagePath={getImagePath} />}
                         {activeTab === 'careers' && <CareersManager data={careers} onSave={(d: any) => { setCareers(d); saveData('careers_data', d); }} />}
+                        {activeTab === 'testimonials' && <TestimonialsManager data={testimonials} onSave={(d: any) => { setTestimonials(d); saveData('testimonials_data', d); }} />}
                     </div>
                 </div>
             </div>
@@ -236,28 +253,38 @@ function TabButton({ active, onClick, icon, label }: any) {
 
 function ServicesManager({ data, onSave, getImagePath }: any) {
     const addService = (catIdx: number) => {
-        const newData = [...data];
-        newData[catIdx].items.unshift({
-            name: "New Service Offering",
-            price: "Contact for Quote",
-            image: "/images/services/Specialized Cleaning.jpg",
-            description: "Provide a detailed description of the new service here."
-        });
-        onSave(newData);
+        onSave(data.map((cat: any, cIdx: number) =>
+            cIdx === catIdx
+                ? {
+                    ...cat, items: [{
+                        name: "New Service Offering",
+                        price: "Contact for Quote",
+                        image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=1000",
+                        description: "Provide a detailed description of the new service here."
+                    }, ...cat.items]
+                }
+                : cat
+        ));
     };
 
     const deleteService = (catIdx: number, itemIdx: number) => {
-        if (confirm("Delete this service?")) {
-            const newData = [...data];
-            newData[catIdx].items.splice(itemIdx, 1);
-            onSave(newData);
-        }
+        onSave(data.map((cat: any, cIdx: number) =>
+            cIdx === catIdx
+                ? { ...cat, items: cat.items.filter((_: any, iIdx: number) => iIdx !== itemIdx) }
+                : cat
+        ));
     };
 
     const updateService = (catIdx: number, itemIdx: number, field: string, value: string) => {
-        const newData = JSON.parse(JSON.stringify(data));
-        newData[catIdx].items[itemIdx][field] = value;
-        onSave(newData);
+        onSave(data.map((cat: any, cIdx: number) =>
+            cIdx === catIdx
+                ? {
+                    ...cat, items: cat.items.map((item: any, iIdx: number) =>
+                        iIdx === itemIdx ? { ...item, [field]: value } : item
+                    )
+                }
+                : cat
+        ));
     };
 
     return (
@@ -333,37 +360,96 @@ function TrainingManager({ data, onSave, getImagePath }: any) {
         onSave({ ...data, trainer: { ...data.trainer, [field]: value } });
     };
 
-    const addTrainingItem = () => {
-        const newData = { ...data };
-        if (!newData.trainingImages) newData.trainingImages = [];
-        newData.trainingImages.unshift({
-            src: "/images/training/1.jpeg",
-            alt: "New Training Event",
-            description: "Describe the training activity here..."
+    const addImageItem = (listKey: string) => {
+        const newItem = {
+            src: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1000",
+            alt: "New Image Entry",
+            ...(listKey === 'galleryImages' ? { category: 'General' } : {})
+        };
+        onSave({
+            ...data,
+            [listKey]: [newItem, ...(data[listKey] || [])]
         });
-        onSave(newData);
     };
 
-    const deleteTrainingItem = (idx: number) => {
-        if (confirm("Remove this training item?")) {
-            const newData = { ...data };
-            newData.trainingImages.splice(idx, 1);
-            onSave(newData);
-        }
+    const deleteImageItem = (listKey: string, idx: number) => {
+        onSave({
+            ...data,
+            [listKey]: (data[listKey] || []).filter((_: any, i: number) => i !== idx)
+        });
     };
 
-    const updateTrainingItem = (idx: number, field: string, value: string) => {
-        const newData = JSON.parse(JSON.stringify(data));
-        newData.trainingImages[idx][field] = value;
-        onSave(newData);
+    const updateImageItem = (listKey: string, idx: number, field: string, value: string) => {
+        onSave({
+            ...data,
+            [listKey]: (data[listKey] || []).map((item: any, i: number) =>
+                i === idx ? { ...item, [field]: value } : item
+            )
+        });
     };
+
+    const updateVideo = (field: string, value: string) => {
+        onSave({ ...data, video: { ...data.video, [field]: value } });
+    };
+
+    const ImageList = ({ title, listKey, showCategory = false }: any) => (
+        <section className="space-y-8 pt-12 border-t border-slate-100">
+            <div className="flex justify-between items-center">
+                <div>
+                    <h2 className="text-2xl font-black text-primary-blue uppercase tracking-tight">{title}</h2>
+                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mt-1">Manage image assets for {title}</p>
+                </div>
+                <button onClick={() => addImageItem(listKey)} className="flex items-center gap-2 px-6 py-3 bg-primary-blue text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black transition-all">
+                    <Plus size={18} /> Add New Image
+                </button>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {(data[listKey] || []).map((item: any, idx: number) => (
+                    <div key={idx} className="p-6 bg-slate-50 rounded-[2rem] border border-slate-200 relative group hover:bg-white hover:shadow-xl transition-all">
+                        <button onClick={() => deleteImageItem(listKey, idx)} className="absolute top-4 right-4 p-2 bg-red-50 text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-red-500 hover:text-white z-10">
+                            <Trash2 size={16} />
+                        </button>
+                        <div className="aspect-video rounded-xl overflow-hidden mb-4 bg-slate-200 border border-slate-100 shadow-sm">
+                            <img src={getImagePath(item.src)} alt="" className="w-full h-full object-cover" />
+                        </div>
+                        <div className="space-y-3">
+                            <input
+                                type="text"
+                                value={item.src}
+                                onChange={(e) => updateImageItem(listKey, idx, 'src', e.target.value)}
+                                className="w-full text-[10px] bg-white rounded p-1.5 focus:outline-none text-slate-900 border border-slate-200"
+                                placeholder="Image URL / Path"
+                            />
+                            <input
+                                type="text"
+                                value={item.alt}
+                                onChange={(e) => updateImageItem(listKey, idx, 'alt', e.target.value)}
+                                className="w-full bg-transparent font-bold text-xs border-b border-transparent focus:border-primary-blue focus:outline-none text-slate-900"
+                                placeholder="Alt Text / Title"
+                            />
+                            {showCategory && (
+                                <input
+                                    type="text"
+                                    value={item.category}
+                                    onChange={(e) => updateImageItem(listKey, idx, 'category', e.target.value)}
+                                    className="w-full bg-white text-[9px] font-black uppercase tracking-widest text-primary-green px-2 py-1 rounded border border-slate-200 focus:outline-none"
+                                    placeholder="Category"
+                                />
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
 
     return (
         <div className="space-y-20">
-            <section className="bg-slate-50 p-10 rounded-[3rem] border border-slate-200">
+            {/* Lead Trainer */}
+            <section className="bg-slate-50 p-10 rounded-[3rem] border border-slate-200 shadow-sm">
                 <div className="flex items-center gap-4 border-b border-slate-200 pb-6 mb-8">
                     <Edit2 className="text-primary-blue" size={24} />
-                    <h2 className="text-2xl font-black text-primary-blue uppercase tracking-tight">Main Trainer</h2>
+                    <h2 className="text-2xl font-black text-primary-blue uppercase tracking-tight">Lead Trainer Identity</h2>
                 </div>
                 <div className="grid lg:grid-cols-3 gap-10">
                     <div className="lg:col-span-1 space-y-6">
@@ -379,7 +465,7 @@ function TrainingManager({ data, onSave, getImagePath }: any) {
                             value={data.trainer.photo}
                             onChange={(e) => updateTrainer('photo', e.target.value)}
                             className="w-full p-3 rounded-xl border border-slate-200 focus:outline-none font-mono text-[10px] text-slate-900"
-                            placeholder="Photo Path"
+                            placeholder="Photo URL / Path"
                         />
                     </div>
                     <div className="lg:col-span-2 space-y-6">
@@ -407,56 +493,49 @@ function TrainingManager({ data, onSave, getImagePath }: any) {
                 </div>
             </section>
 
-            <section className="space-y-10">
-                <div className="flex justify-between items-center border-b border-slate-100 pb-6">
-                    <div>
-                        <h2 className="text-2xl font-black text-primary-blue uppercase tracking-tight">Training Programs</h2>
-                        <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mt-1">Pictures & Matter</p>
-                    </div>
-                    <button onClick={addTrainingItem} className="flex items-center gap-2 px-6 py-3 bg-primary-blue text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black transition-all shadow-lg shadow-primary-blue/20">
-                        <Plus size={18} /> Add Training Picture
-                    </button>
+            {/* Video Section */}
+            <section className="bg-slate-900 text-white p-10 rounded-[3rem] border border-white/10 shadow-2xl">
+                <div className="flex items-center gap-4 border-b border-white/10 pb-6 mb-8">
+                    <Video className="text-red-500" size={24} />
+                    <h2 className="text-2xl font-black uppercase tracking-tight">Protocol Video</h2>
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                    {(data.trainingImages || []).map((item: any, idx: number) => (
-                        <div key={idx} className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200 relative group hover:bg-white hover:shadow-xl transition-all duration-500">
-                            <button onClick={() => deleteTrainingItem(idx)} className="absolute top-6 right-6 p-2 bg-red-50 text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-red-500 hover:text-white z-10">
-                                <Trash2 size={18} />
-                            </button>
-                            <div className="flex gap-6">
-                                <div className="w-40 flex-shrink-0 space-y-4">
-                                    <div className="aspect-square rounded-2xl overflow-hidden bg-slate-200 border-2 border-slate-100 shadow-md">
-                                        <img src={getImagePath(item.src)} alt="" className="w-full h-full object-cover" />
-                                    </div>
-                                    <input
-                                        type="text"
-                                        value={item.src}
-                                        onChange={(e) => updateTrainingItem(idx, 'src', e.target.value)}
-                                        className="w-full text-[10px] bg-white rounded p-1.5 focus:outline-none text-slate-900 border border-slate-200"
-                                        placeholder="Image Path"
-                                    />
-                                </div>
-                                <div className="flex-grow space-y-4">
-                                    <input
-                                        type="text"
-                                        value={item.alt}
-                                        onChange={(e) => updateTrainingItem(idx, 'alt', e.target.value)}
-                                        className="w-full bg-transparent font-black text-lg border-b border-transparent focus:border-primary-blue focus:outline-none text-slate-900"
-                                        placeholder="Heading / Title"
-                                    />
-                                    <textarea
-                                        value={item.description || ''}
-                                        onChange={(e) => updateTrainingItem(idx, 'description', e.target.value)}
-                                        className="w-full bg-transparent text-sm text-slate-600 focus:outline-none resize-none h-24"
-                                        placeholder="Training matter / description..."
-                                    />
-                                </div>
-                            </div>
+                <div className="grid md:grid-cols-2 gap-10">
+                    <div className="space-y-6">
+                        <div>
+                            <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Video Source URL (.mp4)</label>
+                            <input
+                                type="text"
+                                value={data.video?.src}
+                                onChange={(e) => updateVideo('src', e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-xs font-mono focus:outline-none focus:border-red-500 transition-colors"
+                                placeholder="https://example.com/video.mp4"
+                            />
                         </div>
-                    ))}
+                        <div>
+                            <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Video Poster URL (Thumbnail)</label>
+                            <input
+                                type="text"
+                                value={data.video?.poster}
+                                onChange={(e) => updateVideo('poster', e.target.value)}
+                                className="w-full bg-white/5 border border-white/10 rounded-xl p-4 text-xs font-mono focus:outline-none focus:border-red-500 transition-colors"
+                                placeholder="https://example.com/poster.jpg"
+                            />
+                        </div>
+                    </div>
+                    <div className="aspect-video rounded-3xl overflow-hidden border-4 border-white/10 bg-black flex items-center justify-center">
+                        {data.video?.src ? (
+                            <video src={data.video.src} className="w-full h-full object-cover" poster={data.video.poster} muted autoPlay loop />
+                        ) : (
+                            <Video size={48} className="text-white/20" />
+                        )}
+                    </div>
                 </div>
             </section>
+
+            <ImageList title="Main Gallery" listKey="galleryImages" showCategory={true} />
+            <ImageList title="Training Sessions" listKey="trainingImages" />
+            <ImageList title="Police Training" listKey="policeTrainingImages" />
+            <ImageList title="Function Duties" listKey="functionDutiesImages" />
         </div>
     );
 }
@@ -467,7 +546,7 @@ function BlogManager({ data, onSave, getImagePath }: any) {
             id: Date.now(),
             title: "New Blog Insight",
             description: "Detailed summary of the blog post to be displayed on the grid card.",
-            image: type === 'photo' ? "/images/blog/5 Essential Security Tips for Your Home.jpg" : undefined,
+            image: type === 'photo' ? "https://images.unsplash.com/photo-1584433144859-1fc3ab84a9ec?q=80&w=1000" : undefined,
             videoUrl: type === 'video' ? "https://www.youtube.com/watch?v=dQw4w9WgXcQ" : undefined,
             category: "Updates",
             readTime: "4 Min Read",
@@ -478,9 +557,7 @@ function BlogManager({ data, onSave, getImagePath }: any) {
     };
 
     const deletePost = (id: number) => {
-        if (confirm("Delete this blog post?")) {
-            onSave(data.filter((p: any) => p.id !== id));
-        }
+        onSave(data.filter((p: any) => p.id !== id));
     };
 
     const updatePost = (id: number, field: string, value: string) => {
@@ -570,30 +647,40 @@ function BlogManager({ data, onSave, getImagePath }: any) {
 
 function CareersManager({ data, onSave }: any) {
     const addJob = (catIdx: number) => {
-        const newData = [...data];
-        newData[catIdx].jobs.unshift({
-            id: `job-${Date.now()}`,
-            title: "Executive Role Title",
-            type: "Full-time",
-            location: "Vijayawada Hub",
-            desc: "Briefly outline the responsibilities and daily operations for this new position.",
-            requirements: ["Minimum 2 years field experience", "Professional certification in security management"]
-        });
-        onSave(newData);
+        onSave(data.map((cat: any, cIdx: number) =>
+            cIdx === catIdx
+                ? {
+                    ...cat, jobs: [{
+                        id: `job-${Date.now()}`,
+                        title: "Executive Role Title",
+                        type: "Full-time",
+                        location: "Vijayawada Hub",
+                        desc: "Briefly outline the responsibilities and daily operations for this new position.",
+                        requirements: ["Minimum 2 years field experience", "Professional certification in security management"]
+                    }, ...cat.jobs]
+                }
+                : cat
+        ));
     };
 
     const deleteJob = (catIdx: number, jobIdx: number) => {
-        if (confirm("Permanently remove this job listing?")) {
-            const newData = [...data];
-            newData[catIdx].jobs.splice(jobIdx, 1);
-            onSave(newData);
-        }
+        onSave(data.map((cat: any, cIdx: number) =>
+            cIdx === catIdx
+                ? { ...cat, jobs: cat.jobs.filter((_: any, idx: number) => idx !== jobIdx) }
+                : cat
+        ));
     };
 
     const updateJob = (catIdx: number, jobIdx: number, field: string, value: any) => {
-        const newData = JSON.parse(JSON.stringify(data));
-        newData[catIdx].jobs[jobIdx][field] = value;
-        onSave(newData);
+        onSave(data.map((cat: any, cIdx: number) =>
+            cIdx === catIdx
+                ? {
+                    ...cat, jobs: cat.jobs.map((job: any, idx: number) =>
+                        idx === jobIdx ? { ...job, [field]: value } : job
+                    )
+                }
+                : cat
+        ));
     };
 
     return (
@@ -665,3 +752,63 @@ function CareersManager({ data, onSave }: any) {
         </div>
     );
 }
+
+function TestimonialsManager({ data, onSave }: any) {
+    const addTestimonial = () => {
+        onSave([{ name: "New Client", role: "CEO, CompanyName", quote: "Highly professional service..." }, ...data]);
+    };
+
+    const deleteTestimonial = (idx: number) => {
+        onSave(data.filter((_: any, i: number) => i !== idx));
+    };
+
+    const updateTestimonial = (idx: number, field: string, value: string) => {
+        onSave(data.map((t: any, i: number) =>
+            i === idx ? { ...t, [field]: value } : t
+        ));
+    };
+
+    return (
+        <div className="space-y-10">
+            <div className="flex justify-between items-center border-b border-slate-100 pb-6">
+                <h2 className="text-2xl font-black text-primary-blue uppercase tracking-tight">Client Feedback</h2>
+                <button onClick={addTestimonial} className="flex items-center gap-2 px-6 py-3 bg-primary-blue text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black transition-all">
+                    <Plus size={18} /> Add New Testimonial
+                </button>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+                {data.map((t: any, idx: number) => (
+                    <div key={idx} className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-200 relative group hover:bg-white hover:shadow-xl transition-all">
+                        <button onClick={() => deleteTestimonial(idx)} className="absolute top-6 right-6 p-2 bg-red-50 text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-red-500 hover:text-white z-10">
+                            <Trash2 size={18} />
+                        </button>
+                        <div className="space-y-4">
+                            <input
+                                type="text"
+                                value={t.name}
+                                onChange={(e) => updateTestimonial(idx, 'name', e.target.value)}
+                                className="w-full bg-transparent font-black text-xl border-b border-transparent focus:border-primary-blue focus:outline-none text-slate-900"
+                                placeholder="Client Name"
+                            />
+                            <input
+                                type="text"
+                                value={t.role}
+                                onChange={(e) => updateTestimonial(idx, 'role', e.target.value)}
+                                className="w-full bg-transparent text-primary-green font-bold text-xs border-b border-transparent focus:border-primary-green focus:outline-none"
+                                placeholder="Role / Designation"
+                            />
+                            <textarea
+                                value={t.quote}
+                                onChange={(e) => updateTestimonial(idx, 'quote', e.target.value)}
+                                className="w-full bg-transparent text-sm text-slate-600 focus:outline-none resize-none h-24"
+                                placeholder="Testimonial quote..."
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+

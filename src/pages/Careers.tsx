@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SEO } from '../components/SEO';
 import { ChevronDown, ChevronUp, Briefcase, MapPin, Clock } from 'lucide-react';
-
+import { supabase } from '../lib/supabase';
 import careersDataRaw from '../data/careers.json';
 
 interface Job {
@@ -18,14 +18,31 @@ interface JobCategory {
     jobs: Job[];
 }
 
-const getInitialData = () => {
-    const saved = localStorage.getItem('careers_data');
-    return saved ? JSON.parse(saved) : careersDataRaw;
-};
-
-const jobOpenings: JobCategory[] = getInitialData();
-
 export function Careers() {
+    const [jobOpenings, setJobOpenings] = useState<JobCategory[]>(careersDataRaw as JobCategory[]);
+
+    useEffect(() => {
+        const loadContent = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('site_content')
+                    .select('content')
+                    .eq('key', 'careers_data')
+                    .single();
+
+                if (data?.content) {
+                    setJobOpenings(data.content);
+                } else {
+                    const saved = localStorage.getItem('careers_data');
+                    if (saved) setJobOpenings(JSON.parse(saved));
+                }
+            } catch (e) {
+                console.error('Error loading careers data:', e);
+            }
+        };
+        loadContent();
+    }, []);
+
     return (
         <main className="bg-gray-50 min-h-screen pb-20">
             <SEO

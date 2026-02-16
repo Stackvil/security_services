@@ -1,24 +1,49 @@
+import { useState, useEffect } from 'react';
 import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
-
+import { supabase } from '../lib/supabase';
 import trainingDataRaw from '../data/training.json';
 
-const getInitialData = () => {
-    const saved = localStorage.getItem('training_data');
-    return saved ? JSON.parse(saved) : trainingDataRaw;
+const getImagePath = (path: string) => {
+    if (!path) return '';
+    if (path.startsWith('http') || path.startsWith('https') || path.startsWith('data:')) {
+        return path;
+    }
+    return `${import.meta.env.BASE_URL ?? '/'}${path.startsWith('/') ? path.slice(1) : path}`;
 };
 
-const trainingData = getInitialData();
-const galleryImages = trainingData.galleryImages;
-const trainingImages = trainingData.trainingImages;
-const policeTrainingImages = trainingData.policeTrainingImages;
-const functionDutiesImages = trainingData.functionDutiesImages;
-const leaderPhoto = trainingData.trainer.photo;
-const trainerInfo = trainingData.trainer;
-const videoInfo = trainingData.video;
-
-
 export function Gallery() {
+    const [trainingData, setTrainingData] = useState<any>(trainingDataRaw);
+
+    useEffect(() => {
+        const loadContent = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('site_content')
+                    .select('content')
+                    .eq('key', 'training_data')
+                    .single();
+
+                if (data?.content) {
+                    setTrainingData(data.content);
+                } else {
+                    const saved = localStorage.getItem('training_data');
+                    if (saved) setTrainingData(JSON.parse(saved));
+                }
+            } catch (e) {
+                console.error('Error loading gallery data:', e);
+            }
+        };
+        loadContent();
+    }, []);
+
+    const galleryImages = trainingData.galleryImages || [];
+    const trainingImages = trainingData.trainingImages || [];
+    const policeTrainingImages = trainingData.policeTrainingImages || [];
+    const functionDutiesImages = trainingData.functionDutiesImages || [];
+    const leaderPhoto = getImagePath(trainingData.trainer?.photo || '');
+    const trainerInfo = trainingData.trainer || { name: '', stats: [] };
+    const videoInfo = trainingData.video || { url: '', title: '', description: '' };
     return (
         <main className="min-h-screen bg-white">
             <SEO

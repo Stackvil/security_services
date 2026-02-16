@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
 import { CheckCircle, Shield, Sparkles, ArrowLeft } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 type PricingItem = {
   name: string;
@@ -21,16 +22,32 @@ type PricingCategory = {
 
 import servicesData from '../data/services.json';
 
-const getInitialData = () => {
-  const saved = localStorage.getItem('services_data');
-  return saved ? JSON.parse(saved) : servicesData;
-};
-
-const pricingData: PricingCategory[] = getInitialData();
-
 
 export function Services() {
   const [selectedCategory, setSelectedCategory] = useState<'security' | 'housekeeping' | null>(null);
+  const [pricingData, setPricingData] = useState<PricingCategory[]>(servicesData as PricingCategory[]);
+
+  useEffect(() => {
+    const loadContent = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('site_content')
+          .select('content')
+          .eq('key', 'services_data')
+          .single();
+
+        if (data?.content) {
+          setPricingData(data.content);
+        } else {
+          const saved = localStorage.getItem('services_data');
+          if (saved) setPricingData(JSON.parse(saved));
+        }
+      } catch (e) {
+        console.error('Error loading pricing data:', e);
+      }
+    };
+    loadContent();
+  }, []);
 
   const filteredData = selectedCategory
     ? pricingData.filter((item: any) => item.mainCategory === selectedCategory).map(group => ({

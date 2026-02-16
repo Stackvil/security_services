@@ -1,0 +1,41 @@
+{
+    "leadership": [
+        {
+            "name": "B. DHARMA RAO",
+            "role": "Ex. Serviceman",
+            "image": "/images/85.png"
+        },
+        {
+            "name": "Y. RANGARAO",
+            "role": "Ex. Serviceman",
+            "image": "/images/86.png"
+        }
+    ],
+    "stats": [
+        {
+            "value": "100%",
+            "label": "Compliance"
+        },
+        {
+            "value": "Digital",
+            "label": "Tracking"
+        },
+        {
+            "value": "24/7",
+            "label": "Response"
+        },
+        {
+            "value": "Ex-SM",
+            "label": "Managed"
+        }
+    ],
+    "servicesList": [
+        "Residential Guarding",
+        "Industrial Security",
+        "Event Management",
+        "ATM & Bank Protection",
+        "Executive Protection",
+        "CCTV Monitoring",
+        "Hospital Security"
+    ]
+}
