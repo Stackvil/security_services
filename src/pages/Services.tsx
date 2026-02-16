@@ -19,164 +19,24 @@ type PricingCategory = {
   items: PricingItem[];
 };
 
-const pricingData: PricingCategory[] = [
-  {
-    category: 'Home Deep Cleaning',
-    mainCategory: 'housekeeping',
-    image: `${import.meta.env.BASE_URL ?? '/'}images/services/home deep cleaning.jpg`,
-    icon: Sparkles,
-    color: 'text-primary-blue',
-    items: [
-      {
-        name: 'Villa (Full Deep Clean)',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Deep Cleaning.jpg`,
-        description: 'Comprehensive top-to-bottom sanitation for villas, including floor scrubbing, window cleaning, and high-pressure washing.'
-      },
-      {
-        name: 'Studio Apartment (Up to 400 Sqft)',
-        price: '₹2500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/studio appartement.png`,
-        description: 'Complete studio cleaning with specialized chemicals and high-end equipment for a spot-free finish.'
-      },
-      {
-        name: '1 BHK Apartment (Up to 700 Sqft)',
-        price: '₹3500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/1bhk.png`,
-        description: 'Thorough cleaning of living areas, kitchen, bathroom, and bedroom for medium-sized apartments.'
-      },
-      {
-        name: '2 BHK Apartment (Up to 1100 Sqft)',
-        price: '₹4500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/2bhk apartment (up to 1100 sqft).png`,
-        description: 'Full-service hygiene for 2 BHK units, focusing on high-touch areas and deep flooring sanitation.'
-      },
-      {
-        name: '3 BHK Apartment (Up to 1500 Sqft)',
-        price: '₹5500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/3bhk aparment (up to 1500 sqft).png`,
-        description: 'Elite cleaning protocol for large 3 BHK homes, ensuring every corner meets our high hygiene standards.'
-      },
-      {
-        name: '4 BHK Apartment (Above 1500 Sqft)',
-        price: '₹6500/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/4bhk apparment (above 1500 sqft).png`,
-        description: 'Scale-up cleaning for larger residences, deployed with a 4-member specialized team.'
-      },
-    ]
-  },
-  {
-    category: 'Commercial Cleaning',
-    mainCategory: 'housekeeping',
-    image: `${import.meta.env.BASE_URL ?? '/'}images/services/Specialized Cleaning.jpg`,
-    icon: Sparkles,
-    color: 'text-primary-blue',
-    items: [
-      {
-        name: 'Party/Function Cleanup',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Corporate Event cleaning.jpg`,
-        description: 'Pre and post-event sanitation for banquet halls and convention centers with rapid response teams.'
-      },
-      {
-        name: 'Office Space Cleaning',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/office space cleaning.png`,
-        description: 'Regular maintenance of office premises, including workstations, restrooms, and common areas.'
-      },
-      {
-        name: 'Full Day Helper (9 AM - 6 PM)',
-        price: '₹1200/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/full day helper.png`,
-        description: 'Dedicated housekeeping staff for 8-hour shifts to manage ongoing premises maintenance.'
-      },
-      {
-        name: 'Housemaid (Full Day)',
-        price: '₹1000/-',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`,
-        description: 'Reliable and verified domestic help for comprehensive home management and daily chores.'
-      },
-      {
-        name: 'Baby Care',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/1kn.jpg`,
-        description: 'Compassionate and trained baby care specialists ensuring your little ones are in safe and nurturing hands.'
-      },
-      {
-        name: 'Patient Care',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/sahdasdi.png`,
-        description: 'Supportive home-based patient and elderly care services provided by experienced, empathetic caregivers.'
-      },
-    ]
-  },
-  {
-    category: 'Security Services',
-    mainCategory: 'security',
-    image: `${import.meta.env.BASE_URL ?? '/'}images/services/Security Services.jpg`,
-    icon: Shield,
-    color: 'text-primary-green',
-    items: [
-      {
-        name: 'Residential Security (24/7)',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Residential Security.jpg`,
-        description: 'Round-the-clock manned guarding for residential complexes with visitor tracking and night checks.'
-      },
-      {
-        name: 'Armed Security Briefing',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Security Briefing.webp`,
-        description: 'High-level protection with licensed armed personnel, trained in military-grade crisis response.'
-      },
-      {
-        name: 'ATM/Bank Guarding',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/atm   bank guarding.jpg`,
-        description: 'Specialized security for financial institutions with focus on protocol adherence and vigilance.'
-      },
-      {
-        name: 'Industrial Estate Patrol',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/industrial estate patrol.jpg`,
-        description: 'Perimeter protection and access control for large industrial sites with perimeter mobile patrols.'
-      },
-      {
-        name: 'Hospital Security Services',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/hospital-security.png`,
-        description: 'Specialized healthcare security ensuring patient safety, asset protection, and 24/7 emergency response protocols within medical facilities.'
-      },
-    ]
-  },
-  {
-    category: 'Manpower Outsourcing',
-    mainCategory: 'security', // Mapping to security for discipline
-    image: `${import.meta.env.BASE_URL ?? '/'}images/services/staffing services.avif`,
-    icon: Shield,
-    color: 'text-primary-blue',
-    items: [
-      {
-        name: 'Technical Manpower',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/technical manpower.jpg`,
-        description: 'Provision of skilled technical personnel for specialized industrial and commercial operations.'
-      },
-      {
-        name: 'Labour Supply Services',
-        price: 'Contact for Quote',
-        image: `${import.meta.env.BASE_URL ?? '/'}images/services/labour supply services.jpg`,
-        description: 'Reliable and verified general labour supply for large-scale institutional requirements.'
-      }
-    ]
-  }
-];
+import servicesData from '../data/services.json';
+
+const getInitialData = () => {
+  const saved = localStorage.getItem('services_data');
+  return saved ? JSON.parse(saved) : servicesData;
+};
+
+const pricingData: PricingCategory[] = getInitialData();
+
 
 export function Services() {
   const [selectedCategory, setSelectedCategory] = useState<'security' | 'housekeeping' | null>(null);
 
   const filteredData = selectedCategory
-    ? pricingData.filter(item => item.mainCategory === selectedCategory)
+    ? pricingData.filter((item: any) => item.mainCategory === selectedCategory).map(group => ({
+      ...group,
+      icon: group.mainCategory === 'security' ? Shield : Sparkles
+    }))
     : [];
 
   return (

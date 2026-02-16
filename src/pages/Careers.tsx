@@ -2,58 +2,28 @@ import { useState } from 'react';
 import { SEO } from '../components/SEO';
 import { ChevronDown, ChevronUp, Briefcase, MapPin, Clock } from 'lucide-react';
 
-const jobOpenings = [
-    {
-        category: 'Security Operations',
-        jobs: [
-            {
-                id: 'sec-1',
-                title: 'Security Guard',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Vigilant and disciplined security personnel for corporate and residential sites. Must be physically fit and able to work in shifts.',
-                requirements: ['10th Pass minimum', 'Height 5ft 7in+', 'Age 21-45 years', 'Clean background record']
-            },
-            {
-                id: 'sec-2',
-                title: 'Patrol Driver',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Experienced drivers with valid license for mobile patrol units. Responsible for night patrolling and quick response.',
-                requirements: ['Valid Driving License (LMV/HMV)', 'Minimum 3 years driving experience', 'Knowledge of local routes']
-            },
-            {
-                id: 'sec-3',
-                title: 'Control Room Operator',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Monitoring CCTV feeds and coordinating with field teams. Computer literacy required.',
-                requirements: ['Basic Computer Skills', 'Observation skills', 'Communication skills']
-            }
-        ]
-    },
-    {
-        category: 'Housekeeping & Facility Management',
-        jobs: [
-            {
-                id: 'hk-1',
-                title: 'Housekeeping Supervisor',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Supervise cleaning staff and ensure hygiene standards are met at client sites.',
-                requirements: ['Experience in facility management', 'Team leadership skills']
-            },
-            {
-                id: 'hk-2',
-                title: 'Deep Cleaning Specialist',
-                type: 'Full-time',
-                location: 'Vijayawada',
-                desc: 'Specialized in deep cleaning machinery and techniques for residences and offices.',
-                requirements: ['Experience with cleaning machinery', 'Attention to detail']
-            }
-        ]
-    }
-];
+import careersDataRaw from '../data/careers.json';
+
+interface Job {
+    id: string;
+    title: string;
+    type: string;
+    location: string;
+    desc: string;
+    requirements: string[];
+}
+
+interface JobCategory {
+    category: string;
+    jobs: Job[];
+}
+
+const getInitialData = () => {
+    const saved = localStorage.getItem('careers_data');
+    return saved ? JSON.parse(saved) : careersDataRaw;
+};
+
+const jobOpenings: JobCategory[] = getInitialData();
 
 export function Careers() {
     return (
@@ -132,7 +102,7 @@ export function Careers() {
     );
 }
 
-function JobAccordion({ job }: { job: any }) {
+function JobAccordion({ job }: { job: Job }) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

@@ -1,0 +1,142 @@
+{
+    "trainer": {
+        "name": "ASI Ramanjaneya (Retd.)",
+        "role": "Lead Trainer / Ex-CRPF Officer",
+        "photo": "/images/training/police/idub.png",
+        "description": "Our training programs are spearheaded by **ASI Ramanjaneya (Retd.)**, a highly decorated veteran of the **Central Reserve Police Force (CRPF)**. With nearly 30 years of distinguished service (1992–2021) in tactical response and General Duty operations, he brings military-grade discipline and unmatched field expertise to our security force.",
+        "stats": [
+            {
+                "label": "CRPF Service",
+                "value": "29 Years"
+            },
+            {
+                "label": "Military Unit",
+                "value": "140 BN"
+            }
+        ],
+        "legacy": [
+            "Joined CRPF: 06-12-1992",
+            "Rank: Assistant Sub-Inspector (ASI/GD)",
+            "Honorably Discharged: 31-10-2021"
+        ]
+    },
+    "galleryImages": [
+        {
+            "src": "/images/gallery/Security Briefing.webp",
+            "alt": "Security Briefing",
+            "category": "Training"
+        },
+        {
+            "src": "/images/gallery/CCTV Monitoring.webp",
+            "alt": "CCTV Monitoring",
+            "category": "Technology"
+        },
+        {
+            "src": "/images/gallery/Corporate Event cleaning.jpg",
+            "alt": "Corporate Event",
+            "category": "Events"
+        },
+        {
+            "src": "/images/gallery/Housekeeping Staff.webp",
+            "alt": "Housekeeping Staff",
+            "category": "Housekeeping"
+        },
+        {
+            "src": "/images/gallery/Residential Security.jpg",
+            "alt": "Residential Security",
+            "category": "Security"
+        },
+        {
+            "src": "/images/gallery/Deep Cleaning.jpg",
+            "alt": "Deep Cleaning",
+            "category": "Cleaning"
+        },
+        {
+            "src": "/images/services/hospital-security.png",
+            "alt": "Hospital Security",
+            "category": "Security"
+        }
+    ],
+    "trainingImages": [
+        {
+            "src": "/images/training/1.jpeg",
+            "alt": "Training Session 1"
+        },
+        {
+            "src": "/images/training/2.jpeg",
+            "alt": "Training Session 2"
+        },
+        {
+            "src": "/images/training/3.jpeg",
+            "alt": "Training Session 3"
+        },
+        {
+            "src": "/images/training/4.jpeg",
+            "alt": "Training Session 4"
+        },
+        {
+            "src": "/images/training/5.jpeg",
+            "alt": "Training Session 5"
+        },
+        {
+            "src": "/images/training/6.jpeg",
+            "alt": "Training Session 6"
+        },
+        {
+            "src": "/images/training/7.jpeg",
+            "alt": "Training Session 7"
+        },
+        {
+            "src": "/images/training/8.jpeg",
+            "alt": "Training Session 8"
+        },
+        {
+            "src": "/images/training/9.jpeg",
+            "alt": "Training Session 9"
+        },
+        {
+            "src": "/images/training/bbe20275-f113-4bd6-92c0-5d9e4013d5c8.jpg",
+            "alt": "Training Session 10"
+        }
+    ],
+    "policeTrainingImages": [
+        {
+            "src": "/images/training/police/2.jpeg",
+            "alt": "Police Training Session 1"
+        },
+        {
+            "src": "/images/save.jpeg",
+            "alt": "Police Training Session 2"
+        },
+        {
+            "src": "/images/tradbasub.jpeg",
+            "alt": "Police Training Session 3"
+        },
+        {
+            "src": "/images/training/police/6.jpeg",
+            "alt": "Pensioner's Identity Card"
+        }
+    ],
+    "functionDutiesImages": [
+        {
+            "src": "/images/training/function duties/1.png",
+            "alt": "Function Duty 1"
+        },
+        {
+            "src": "/images/training/function duties/2.jpeg",
+            "alt": "Function Duty 2"
+        },
+        {
+            "src": "/images/training/function duties/3.jpeg",
+            "alt": "Function Duty 3"
+        },
+        {
+            "src": "/images/training/function duties/4.jpeg",
+            "alt": "Function Duty 4"
+        }
+    ],
+    "video": {
+        "src": "/videos/1.mp4",
+        "poster": "/images/training/1.jpeg"
+    }
+}

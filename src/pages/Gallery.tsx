@@ -1,44 +1,22 @@
 import { SEO } from '../components/SEO';
 import { SectionShell } from '../components/Sections/SectionShell';
 
-const galleryImages = [
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Security Briefing.webp`, alt: 'Security Briefing', category: 'Training' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/CCTV Monitoring.webp`, alt: 'CCTV Monitoring', category: 'Technology' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Corporate Event cleaning.jpg`, alt: 'Corporate Event', category: 'Events' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Housekeeping Staff.webp`, alt: 'Housekeeping Staff', category: 'Housekeeping' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Residential Security.jpg`, alt: 'Residential Security', category: 'Security' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/gallery/Deep Cleaning.jpg`, alt: 'Deep Cleaning', category: 'Cleaning' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/services/hospital-security.png`, alt: 'Hospital Security', category: 'Security' },
-];
+import trainingDataRaw from '../data/training.json';
 
-const trainingImages = [
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/1.jpeg`, alt: 'Training Session 1' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/2.jpeg`, alt: 'Training Session 2' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/3.jpeg`, alt: 'Training Session 3' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/4.jpeg`, alt: 'Training Session 4' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/5.jpeg`, alt: 'Training Session 5' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/6.jpeg`, alt: 'Training Session 6' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/7.jpeg`, alt: 'Training Session 7' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/8.jpeg`, alt: 'Training Session 8' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/9.jpeg`, alt: 'Training Session 9' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/bbe20275-f113-4bd6-92c0-5d9e4013d5c8.jpg`, alt: 'Training Session 10' },
-];
+const getInitialData = () => {
+    const saved = localStorage.getItem('training_data');
+    return saved ? JSON.parse(saved) : trainingDataRaw;
+};
 
-const policeTrainingImages = [
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/2.jpeg`, alt: 'Police Training Session 1' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/save.jpeg`, alt: 'Police Training Session 2' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/tradbasub.jpeg`, alt: 'Police Training Session 3' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/police/6.jpeg`, alt: 'Pensioner\'s Identity Card' },
-];
+const trainingData = getInitialData();
+const galleryImages = trainingData.galleryImages;
+const trainingImages = trainingData.trainingImages;
+const policeTrainingImages = trainingData.policeTrainingImages;
+const functionDutiesImages = trainingData.functionDutiesImages;
+const leaderPhoto = trainingData.trainer.photo;
+const trainerInfo = trainingData.trainer;
+const videoInfo = trainingData.video;
 
-const functionDutiesImages = [
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/1.png`, alt: 'Function Duty 1' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/2.jpeg`, alt: 'Function Duty 2' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/3.jpeg`, alt: 'Function Duty 3' },
-    { src: `${import.meta.env.BASE_URL ?? '/'}images/training/function duties/4.jpeg`, alt: 'Function Duty 4' },
-];
-
-const leaderPhoto = `${import.meta.env.BASE_URL ?? '/'}images/training/police/idub.png`;
 
 export function Gallery() {
     return (
@@ -69,12 +47,12 @@ export function Gallery() {
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white aspect-square">
                                     <img
                                         src={leaderPhoto}
-                                        alt="Lead Trainer"
+                                        alt={trainerInfo.name}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
-                                        <h3 className="text-2xl font-black text-white uppercase tracking-tight">ASI Ramanjaneya (Retd.)</h3>
-                                        <p className="text-primary-green font-bold uppercase tracking-widest text-xs mt-1">Lead Trainer / Ex-CRPF Officer</p>
+                                        <h3 className="text-2xl font-black text-white uppercase tracking-tight">{trainerInfo.name}</h3>
+                                        <p className="text-primary-green font-bold uppercase tracking-widest text-xs mt-1">{trainerInfo.role}</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,22 +64,20 @@ export function Gallery() {
                                         <span className="text-[10px] font-black text-primary-green uppercase tracking-[0.25em]">Expert Instruction</span>
                                     </div>
                                     <h2 className="text-4xl lg:text-5xl font-black text-primary-blue uppercase tracking-tight leading-none">
-                                        Training by <br /> <span className="text-primary-green">ASI Ramanjaneya.</span>
+                                        Training by <br /> <span className="text-primary-green">{trainerInfo.name.split(' ')[1]}.</span>
                                     </h2>
                                     <p className="text-slate-600 text-lg leading-relaxed">
-                                        Our training programs are spearheaded by **ASI Ramanjaneya (Retd.)**, a highly decorated veteran of the **Central Reserve Police Force (CRPF)**. With nearly 30 years of distinguished service (1992–2021) in tactical response and General Duty operations, he brings military-grade discipline and unmatched field expertise to our security force.
+                                        {trainerInfo.description}
                                     </p>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-6">
-                                    <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-                                        <div className="text-primary-green font-black text-2xl mb-1">29 Years</div>
-                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">CRPF Service</div>
-                                    </div>
-                                    <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-                                        <div className="text-primary-green font-black text-2xl mb-1">140 BN</div>
-                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Military Unit</div>
-                                    </div>
+                                    {trainerInfo.stats.map((stat: { value: string; label: string; }, i: number) => (
+                                        <div key={i} className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
+                                            <div className="text-primary-green font-black text-2xl mb-1">{stat.value}</div>
+                                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">{stat.label}</div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -111,21 +87,15 @@ export function Gallery() {
                             <div className="max-w-2xl mx-auto">
                                 <h3 className="text-2xl font-black text-primary-blue uppercase tracking-tight mb-4">A Legacy of Service</h3>
                                 <p className="text-slate-600 leading-relaxed mb-6">
-                                    Enlisted in 1992, ASI Ramanjaneya served with distinction across various challenging environments in India. His voluntary retirement in 2021 marked the end of a long career defined by loyalty, duty, and professional excellence.
+                                    Enlisted in 1992, {trainerInfo.name} served with distinction across various challenging environments in India. His voluntary retirement in 2021 marked the end of a long career defined by loyalty, duty, and professional excellence.
                                 </p>
                                 <ul className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-                                    <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
-                                        Joined CRPF: 06-12-1992
-                                    </li>
-                                    <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
-                                        Rank: Assistant Sub-Inspector (ASI/GD)
-                                    </li>
-                                    <li className="flex items-center gap-3 text-sm font-bold text-slate-700">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
-                                        Honorably Discharged: 31-10-2021
-                                    </li>
+                                    {trainerInfo.legacy.map((item: string, i: number) => (
+                                        <li key={i} className="flex items-center gap-3 text-sm font-bold text-slate-700">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-primary-green"></div>
+                                            {item}
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
@@ -138,7 +108,7 @@ export function Gallery() {
                                 <div className="h-px flex-grow bg-slate-200"></div>
                             </div>
                             <div className="flex flex-wrap justify-center gap-8 px-4">
-                                {policeTrainingImages.map((img, idx) => (
+                                {policeTrainingImages.map((img: any, idx: number) => (
                                     <div key={idx} className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[4/3] bg-white border border-slate-100 w-full sm:w-[320px] lg:w-[400px]">
                                         <img
                                             src={img.src}
@@ -163,7 +133,7 @@ export function Gallery() {
                                     </p>
                                 </div>
                                 <div className="flex flex-wrap justify-center gap-8 px-4">
-                                    {functionDutiesImages.map((img, idx) => (
+                                    {functionDutiesImages.map((img: any, idx: number) => (
                                         <div key={idx} className="group relative overflow-hidden rounded-[2rem] shadow-xl aspect-[4/3] bg-white border border-slate-100 w-full sm:w-[320px] lg:w-[400px]">
                                             <img
                                                 src={img.src}
@@ -189,7 +159,7 @@ export function Gallery() {
                     <div className="max-w-6xl mx-auto space-y-20">
                         {/* Training Grid */}
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-                            {trainingImages.map((img, idx) => (
+                            {trainingImages.map((img: any, idx: number) => (
                                 <div key={idx} className="group relative overflow-hidden rounded-3xl shadow-sm aspect-square bg-slate-100 border border-slate-100">
                                     <img
                                         src={img.src}
@@ -207,9 +177,9 @@ export function Gallery() {
                                 <video
                                     className="w-full h-full object-cover"
                                     controls
-                                    poster={`${import.meta.env.BASE_URL ?? '/'}images/training/1.jpeg`}
+                                    poster={videoInfo.poster}
                                 >
-                                    <source src={`${import.meta.env.BASE_URL ?? '/'}images/../videos/1.mp4`} type="video/mp4" />
+                                    <source src={videoInfo.src} type="video/mp4" />
                                     Your browser does not support the video tag.
                                 </video>
                                 <div className="absolute top-4 left-4 md:top-8 md:left-8 flex items-center gap-2 md:gap-3 bg-black/60 backdrop-blur-xl px-3 md:px-5 py-1.5 md:py-2.5 rounded-full border border-white/20">

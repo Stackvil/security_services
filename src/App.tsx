@@ -13,6 +13,7 @@ import { Blog } from './pages/Blog';
 import { Compliance } from './pages/Compliance';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { TermsOfService } from './pages/TermsOfService';
+import { Admin } from './pages/Admin';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />

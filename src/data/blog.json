@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "5 Essential Security Tips for Your Home",
+        "description": "Security isn't just about guards; it's about mindset. Learn practical advice to secure your perimeter, manage visitor access, and protect your loved ones from common threats.",
+        "image": "/images/blog/5 Essential Security Tips for Your Home.jpg",
+        "category": "Security Tips",
+        "readTime": "5 Min Read",
+        "color": "text-brand-600",
+        "type": "photo"
+    },
+    {
+        "id": 2,
+        "title": "The Hidden Benefits of Professional Deep Cleaning",
+        "description": "Regular mopping clears dust, but deep cleaning eradicates allergens and bacteria. Discover why a quarterly deep clean is essential for a healthy living environment.",
+        "image": "/images/blog/The Hidden Benefits of Professional Deep Cleaning.webp",
+        "category": "Hygiene",
+        "readTime": "4 Min Read",
+        "color": "text-purple-600",
+        "type": "photo"
+    },
+    {
+        "id": 3,
+        "title": "Surveillance Technology: Beyond Just Recording",
+        "description": "Modern CCTV systems do more than just record playback. From motion detection to perimeter intrusion alerts, see how technology is proactively preventing incidents.",
+        "image": "/images/blog/Surveillance Technology.jpg",
+        "category": "Technology",
+        "readTime": "6 Min Read",
+        "color": "text-blue-600",
+        "type": "photo"
+    },
+    {
+        "id": 4,
+        "title": "Training: The Backbone of Effective Security",
+        "description": "A uniform doesn't make a guard; training does. Take a peek inside our rigorous training programs that cover soft skills, emergency response, and fire safety.",
+        "image": "/images/blog/The Backbone of Effective Security.jpg",
+        "category": "Training",
+        "readTime": "3 Min Read",
+        "color": "text-green-600",
+        "type": "photo"
+    }
+]
